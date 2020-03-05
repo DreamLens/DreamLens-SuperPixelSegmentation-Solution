@@ -10,4 +10,8 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/GraphCut)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/SLIC)
 INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/QuickShift)
 
-# Where to copy executables when 'mak
+# Where to copy executables when 'make install' is run
+SET( INSTALL_DIR ${CMAKE_INSTALL_PREFIX} )
+
+add_subdirectory(GraphCut)
+add_subdirec
