@@ -14,4 +14,7 @@ INCLUDE_DIRECTORIES(${CMAKE_CURRENT_SOURCE_DIR}/QuickShift)
 SET( INSTALL_DIR ${CMAKE_INSTALL_PREFIX} )
 
 add_subdirectory(GraphCut)
-add_subdirec
+add_subdirectory(SLIC)
+add_subdirectory(QuickShift)
+
+SET(BuildTesting OFF CACHE BOOL "Build testing?")
