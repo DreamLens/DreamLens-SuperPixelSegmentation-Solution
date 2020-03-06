@@ -18,3 +18,8 @@ add_subdirectory(SLIC)
 add_subdirectory(QuickShift)
 
 SET(BuildTesting OFF CACHE BOOL "Build testing?")
+if(BuildTesting)
+  add_subdirectory(Testing)
+endif()
+
+SET(BuildGUI OFF CACHE BOOL "Build GUI?")
