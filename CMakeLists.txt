@@ -23,3 +23,6 @@ if(BuildTesting)
 endif()
 
 SET(BuildGUI OFF CACHE BOOL "Build GUI?")
+if(BuildGUI)
+  add_subdirectory(GUI)
+endif()
