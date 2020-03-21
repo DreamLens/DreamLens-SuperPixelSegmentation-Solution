@@ -21,3 +21,10 @@
 // Qt
 #include <QTableWidget>
 #include <QGraphicsView>
+
+namespace HelpersQt
+{
+
+void QColorToUCharColor(const QColor& color, unsigned char outputColor[3])
+{
+  outputColor[
