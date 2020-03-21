@@ -27,4 +27,9 @@ namespace HelpersQt
 
 void QColorToUCharColor(const QColor& color, unsigned char outputColor[3])
 {
-  outputColor[
+  outputColor[0] = color.red();
+  outputColor[1] = color.green();
+  outputColor[2] = color.blue();
+}
+
+QImage FitToGraphicsView(const QImag
