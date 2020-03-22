@@ -32,4 +32,7 @@ void QColorToUCharColor(const QColor& color, unsigned char outputColor[3])
   outputColor[2] = color.blue();
 }
 
-QImage FitToGraphicsView(const QImag
+QImage FitToGraphicsView(const QImage qimage, const QGraphicsView* gfx)
+{
+  // The fudge factors so that the scroll bars do not appear
+  //std::cou
