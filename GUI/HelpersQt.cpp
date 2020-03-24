@@ -38,4 +38,8 @@ QImage FitToGraphicsView(const QImage qimage, const QGraphicsView* gfx)
   //std::cout << "Fitting to width: " << gfx->width() << " height: " << gfx->height() << std::endl;
   
   unsigned int fudge = 6;
-  i
+  if(gfx->height() < gfx->width())
+    {
+    return qimage.scaledToHeight(gfx->height() - fudge);
+    }
+  else
