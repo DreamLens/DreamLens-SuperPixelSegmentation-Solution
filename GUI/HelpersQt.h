@@ -1,3 +1,4 @@
+
 /*=========================================================================
  *
  *  Copyright David Doria 2011 daviddoria@gmail.com
@@ -15,39 +16,3 @@
  *  limitations under the License.
  *
  *=========================================================================*/
-
-#include "HelpersQt.h"
-
-// Qt
-#include <QTableWidget>
-#include <QGraphicsView>
-
-namespace HelpersQt
-{
-
-void QColorToUCharColor(const QColor& color, unsigned char outputColor[3])
-{
-  outputColor[0] = color.red();
-  outputColor[1] = color.green();
-  outputColor[2] = color.blue();
-}
-
-QImage FitToGraphicsView(const QImage qimage, const QGraphicsView* gfx)
-{
-  // The fudge factors so that the scroll bars do not appear
-  //std::cout << "Fitting to width: " << gfx->width() << " height: " << gfx->height() << std::endl;
-  
-  unsigned int fudge = 6;
-  if(gfx->height() < gfx->width())
-    {
-    return qimage.scaledToHeight(gfx->height() - fudge);
-    }
-  else
-    {
-    return qimage.scaledToWidth(gfx->width() - fudge);
-    }
-}
-
-
-
-} // end namespace
