@@ -16,3 +16,57 @@
  *  limitations under the License.
  *
  *=========================================================================*/
+
+#ifndef HELPERS_QT_H
+#define HELPERS_QT_H
+
+// Qt
+#include <QImage>
+class QGraphicsView;
+class QTableWidget;
+
+// ITK
+#include "itkImageRegion.h"
+
+// Custom
+
+namespace HelpersQt
+{
+// Convert a QColor to an unsigned char[3]
+void QColorToUCharColor(const QColor& color, unsigned char outputColor[3]);
+
+// Scale an image so that it fits in a QGraphicsView
+QImage FitToGraphicsView(const QImage qimage, const QGraphicsView* gfx);
+
+////////////////////////////////////
+///////// Function templates (defined in HelpersQt.hxx) /////////
+////////////////////////////////////
+template <typename TImage>
+QImage GetQImageRGB(const typename TImage::Pointer image);
+
+template <typename TImage>
+QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion<2>& region);
+
+template <typename TImage>
+QImage GetQImageRGBA(const typename TImage::Pointer image);
+
+template <typename TImage>
+QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegion<2>& region);
+
+template <typename TImage>
+QImage GetQImageMagnitude(const typename TImage::Pointer image);
+
+template <typename TImage>
+QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::ImageRegion<2>& region);
+
+template <typename TImage>
+QImage GetQImageScalar(const typename TImage::Pointer image);
+
+template <typename TImage>
+QImage GetQImageScalar(const typename TImage::Pointer image, const itk::ImageRegion<2>& region);
+
+} // end namespace
+
+#include "HelpersQt.hxx"
+
+#endif
