@@ -19,4 +19,11 @@
 // ITK
 #include "itkRegionOfInterestImageFilter.h"
 #include "itkRescaleIntensityImageFilter.h"
-#
+#include "itkVectorImage.h"
+#include "itkVectorMagnitudeImageFilter.h"
+
+// Qt
+#include <QColor>
+
+namespace HelpersQt
+{
