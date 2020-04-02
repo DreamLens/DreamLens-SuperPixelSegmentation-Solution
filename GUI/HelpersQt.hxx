@@ -27,3 +27,8 @@
 
 namespace HelpersQt
 {
+
+template <typename TImage>
+QImage GetQImageRGB(const typename TImage::Pointer image)
+{
+  return Ge
