@@ -31,4 +31,8 @@ namespace HelpersQt
 template <typename TImage>
 QImage GetQImageRGB(const typename TImage::Pointer image)
 {
-  return Ge
+  return GetQImageRGB<TImage>(image, image->GetLargestPossibleRegion());
+}
+
+template <typename TImage>
+QImage 
