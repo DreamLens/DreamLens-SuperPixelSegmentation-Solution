@@ -40,4 +40,5 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
   QImage qimage(region.GetSize()[0], region.GetSize()[1], QImage::Format_RGB888);
 
   typedef itk::RegionOfInterestImageFilter< TImage, TImage > RegionOfInterestImageFilterType;
-  typename RegionOfInterestImageFilterType::Poi
+  typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionOfInterestImageFilterType::New();
+  regionOfInterestImageFilter->SetRegio
