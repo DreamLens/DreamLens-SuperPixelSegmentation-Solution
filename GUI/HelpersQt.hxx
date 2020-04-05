@@ -41,4 +41,6 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
 
   typedef itk::RegionOfInterestImageFilter< TImage, TImage > RegionOfInterestImageFilterType;
   typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionOfInterestImageFilterType::New();
-  regionOfInterestImageFilter->SetRegio
+  regionOfInterestImageFilter->SetRegionOfInterest(region);
+  regionOfInterestImageFilter->SetInput(image);
+  regionOfInterestImageFilter->
