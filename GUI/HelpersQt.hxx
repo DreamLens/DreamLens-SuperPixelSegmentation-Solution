@@ -45,4 +45,6 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
   regionOfInterestImageFilter->SetInput(image);
   regionOfInterestImageFilter->Update();
   
-  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput()
+  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPossibleRegion());
+  
+  while(!ima
