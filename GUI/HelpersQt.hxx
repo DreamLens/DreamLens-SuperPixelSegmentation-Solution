@@ -47,4 +47,8 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
   
   itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPossibleRegion());
   
-  while(!ima
+  while(!imageIterator.IsAtEnd())
+    {
+    typename TImage::PixelType pixel = imageIterator.Get();
+
+    itk::Index
