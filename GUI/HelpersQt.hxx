@@ -51,4 +51,6 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
     {
     typename TImage::PixelType pixel = imageIterator.Get();
 
-    itk::Index
+    itk::Index<2> index = imageIterator.GetIndex();
+    int r = static_cast<int>(pixel[0]);
+    int g = s
