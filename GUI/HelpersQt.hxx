@@ -58,4 +58,6 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
     QColor pixelColor(r,g,b);
     if(r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0)
       {
-      std::
+      std::cout << "Can't set r,g,b to " << r << " " << g << " " << b << std::endl;
+      }
+    qimage.setPixel(index[
