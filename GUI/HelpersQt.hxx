@@ -55,4 +55,7 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
     int r = static_cast<int>(pixel[0]);
     int g = static_cast<int>(pixel[1]);
     int b = static_cast<int>(pixel[2]);
-    QColor pixelColor(r,g,
+    QColor pixelColor(r,g,b);
+    if(r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0)
+      {
+      std::
