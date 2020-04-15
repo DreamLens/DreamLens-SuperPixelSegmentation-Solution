@@ -66,3 +66,9 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
     }
 
   //return qimage; // The actual image region
+  return qimage.mirrored(false, true); // The flipped image region
+}
+
+
+template <typename TImage>
+QImage Ge
