@@ -71,4 +71,6 @@ QImage GetQImageRGB(const typename TImage::Pointer image, const itk::ImageRegion
 
 
 template <typename TImage>
-QImage Ge
+QImage GetQImageRGBA(const typename TImage::Pointer image)
+{
+  return GetQImageRGBA<TImage>(image, image->
