@@ -77,4 +77,6 @@ QImage GetQImageRGBA(const typename TImage::Pointer image)
 }
 
 template <typename TImage>
-QImage GetQImageRGBA(const typename TImage::Pointe
+QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegion<2>& region)
+{
+  QImage qimage(region.GetSize()[0],
