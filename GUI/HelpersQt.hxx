@@ -79,4 +79,6 @@ QImage GetQImageRGBA(const typename TImage::Pointer image)
 template <typename TImage>
 QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegion<2>& region)
 {
-  QImage qimage(region.GetSize()[0],
+  QImage qimage(region.GetSize()[0], region.GetSize()[1], QImage::Format_ARGB32);
+
+  typedef itk::RegionOfInterestImageFilter< TImage, 
