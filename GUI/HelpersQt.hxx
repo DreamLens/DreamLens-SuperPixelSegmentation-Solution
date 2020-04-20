@@ -81,4 +81,5 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
 {
   QImage qimage(region.GetSize()[0], region.GetSize()[1], QImage::Format_ARGB32);
 
-  typedef itk::RegionOfInterestImageFilter< TImage, 
+  typedef itk::RegionOfInterestImageFilter< TImage, TImage > RegionOfInterestImageFilterType;
+  typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = 
