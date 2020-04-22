@@ -84,4 +84,7 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
   typedef itk::RegionOfInterestImageFilter< TImage, TImage > RegionOfInterestImageFilterType;
   typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionOfInterestImageFilterType::New();
   regionOfInterestImageFilter->SetRegionOfInterest(region);
-  regionOfInterestImage
+  regionOfInterestImageFilter->SetInput(image);
+  regionOfInterestImageFilter->Update();
+  
+  itk::ImageRegionIterator<TImage> imageIte
