@@ -87,4 +87,4 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
   regionOfInterestImageFilter->SetInput(image);
   regionOfInterestImageFilter->Update();
   
-  itk::ImageRegionIterator<TImage> imageIte
+  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPoss
