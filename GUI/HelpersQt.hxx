@@ -91,4 +91,7 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
   
   while(!imageIterator.IsAtEnd())
     {
-    typename TImage::PixelType pixe
+    typename TImage::PixelType pixel = imageIterator.Get();
+
+    itk::Index<2> index = imageIterator.GetIndex();
+    int r = static_cast<int
