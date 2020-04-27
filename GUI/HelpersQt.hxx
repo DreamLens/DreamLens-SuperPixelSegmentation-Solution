@@ -100,4 +100,6 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
     QColor pixelColor(r,g,b,255); // opaque
     if(r > 255 || r < 0 || g > 255 || g < 0 || b > 255 || b < 0)
       {
-      std::cout 
+      std::cout << "Can't set r,g,b to " << r << " " << g << " " << b << std::endl;
+      }
+    qimage.setPixel(index[0], inde
