@@ -107,4 +107,9 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
     ++imageIterator;
     }
   
-  //return qimage; // The actual image regi
+  //return qimage; // The actual image region
+  return qimage.mirrored(false, true); // The flipped image region
+}
+
+template <typename TImage>
+QImage
