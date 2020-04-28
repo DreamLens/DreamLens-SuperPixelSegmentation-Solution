@@ -102,4 +102,9 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
       {
       std::cout << "Can't set r,g,b to " << r << " " << g << " " << b << std::endl;
       }
-    qimage.setPixel(index[0], inde
+    qimage.setPixel(index[0], index[1], pixelColor.rgba());
+
+    ++imageIterator;
+    }
+  
+  //return qimage; // The actual image regi
