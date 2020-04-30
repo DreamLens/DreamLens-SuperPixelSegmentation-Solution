@@ -114,4 +114,8 @@ QImage GetQImageRGBA(const typename TImage::Pointer image, const itk::ImageRegio
 template <typename TImage>
 QImage GetQImageMagnitude(const typename TImage::Pointer image)
 {
-  return GetQImageMagnitude<TImage>(image, 
+  return GetQImageMagnitude<TImage>(image, image->GetLargestPossibleRegion());
+}
+
+template <typename TImage>
+QImage GetQImageMag
