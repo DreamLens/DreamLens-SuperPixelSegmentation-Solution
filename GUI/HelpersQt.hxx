@@ -118,4 +118,6 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image)
 }
 
 template <typename TImage>
-QImage GetQImageMag
+QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::ImageRegion<2>& region)
+{
+  typedef itk::Image<typ
