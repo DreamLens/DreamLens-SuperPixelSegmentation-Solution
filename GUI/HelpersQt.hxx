@@ -120,4 +120,6 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image)
 template <typename TImage>
 QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::ImageRegion<2>& region)
 {
-  typedef itk::Image<typ
+  typedef itk::Image<typename TImage::InternalPixelType> ScalarImageType;
+  
+  QImage qimage(region.GetSize()[0], region.GetSize()[1], QImage
