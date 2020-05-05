@@ -122,4 +122,6 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
 {
   typedef itk::Image<typename TImage::InternalPixelType> ScalarImageType;
   
-  QImage qimage(region.GetSize()[0], region.GetSize()[1], QImage
+  QImage qimage(region.GetSize()[0], region.GetSize()[1], QImage::Format_RGB888);
+
+  typedef itk::VectorMagnitudeImageFilter<TImage, ScalarImageType>  VectorMagnitu
