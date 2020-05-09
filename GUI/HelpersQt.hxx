@@ -129,4 +129,5 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
   magnitudeFilter->SetInput(image);
   magnitudeFilter->Update();
 
-  typedef itk::VectorImage<u
+  typedef itk::VectorImage<unsigned char, 2> UnsignedCharVectorImageType;
+  typedef itk::Image<unsigned char, 2> UnsignedCharScalarIm
