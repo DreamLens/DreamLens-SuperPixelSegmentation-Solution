@@ -133,4 +133,7 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
   typedef itk::Image<unsigned char, 2> UnsignedCharScalarImageType;
   typedef itk::RescaleIntensityImageFilter<ScalarImageType, UnsignedCharScalarImageType> RescaleFilterType;
   typename RescaleFilterType::Pointer rescaleFilter = RescaleFilterType::New();
-  rescaleFilter->S
+  rescaleFilter->SetOutputMinimum(0);
+  rescaleFilter->SetOutputMaximum(255);
+  rescaleFilter->SetInput( magnitudeFilter->GetOutput() );
+ 
