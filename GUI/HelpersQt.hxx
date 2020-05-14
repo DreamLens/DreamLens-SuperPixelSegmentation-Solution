@@ -139,4 +139,5 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
   rescaleFilter->Update();
   
   typedef itk::RegionOfInterestImageFilter< UnsignedCharScalarImageType, UnsignedCharScalarImageType> RegionOfInterestImageFilterType;
-  typename RegionOfInterestImageFilterType::Pointe
+  typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionOfInterestImageFilterType::New();
+  regionOfInterestImageFilter->SetR
