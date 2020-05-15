@@ -144,4 +144,6 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
   regionOfInterestImageFilter->SetInput(rescaleFilter->GetOutput());
   regionOfInterestImageFilter->Update();
 
-  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter
+  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPossibleRegion());
+
+  while(!imageIterator
