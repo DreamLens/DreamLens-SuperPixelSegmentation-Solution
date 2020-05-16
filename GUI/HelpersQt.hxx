@@ -146,4 +146,8 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
 
   itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPossibleRegion());
 
-  while(!imageIterator
+  while(!imageIterator.IsAtEnd())
+    {
+    unsigned char pixelValue = imageIterator.Get();
+
+    QColor pixelColor(
