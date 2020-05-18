@@ -150,4 +150,6 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
     {
     unsigned char pixelValue = imageIterator.Get();
 
-    QColor pixelColor(
+    QColor pixelColor(static_cast<int>(pixelValue), static_cast<int>(pixelValue), static_cast<int>(pixelValue));
+
+    itk::Index<2
