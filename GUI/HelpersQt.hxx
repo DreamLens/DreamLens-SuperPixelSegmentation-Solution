@@ -159,4 +159,8 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
     }
 
   //return qimage; // The actual image region
-  return qimage.m
+  return qimage.mirrored(false, true); // The flipped image region
+}
+
+template <typename TImage>
+QImage GetQImageScalar(const typenam
