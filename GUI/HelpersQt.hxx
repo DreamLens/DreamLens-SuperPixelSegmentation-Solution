@@ -155,4 +155,8 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
     itk::Index<2> index = imageIterator.GetIndex();
     qimage.setPixel(index[0], index[1], pixelColor.rgb());
 
-    ++i
+    ++imageIterator;
+    }
+
+  //return qimage; // The actual image region
+  return qimage.m
