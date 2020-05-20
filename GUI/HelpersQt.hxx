@@ -163,4 +163,9 @@ QImage GetQImageMagnitude(const typename TImage::Pointer image, const itk::Image
 }
 
 template <typename TImage>
-QImage GetQImageScalar(const typenam
+QImage GetQImageScalar(const typename TImage::Pointer image)
+{
+  return GetQImageScalar<TImage>(image, image->GetLargestPossibleRegion());
+}
+
+temp
