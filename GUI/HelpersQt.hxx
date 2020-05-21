@@ -169,4 +169,6 @@ QImage GetQImageScalar(const typename TImage::Pointer image)
 }
 
 template <typename TImage>
-QImage GetQImageScalar(const typename TImage::Pointer image, const itk:
+QImage GetQImageScalar(const typename TImage::Pointer image, const itk::ImageRegion<2>& region)
+{
+  QImage qimage(region.GetSize()[0], region.GetSize()[1], 
