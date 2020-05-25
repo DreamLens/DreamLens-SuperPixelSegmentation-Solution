@@ -174,4 +174,6 @@ QImage GetQImageScalar(const typename TImage::Pointer image, const itk::ImageReg
   QImage qimage(region.GetSize()[0], region.GetSize()[1], QImage::Format_RGB888);
 
   typedef itk::RegionOfInterestImageFilter< TImage, TImage> RegionOfInterestImageFilterType;
-  typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionOfInte
+  typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionOfInterestImageFilterType::New();
+  regionOfInterestImageFilter->SetRegionOfInterest(region);
+  regionOfInterestIma
