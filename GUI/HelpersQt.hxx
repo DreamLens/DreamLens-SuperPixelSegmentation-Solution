@@ -179,4 +179,4 @@ QImage GetQImageScalar(const typename TImage::Pointer image, const itk::ImageReg
   regionOfInterestImageFilter->SetInput(image);
   regionOfInterestImageFilter->Update();
 
-  itk::ImageRegionIterator<TImage
+  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPoss
