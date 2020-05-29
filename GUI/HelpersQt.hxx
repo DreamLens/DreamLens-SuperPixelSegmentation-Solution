@@ -179,4 +179,8 @@ QImage GetQImageScalar(const typename TImage::Pointer image, const itk::ImageReg
   regionOfInterestImageFilter->SetInput(image);
   regionOfInterestImageFilter->Update();
 
-  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPoss
+  itk::ImageRegionIterator<TImage> imageIterator(regionOfInterestImageFilter->GetOutput(), regionOfInterestImageFilter->GetOutput()->GetLargestPossibleRegion());
+
+  while(!imageIterator.IsAtEnd())
+    {
+    typename TImage::PixelType pixelValue = imageIterator.G
