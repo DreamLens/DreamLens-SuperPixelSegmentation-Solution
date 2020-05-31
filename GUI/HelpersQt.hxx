@@ -185,4 +185,7 @@ QImage GetQImageScalar(const typename TImage::Pointer image, const itk::ImageReg
     {
     typename TImage::PixelType pixelValue = imageIterator.Get();
 
-    QColor pixelColor(static_cast<int>(pixelValue), static_cast<int>(pixelValue), static_cast
+    QColor pixelColor(static_cast<int>(pixelValue), static_cast<int>(pixelValue), static_cast<int>(pixelValue));
+
+    itk::Index<2> index = imageIterator.GetIndex();
+    qimage.setPixel(index[0
