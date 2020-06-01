@@ -193,4 +193,9 @@ QImage GetQImageScalar(const typename TImage::Pointer image, const itk::ImageReg
     ++imageIterator;
     }
 
-  //return qimage; // The actual image regi
+  //return qimage; // The actual image region
+  return qimage.mirrored(false, true); // The flipped image region
+}
+
+
+} // end namespace
