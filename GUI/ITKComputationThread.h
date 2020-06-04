@@ -11,4 +11,11 @@ signals:
   void StartProgressBarSignal();
 
   // This signal is emitted to stop the progress bar
-  void StopProgressB
+  void StopProgressBarSignal();
+
+};
+
+template <typename TFilter>
+class ITKComputationThread : public FilterComputationThreadNonTemplated
+{
+  p
