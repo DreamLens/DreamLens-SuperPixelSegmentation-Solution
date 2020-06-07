@@ -18,4 +18,11 @@ signals:
 template <typename TFilter>
 class ITKComputationThread : public FilterComputationThreadNonTemplated
 {
-  p
+  public:
+
+  ITKComputationThread();
+
+  // This function is called when the thread is started
+  void run();
+
+ 
