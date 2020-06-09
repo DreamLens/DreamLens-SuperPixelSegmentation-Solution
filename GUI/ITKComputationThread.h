@@ -25,4 +25,7 @@ class ITKComputationThread : public FilterComputationThreadNonTemplated
   // This function is called when the thread is started
   void run();
 
- 
+  // This function is called when the thread is stopped
+  void exit();
+
+  void SetFilter(TFilter* f
