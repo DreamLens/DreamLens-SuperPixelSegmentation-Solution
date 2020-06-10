@@ -28,4 +28,13 @@ class ITKComputationThread : public FilterComputationThreadNonTemplated
   // This function is called when the thread is stopped
   void exit();
 
-  void SetFilter(TFilter* f
+  void SetFilter(TFilter* filter);
+
+private:
+  TFilter* Filter;
+
+};
+
+#include "ITKComputationThread.hxx"
+
+#endif
