@@ -19,3 +19,18 @@ void ITKComputationThread<TFilter>::run()
   // When the function is finished, end the thread
   exit();
 }
+
+template<typename TFilter>
+void ITKComputationThread<TFilter>::exit()
+{
+  std::cout << "ProgressThread::exit()" << std::endl;
+  
+  // When the thread is stopped, emit the signal to stop the marquee progress bar
+  emit StopProgressBarSignal();
+}
+
+template<typename TFilter>
+void ITKComputationThread<TFilter>::SetFilter(TFilter* filter)
+{
+  this->Filter = filter;
+}
