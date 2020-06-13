@@ -92,3 +92,110 @@ void SuperPixelSegmentationGUI::DefaultConstructor()
   this->QuickShiftFilter = QuickShiftFilterType::New();
   this->QuickShiftThread = new ITKComputationThread<QuickShiftFilterType>;
   connect(this->QuickShiftThread, SIGNAL(StartProgressBarSignal()), this, SLOT(slot_StartProgressBar()));
+  connect(this->QuickShiftThread, SIGNAL(StopProgressBarSignal()), this, SLOT(slot_StopProgressBar()));
+  connect(this->QuickShiftThread, SIGNAL(StopProgressBarSignal()), this, SLOT(slot_QuickShiftComplete()));
+  
+  this->GraphCutFilter = GraphCutFilterType::New();
+  this->GraphCutThread = new ITKComputationThread<GraphCutFilterType>;
+  connect(this->GraphCutThread, SIGNAL(StartProgressBarSignal()), this, SLOT(slot_StartProgressBar()));
+  connect(this->GraphCutThread, SIGNAL(StopProgressBarSignal()), this, SLOT(slot_StopProgressBar()));
+  connect(this->GraphCutThread, SIGNAL(StopProgressBarSignal()), this, SLOT(slot_GraphCutComplete()));
+
+  this->SLICFilter = SLICFilterType::New();
+  this->SLICThread = new ITKComputationThread<SLICFilterType>;
+  connect(this->SLICThread, SIGNAL(StartProgressBarSignal()), this, SLOT(slot_StartProgressBar()));
+  connect(this->SLICThread, SIGNAL(StopProgressBarSignal()), this, SLOT(slot_StopProgressBar()));
+  connect(this->SLICThread, SIGNAL(StopProgressBarSignal()), this, SLOT(slot_SLICComplete()));
+  
+  this->Image = ImageType::New();
+  this->LabelImage = LabelImageType::New();
+
+  this->Scene = new QGraphicsScene;
+  this->graphicsView->setScene(this->Scene);
+
+  this->InputImagePixmapItem = NULL;
+  this->LabelImagePixmapItem = NULL;
+  this->ColoredImagePixmapItem = NULL;
+}
+
+// Default constructor
+SuperPixelSegmentationGUI::SuperPixelSegmentationGUI()
+{
+  DefaultConstructor();
+};
+
+SuperPixelSegmentationGUI::SuperPixelSegmentationGUI(const std::string& imageFileName)
+{
+  DefaultConstructor();
+  this->SourceImageFileName = imageFileName;
+  
+  OpenImage(this->SourceImageFileName);
+}
+
+void SuperPixelSegmentationGUI::showEvent ( QShowEvent * event )
+{
+  if(this->InputImagePixmapItem)
+    {
+    this->graphicsView->fitInView(this->InputImagePixmapItem, Qt::KeepAspectRatio);
+    }
+}
+
+void SuperPixelSegmentationGUI::resizeEvent ( QResizeEvent * event )
+{
+  if(this->InputImagePixmapItem)
+    {
+    this->graphicsView->fitInView(this->InputImagePixmapItem, Qt::KeepAspectRatio);
+    }
+}
+
+void SuperPixelSegmentationGUI::on_btnSegmentGraphCut_clicked()
+{
+  this->GraphCutFilter->SetK(this->sldGraphCutK->GetValue());
+  this->GraphCutFilter->SetSigma(this->sldGraphCutSigma->GetValue());
+  this->GraphCutFilter->SetMinSize(this->sldGraphCutMinSize->value());
+  this->GraphCutFilter->SetInput(this->Image);
+  GraphCutThread->SetFilter(this->GraphCutFilter);
+  std::cout << "Starting graph cut thread..." << std::endl;
+  GraphCutThread->start();
+}
+
+void SuperPixelSegmentationGUI::on_btnSegmentQuickShift_clicked()
+{
+  std::cout << "Running quickshift with:" << std::endl;
+  std::cout << "KernelSize: " << this->sldKernelSize->GetValue() << std::endl;
+  std::cout << "MaxDist: " << this->sldMaxDist->GetValue() << std::endl;
+  std::cout << "Ratio: " << this->sldRatio->GetValue() << std::endl;
+  
+  this->QuickShiftFilter->SetKernelSize(this->sldKernelSize->GetValue());
+  this->QuickShiftFilter->SetMaxDist(this->sldMaxDist->GetValue());
+  this->QuickShiftFilter->SetRatio(this->sldRatio->GetValue());
+  this->QuickShiftFilter->SetInput(this->Image);
+  QuickShiftThread->SetFilter(this->QuickShiftFilter);
+  std::cout << "Starting quick shift thread..." << std::endl;
+  QuickShiftThread->start();
+}
+
+void SuperPixelSegmentationGUI::on_btnSegmentSLIC_clicked()
+{
+  this->SLICFilter->SetSpatialDistanceWeight(this->sldSLICSpatialDistanceWeight->GetValue());
+  this->SLICFilter->SetNumberOfSuperPixels(this->sldSLICNumberOfSuperPixels->value());
+  this->SLICFilter->SetInput(this->Image);
+  SLICThread->SetFilter(this->SLICFilter);
+  std::cout << "Starting SLIC thread..." << std::endl;
+  SLICThread->start();
+}
+
+void SuperPixelSegmentationGUI::on_actionSaveResult_activated()
+{
+  // Get a filename to save
+  QString fileName = QFileDialog::getSaveFileName(this, "Save File", ".", "Image Files (*.jpg *.jpeg *.bmp *.png *.mha)");
+
+  if(fileName.toStdString().empty())
+    {
+    std::cout << "Filename was empty." << std::endl;
+    return;
+    }
+
+  Helpers::WriteImage<LabelImageType>(this->LabelImage, fileName.toStdString());
+  this->statusBar()->showMessage("Saved result.");
+}
