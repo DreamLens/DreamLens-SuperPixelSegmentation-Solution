@@ -33,3 +33,28 @@
 #include <QGraphicsView>
 
 // ITK
+#include "itkVectorImage.h"
+
+typedef itk::VectorImage<float, 2> ImageType;
+
+class Panel : public QObject
+{
+ Q_OBJECT
+public:
+  Panel();
+  
+  FileSelectionWidget* SelectionWidget;
+
+  QGraphicsScene* GraphicsScene;
+
+  ImageType::Pointer Image;
+
+  QGraphicsView* GraphicsView;
+  QVBoxLayout* Layout;
+  QLabel* Label;
+  
+public slots:
+  void LoadAndDisplay();
+};
+
+#endif // Panel_H
