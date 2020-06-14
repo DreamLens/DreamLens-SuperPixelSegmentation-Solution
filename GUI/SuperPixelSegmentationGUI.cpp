@@ -288,3 +288,66 @@ void SuperPixelSegmentationGUI::slot_SLICComplete()
   colorMapFilter->SetInput(this->SLICFilter->GetLabelImage());
   colorMapFilter->SetColormap( ColorMapFilterType::Hot );
   colorMapFilter->Update();
+  
+  QImage qimage = HelpersQt::GetQImageRGB<ImageType>(colorMapFilter->GetOutput());
+  if(this->LabelImagePixmapItem)
+    {
+    this->Scene->removeItem(this->LabelImagePixmapItem);
+    }
+  this->LabelImagePixmapItem = this->Scene->addPixmap(QPixmap::fromImage(qimage));
+  
+  // Display colored image
+  
+  QImage qColoredImage = HelpersQt::GetQImageRGB<ImageType>(this->SLICFilter->GetColoredImage());
+  if(this->ColoredImagePixmapItem)
+    {
+    this->Scene->removeItem(this->ColoredImagePixmapItem);
+    }
+  this->ColoredImagePixmapItem = this->Scene->addPixmap(QPixmap::fromImage(qColoredImage));
+
+  Refresh();
+}
+
+void SuperPixelSegmentationGUI::slot_QuickShiftComplete()
+{
+  // Display label image
+  typedef itk::ScalarToRGBColormapImageFilter<LabelImageType, ImageType> ColorMapFilterType;
+  ColorMapFilterType::Pointer colorMapFilter = ColorMapFilterType::New();
+  colorMapFilter->SetInput(this->QuickShiftFilter->GetLabelImage());
+  colorMapFilter->SetColormap( ColorMapFilterType::Hot );
+  colorMapFilter->Update();
+  
+  QImage qimage = HelpersQt::GetQImageRGB<ImageType>(colorMapFilter->GetOutput());
+  if(this->LabelImagePixmapItem)
+    {
+    this->Scene->removeItem(this->LabelImagePixmapItem);
+    }
+  this->LabelImagePixmapItem = this->Scene->addPixmap(QPixmap::fromImage(qimage));
+  
+  // Display colored image
+  
+  QImage qColoredImage = HelpersQt::GetQImageRGB<ImageType>(this->QuickShiftFilter->GetColoredImage());
+  if(this->ColoredImagePixmapItem)
+    {
+    this->Scene->removeItem(this->ColoredImagePixmapItem);
+    }
+  this->ColoredImagePixmapItem = this->Scene->addPixmap(QPixmap::fromImage(qColoredImage));
+
+  Refresh();
+}
+
+void SuperPixelSegmentationGUI::Refresh()
+{
+  if(this->LabelImagePixmapItem)
+    {
+    this->LabelImagePixmapItem->setVisible(this->chkShowLabelImage->isChecked());
+    }
+  if(this->InputImagePixmapItem)
+    {
+    this->InputImagePixmapItem->setVisible(this->chkShowInputImage->isChecked());
+    }
+  if(this->ColoredImagePixmapItem)
+    {
+    this->ColoredImagePixmapItem->setVisible(this->chkShowColoredImage->isChecked());
+    }
+}
