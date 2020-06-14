@@ -199,3 +199,92 @@ void SuperPixelSegmentationGUI::on_actionSaveResult_activated()
   Helpers::WriteImage<LabelImageType>(this->LabelImage, fileName.toStdString());
   this->statusBar()->showMessage("Saved result.");
 }
+
+void SuperPixelSegmentationGUI::OpenImage(const std::string& imageFileName)
+{
+  // Load and display image
+  typedef itk::ImageFileReader<ImageType> ImageReaderType;
+  ImageReaderType::Pointer imageReader = ImageReaderType::New();
+  imageReader->SetFileName(imageFileName);
+  imageReader->Update();
+
+  Helpers::DeepCopy<ImageType>(imageReader->GetOutput(), this->Image);
+
+  QImage qimageImage = HelpersQt::GetQImageRGBA<ImageType>(this->Image);
+  this->InputImagePixmapItem = this->Scene->addPixmap(QPixmap::fromImage(qimageImage));
+  this->graphicsView->fitInView(this->InputImagePixmapItem);
+  Refresh();
+}
+
+void SuperPixelSegmentationGUI::on_actionOpenImage_activated()
+{
+  QString fileName = QFileDialog::getOpenFileName(this,
+                    "OpenFile", ".", "All Files (*.*)");
+
+  if(!fileName.isEmpty())
+    {
+    OpenImage(fileName.toStdString());
+    }
+}
+
+void SuperPixelSegmentationGUI::on_chkShowInputImage_clicked()
+{
+  Refresh();
+}
+
+void SuperPixelSegmentationGUI::on_chkShowLabelImage_clicked()
+{
+  Refresh();
+}
+
+void SuperPixelSegmentationGUI::on_chkShowColoredImage_clicked()
+{
+  Refresh();
+}
+
+void SuperPixelSegmentationGUI::slot_StartProgressBar()
+{
+  this->progressBar->show();
+}
+
+void SuperPixelSegmentationGUI::slot_StopProgressBar()
+{
+  this->progressBar->hide();
+}
+
+
+void SuperPixelSegmentationGUI::slot_GraphCutComplete()
+{
+  // Display label image
+  typedef itk::ScalarToRGBColormapImageFilter<LabelImageType, ImageType> ColorMapFilterType;
+  ColorMapFilterType::Pointer colorMapFilter = ColorMapFilterType::New();
+  colorMapFilter->SetInput(this->GraphCutFilter->GetLabelImage());
+  colorMapFilter->SetColormap( ColorMapFilterType::Hot );
+  colorMapFilter->Update();
+  
+  QImage qimage = HelpersQt::GetQImageRGB<ImageType>(colorMapFilter->GetOutput());
+  if(this->LabelImagePixmapItem)
+    {
+    this->Scene->removeItem(this->LabelImagePixmapItem);
+    }
+  this->LabelImagePixmapItem = this->Scene->addPixmap(QPixmap::fromImage(qimage));
+
+  // Display colored image
+  QImage qColoredImage = HelpersQt::GetQImageRGB<ImageType>(this->GraphCutFilter->GetColoredImage());
+  if(this->ColoredImagePixmapItem)
+    {
+    this->Scene->removeItem(this->ColoredImagePixmapItem);
+    }
+  this->ColoredImagePixmapItem = this->Scene->addPixmap(QPixmap::fromImage(qColoredImage));
+  
+  Refresh();
+}
+
+void SuperPixelSegmentationGUI::slot_SLICComplete()
+{
+  // Display label image
+  typedef itk::ScalarToRGBColormapImageFilter<LabelImageType, ImageType> ColorMapFilterType;
+  ColorMapFilterType::Pointer colorMapFilter = ColorMapFilterType::New();
+  colorMapFilter->SetInput(this->SLICFilter->GetLabelImage());
+  colorMapFilter->SetColormap( ColorMapFilterType::Hot );
+  colorMapFilter->Update();
