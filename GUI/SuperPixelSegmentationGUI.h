@@ -17,4 +17,10 @@
  *=========================================================================*/
 
 #ifndef SuperPixelSegmentation_H
-#define SuperPixelSe
+#define SuperPixelSegmentation_H
+
+#include "ui_SuperPixelSegmentationGUI.h"
+
+// ITK
+#include "itkImage.h"
+#include "itkVectorIma
