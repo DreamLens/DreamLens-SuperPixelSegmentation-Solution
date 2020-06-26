@@ -23,4 +23,9 @@
 
 // ITK
 #include "itkImage.h"
-#include "itkVectorIma
+#include "itkVectorImage.h"
+
+// Custom
+#include "ITKComputationThread.h"
+#include "itkSLICSegmentation.h"
+#include "itkGraphCutSegme
