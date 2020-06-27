@@ -28,4 +28,9 @@
 // Custom
 #include "ITKComputationThread.h"
 #include "itkSLICSegmentation.h"
-#include "itkGraphCutSegme
+#include "itkGraphCutSegmentation.h"
+#include "itkQuickShiftSegmentation.h"
+
+// Qt
+#include <QMainWindow>
+class QGraphicsPixmap
