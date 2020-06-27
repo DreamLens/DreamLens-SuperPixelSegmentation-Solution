@@ -33,4 +33,6 @@
 
 // Qt
 #include <QMainWindow>
-class QGraphicsPixmap
+class QGraphicsPixmapItem;
+
+class SuperPixelSegmentationGUI : public QMainWindow, public Ui::SuperPixelSegm
