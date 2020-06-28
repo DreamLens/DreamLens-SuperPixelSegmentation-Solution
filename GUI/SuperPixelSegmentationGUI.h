@@ -35,4 +35,10 @@
 #include <QMainWindow>
 class QGraphicsPixmapItem;
 
-class SuperPixelSegmentationGUI : public QMainWindow, public Ui::SuperPixelSegm
+class SuperPixelSegmentationGUI : public QMainWindow, public Ui::SuperPixelSegmentationGUI
+{
+  Q_OBJECT
+public:
+  void DefaultConstructor();
+  SuperPixelSegmentationGUI();
+  SuperPixelSe
