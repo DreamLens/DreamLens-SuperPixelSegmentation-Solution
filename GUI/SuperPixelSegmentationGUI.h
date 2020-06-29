@@ -41,4 +41,6 @@ class SuperPixelSegmentationGUI : public QMainWindow, public Ui::SuperPixelSegme
 public:
   void DefaultConstructor();
   SuperPixelSegmentationGUI();
-  SuperPixelSe
+  SuperPixelSegmentationGUI(const std::string& imageFileName);
+
+  //typedef itk::Image<itk::CovariantVector<unsigned char, 3>, 2> ImageType;
