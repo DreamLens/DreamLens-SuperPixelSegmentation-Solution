@@ -50,4 +50,8 @@ public:
 public slots:
 
   void on_actionOpenImage_activated();
-  void on_actionSaveResult_ac
+  void on_actionSaveResult_activated();
+  
+  void on_btnSegmentGraphCut_clicked();
+  void on_btnSegmentSLIC_clicked();
+  void on_bt
