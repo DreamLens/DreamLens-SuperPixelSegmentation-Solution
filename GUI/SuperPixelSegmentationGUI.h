@@ -45,4 +45,9 @@ public:
 
   //typedef itk::Image<itk::CovariantVector<unsigned char, 3>, 2> ImageType;
   typedef itk::VectorImage<unsigned char, 2> ImageType;
-  typedef itk::Image<int, 2> LabelIma
+  typedef itk::Image<int, 2> LabelImageType;
+
+public slots:
+
+  void on_actionOpenImage_activated();
+  void on_actionSaveResult_ac
