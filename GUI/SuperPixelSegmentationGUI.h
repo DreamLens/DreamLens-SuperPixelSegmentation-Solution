@@ -54,4 +54,7 @@ public slots:
   
   void on_btnSegmentGraphCut_clicked();
   void on_btnSegmentSLIC_clicked();
-  void on_bt
+  void on_btnSegmentQuickShift_clicked();
+  
+  void on_chkShowInputImage_clicked();
+  void on_chkShowColoredImage_cli
