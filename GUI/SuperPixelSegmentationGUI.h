@@ -57,4 +57,8 @@ public slots:
   void on_btnSegmentQuickShift_clicked();
   
   void on_chkShowInputImage_clicked();
-  void on_chkShowColoredImage_cli
+  void on_chkShowColoredImage_clicked();
+  void on_chkShowLabelImage_clicked();
+
+  void slot_StartProgressBar();
+  void slot_StopProgress
