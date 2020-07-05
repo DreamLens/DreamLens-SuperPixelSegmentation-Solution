@@ -61,4 +61,10 @@ public slots:
   void on_chkShowLabelImage_clicked();
 
   void slot_StartProgressBar();
-  void slot_StopProgress
+  void slot_StopProgressBar();
+
+  void slot_GraphCutComplete();
+  void slot_SLICComplete();
+  void slot_QuickShiftComplete();
+
+prote
