@@ -67,4 +67,9 @@ public slots:
   void slot_SLICComplete();
   void slot_QuickShiftComplete();
 
-prote
+protected:
+
+  void Refresh();
+  
+  void showEvent ( QShowEvent * event );
+  void resizeEvent ( QResizeEvent * 
