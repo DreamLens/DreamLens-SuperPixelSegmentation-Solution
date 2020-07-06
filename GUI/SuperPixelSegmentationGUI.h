@@ -77,4 +77,7 @@ protected:
   void OpenImage(const std::string& imageFileName);
 
   LabelImageType::Pointer LabelImage;
-  Image
+  ImageType::Pointer Image;
+
+  QGraphicsPixmapItem* InputImagePixmapItem;
+  QGraphicsPixmapItem* LabelImagePixmap
