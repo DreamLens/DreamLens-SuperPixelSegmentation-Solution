@@ -72,4 +72,9 @@ protected:
   void Refresh();
   
   void showEvent ( QShowEvent * event );
-  void resizeEvent ( QResizeEvent * 
+  void resizeEvent ( QResizeEvent * event );
+  
+  void OpenImage(const std::string& imageFileName);
+
+  LabelImageType::Pointer LabelImage;
+  Image
