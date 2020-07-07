@@ -85,4 +85,7 @@ protected:
   
   QGraphicsScene* Scene;
 
-  std::string SourceI
+  std::string SourceImageFileName;
+
+  typedef itk::GraphCutSegmentation<ImageType, LabelImageType> GraphCutFilterType;
+  GraphCutFi
