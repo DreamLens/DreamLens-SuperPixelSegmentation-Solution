@@ -80,4 +80,9 @@ protected:
   ImageType::Pointer Image;
 
   QGraphicsPixmapItem* InputImagePixmapItem;
-  QGraphicsPixmapItem* LabelImagePixmap
+  QGraphicsPixmapItem* LabelImagePixmapItem;
+  QGraphicsPixmapItem* ColoredImagePixmapItem;
+  
+  QGraphicsScene* Scene;
+
+  std::string SourceI
