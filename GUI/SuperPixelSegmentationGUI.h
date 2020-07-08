@@ -91,4 +91,6 @@ protected:
   GraphCutFilterType::Pointer GraphCutFilter;
   ITKComputationThread<GraphCutFilterType>* GraphCutThread;
   
-  typedef
+  typedef itk::SLICSegmentation<ImageType, LabelImageType> SLICFilterType;
+  SLICFilterType::Pointer SLICFilter;
+  ITKCompu
