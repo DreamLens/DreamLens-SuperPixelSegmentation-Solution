@@ -88,4 +88,7 @@ protected:
   std::string SourceImageFileName;
 
   typedef itk::GraphCutSegmentation<ImageType, LabelImageType> GraphCutFilterType;
-  GraphCutFi
+  GraphCutFilterType::Pointer GraphCutFilter;
+  ITKComputationThread<GraphCutFilterType>* GraphCutThread;
+  
+  typedef
