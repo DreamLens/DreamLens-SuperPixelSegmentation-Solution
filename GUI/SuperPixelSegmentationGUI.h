@@ -93,4 +93,6 @@ protected:
   
   typedef itk::SLICSegmentation<ImageType, LabelImageType> SLICFilterType;
   SLICFilterType::Pointer SLICFilter;
-  ITKCompu
+  ITKComputationThread<SLICFilterType>* SLICThread;
+  
+  typedef itk::QuickShiftSegmentation<ImageType, Labe
