@@ -95,4 +95,6 @@ protected:
   SLICFilterType::Pointer SLICFilter;
   ITKComputationThread<SLICFilterType>* SLICThread;
   
-  typedef itk::QuickShiftSegmentation<ImageType, Labe
+  typedef itk::QuickShiftSegmentation<ImageType, LabelImageType> QuickShiftFilterType;
+  QuickShiftFilterType::Pointer QuickShiftFilter;
+  ITKComputationTh
