@@ -102,4 +102,13 @@ protected:
 private:
   // GraphCut sliders
   int MinSizeMin;
-  int
+  int MinSizeMax;
+
+  float KMin;
+  float KMax;
+
+  float SigmaMin;
+  float SigmaMax;
+  
+  // QuickShift sliders
+  float MaxDistMi
