@@ -97,4 +97,9 @@ protected:
   
   typedef itk::QuickShiftSegmentation<ImageType, LabelImageType> QuickShiftFilterType;
   QuickShiftFilterType::Pointer QuickShiftFilter;
-  ITKComputationTh
+  ITKComputationThread<QuickShiftFilterType>* QuickShiftThread;
+
+private:
+  // GraphCut sliders
+  int MinSizeMin;
+  int
