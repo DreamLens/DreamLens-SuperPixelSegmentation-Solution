@@ -117,4 +117,9 @@ private:
   float KernelSizeMin;
   float KernelSizeMax;
   
-  float RatioMi
+  float RatioMin;
+  float RatioMax;
+  
+  // SLIC sliders
+  float NumberOfSuperPixelsMin;
+  float NumberOfSuperPixel
