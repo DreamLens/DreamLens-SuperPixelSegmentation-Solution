@@ -111,4 +111,10 @@ private:
   float SigmaMax;
   
   // QuickShift sliders
-  float MaxDistMi
+  float MaxDistMin;
+  float MaxDistMax;
+  
+  float KernelSizeMin;
+  float KernelSizeMax;
+  
+  float RatioMi
