@@ -122,4 +122,11 @@ private:
   
   // SLIC sliders
   float NumberOfSuperPixelsMin;
-  float NumberOfSuperPixel
+  float NumberOfSuperPixelsMax;
+  
+  float SpatialDistanceWeightMin;
+  float SpatialDistanceWeightMax;
+
+};
+
+#endif /
