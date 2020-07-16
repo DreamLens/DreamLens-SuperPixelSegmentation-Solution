@@ -129,4 +129,4 @@ private:
 
 };
 
-#endif /
+#endif // SuperPixelSegmentationGUI_H
