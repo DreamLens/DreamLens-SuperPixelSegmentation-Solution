@@ -183,3 +183,97 @@
            </layout>
           </item>
           <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_9">
+            <item>
+             <widget class="QLabel" name="label_6">
+              <property name="text">
+               <string>Kernel size</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="FloatSlider" name="sldKernelSize">
+              <property name="toolTip">
+               <string>The current time</string>
+              </property>
+              <property name="whatsThis">
+               <string>The float slider widget allows the user to select a float value.</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <layout class="QHBoxLayout" name="horizontalLayout_10">
+            <item>
+             <widget class="QLabel" name="label_7">
+              <property name="text">
+               <string>Ratio</string>
+              </property>
+             </widget>
+            </item>
+            <item>
+             <widget class="FloatSlider" name="sldRatio">
+              <property name="toolTip">
+               <string>The current time</string>
+              </property>
+              <property name="whatsThis">
+               <string>The float slider widget allows the user to select a float value.</string>
+              </property>
+             </widget>
+            </item>
+           </layout>
+          </item>
+          <item>
+           <widget class="QPushButton" name="btnSegmentQuickShift">
+            <property name="text">
+             <string>Segment</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QGraphicsView" name="graphicsView"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="horizontalLayout_5">
+        <item>
+         <widget class="QCheckBox" name="chkShowInputImage">
+          <property name="text">
+           <string>Input</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chkShowLabelImage">
+          <property name="text">
+           <string>Labels</string>
+          </property>
+          <property name="checked">
+           <bool>true</bool>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QCheckBox" name="chkShowColoredImage">
+          <property name="text">
+           <string>Colored</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QProgressBar" name="progressBar">
+        <property name="value">
+         <number>24</number>
