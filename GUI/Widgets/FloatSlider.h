@@ -9,4 +9,12 @@ class QDoubleValidator;
 // This slider should always be set from min = 0 to max = 100.
 // This then lets us interpret the difference between the min and max
 // as a percentage.
-class QDESIGNER_WIDGET_EXPORT FloatSlider : p
+class QDESIGNER_WIDGET_EXPORT FloatSlider : public LabeledSlider
+{
+Q_OBJECT
+
+signals:
+  void valueChanged(float);
+
+public:
+  FloatSlider(QWidget *parent = 0)
