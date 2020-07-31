@@ -24,4 +24,5 @@ public:
   void setMaximum(const float);
 
 public slots:
-  void 
+  void slot_horizontalSlider_valueChanged(int value);
+  virtual void on_txtMin_textEdited( const QString & te
