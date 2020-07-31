@@ -17,4 +17,11 @@ signals:
   void valueChanged(float);
 
 public:
-  FloatSlider(QWidget *parent = 0)
+  FloatSlider(QWidget *parent = 0);
+
+  float GetValue();
+  void setMinimum(const float);
+  void setMaximum(const float);
+
+public slots:
+  void 
