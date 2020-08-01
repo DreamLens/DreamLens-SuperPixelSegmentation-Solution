@@ -29,4 +29,10 @@ public slots:
   virtual void on_txtMax_textEdited( const QString & text );
   
 protected:
-  float Min
+  float MinValue;
+  float MaxValue;
+  QDoubleValidator* Validator;
+
+};
+
+#endif
