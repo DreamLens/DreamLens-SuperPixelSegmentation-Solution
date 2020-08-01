@@ -25,4 +25,8 @@ public:
 
 public slots:
   void slot_horizontalSlider_valueChanged(int value);
-  virtual void on_txtMin_textEdited( const QString & te
+  virtual void on_txtMin_textEdited( const QString & text );
+  virtual void on_txtMax_textEdited( const QString & text );
+  
+protected:
+  float Min
