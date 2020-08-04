@@ -9,4 +9,7 @@ LabeledSlider::LabeledSlider(QWidget *parent) : QWidget(parent)
   //this->txtMin->setText(QString::number(this->horizontalSlider->minimum()));
   //this->txtMax->setText(QString::number(this->horizontalSlider->maximum()));
 
-  this->horizontalSlider->setMinimum(this->txtMin-
+  this->horizontalSlider->setMinimum(this->txtMin->text().toInt());
+  this->horizontalSlider->setMaximum(this->txtMax->text().toInt());
+
+  this->lblCur
