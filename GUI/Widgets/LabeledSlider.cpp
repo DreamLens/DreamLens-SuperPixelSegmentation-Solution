@@ -6,4 +6,7 @@ LabeledSlider::LabeledSlider(QWidget *parent) : QWidget(parent)
 {
   setupUi(this);
   
-  //this->txtMin->setText(QString::number(this->horizontalSlider->mi
+  //this->txtMin->setText(QString::number(this->horizontalSlider->minimum()));
+  //this->txtMax->setText(QString::number(this->horizontalSlider->maximum()));
+
+  this->horizontalSlider->setMinimum(this->txtMin-
