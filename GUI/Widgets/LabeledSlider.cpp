@@ -14,4 +14,6 @@ LabeledSlider::LabeledSlider(QWidget *parent) : QWidget(parent)
 
   this->lblCurrent->setText(QString::number(this->horizontalSlider->value()));
 
-  this->Validator = new QInt
+  this->Validator = new QIntValidator(0, 10000, this);
+  this->txtMin->setValidator(this->Validator);
+  this->txtMax->setValidator(this->Validat
