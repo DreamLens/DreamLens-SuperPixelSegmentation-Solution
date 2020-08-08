@@ -16,4 +16,6 @@ LabeledSlider::LabeledSlider(QWidget *parent) : QWidget(parent)
 
   this->Validator = new QIntValidator(0, 10000, this);
   this->txtMin->setValidator(this->Validator);
-  this->txtMax->setValidator(this->Validat
+  this->txtMax->setValidator(this->Validator);
+  
+  connect(this->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(slot
