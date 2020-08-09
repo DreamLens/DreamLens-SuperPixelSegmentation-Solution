@@ -23,4 +23,9 @@ LabeledSlider::LabeledSlider(QWidget *parent) : QWidget(parent)
 
 unsigned int LabeledSlider::value()
 {
-  return this->horizontalSlider
+  return this->horizontalSlider->value();
+}
+
+void LabeledSlider::on_txtMin_textEdited( const QString & text )
+{
+  this->horizontalSlider-
