@@ -18,4 +18,9 @@ LabeledSlider::LabeledSlider(QWidget *parent) : QWidget(parent)
   this->txtMin->setValidator(this->Validator);
   this->txtMax->setValidator(this->Validator);
   
-  connect(this->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(slot
+  connect(this->horizontalSlider, SIGNAL(valueChanged(int)), this, SLOT(slot_horizontalSlider_valueChanged(int)));
+}
+
+unsigned int LabeledSlider::value()
+{
+  return this->horizontalSlider
