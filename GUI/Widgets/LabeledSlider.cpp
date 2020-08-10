@@ -28,4 +28,9 @@ unsigned int LabeledSlider::value()
 
 void LabeledSlider::on_txtMin_textEdited( const QString & text )
 {
-  this->horizontalSlider-
+  this->horizontalSlider->setMinimum(text.toInt());
+}
+
+void LabeledSlider::on_txtMax_textEdited( const QString & text )
+{
+  this->horiz
