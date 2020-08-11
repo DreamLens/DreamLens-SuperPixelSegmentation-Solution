@@ -33,4 +33,7 @@ void LabeledSlider::on_txtMin_textEdited( const QString & text )
 
 void LabeledSlider::on_txtMax_textEdited( const QString & text )
 {
-  this->horiz
+  this->horizontalSlider->setMaximum(text.toInt());
+}
+
+void LabeledSlider::setMinimum(const unsigned i
