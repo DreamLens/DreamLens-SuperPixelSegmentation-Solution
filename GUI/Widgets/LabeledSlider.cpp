@@ -39,4 +39,9 @@ void LabeledSlider::on_txtMax_textEdited( const QString & text )
 void LabeledSlider::setMinimum(const unsigned int value)
 {
   this->horizontalSlider->setMinimum(value);
-  this->txtMin->setText(QString::number(value))
+  this->txtMin->setText(QString::number(value));
+}
+
+void LabeledSlider::setMaximum(const unsigned int value)
+{
+  this->horizontalSlider->set
