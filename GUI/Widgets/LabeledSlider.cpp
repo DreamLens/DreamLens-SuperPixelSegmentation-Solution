@@ -44,4 +44,8 @@ void LabeledSlider::setMinimum(const unsigned int value)
 
 void LabeledSlider::setMaximum(const unsigned int value)
 {
-  this->horizontalSlider->set
+  this->horizontalSlider->setMaximum(value);
+  this->txtMax->setText(QString::number(value));
+}
+
+void LabeledSlider::slot_horizontalSlider_valueChanged(int
