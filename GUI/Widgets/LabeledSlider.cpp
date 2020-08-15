@@ -48,4 +48,7 @@ void LabeledSlider::setMaximum(const unsigned int value)
   this->txtMax->setText(QString::number(value));
 }
 
-void LabeledSlider::slot_horizontalSlider_valueChanged(int
+void LabeledSlider::slot_horizontalSlider_valueChanged(int value)
+{
+  //std::cout << "LabeledSlider::on_horizontalSlider_valueChanged" << std::endl;
+  this->lblC
