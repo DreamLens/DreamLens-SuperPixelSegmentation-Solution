@@ -32,3 +32,5 @@ protected:
   QIntValidator* Validator;
 
 };
+
+#endif
