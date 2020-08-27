@@ -30,3 +30,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 static void convolve_even(image<float> *src, image<float> *dst, 
 			  std::vector<float> &mask) {
   int width = src->width();
+  int height = src->height();
+  int len = mask.size();
+
+  for (int y = 0; y < height; y++) {
+ 
