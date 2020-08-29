@@ -46,4 +46,6 @@ static void convolve_even(image<float> *src, image<float> *dst,
   }
 }
 
-/* convolve src with mask.
+/* convolve src with mask.  dst is flipped! */
+static void convolve_odd(image<float> *src, image<float> *dst, 
+			 std::
