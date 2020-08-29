@@ -39,4 +39,11 @@ static void convolve_even(image<float> *src, image<float> *dst,
       for (int i = 1; i < len; i++) {
 	sum += mask[i] * 
 	  (imRef(src, std::max(x-i,0), y) + 
-	   imRef(src, s
+	   imRef(src, std::min(x+i, width-1), y));
+      }
+      imRef(dst, y, x) = sum;
+    }
+  }
+}
+
+/* convolve src with mask.
