@@ -53,4 +53,6 @@ static void convolve_odd(image<float> *src, image<float> *dst,
   int height = src->height();
   int len = mask.size();
 
-  fo
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      float sum = mask[0] * im
