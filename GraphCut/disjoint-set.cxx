@@ -18,3 +18,9 @@ int universe::find(int x) {
   int y = x;
   while (y != elts[y].p)
     y = elts[y].p;
+  elts[x].p = y;
+  return y;
+}
+
+void universe::join(int x, int y) {
+  if (elts[x].rank > elts[y].rank)
