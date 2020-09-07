@@ -10,4 +10,11 @@ universe::universe(int elements) {
   }
 }
   
-u
+universe::~universe() {
+  delete [] elts;
+}
+
+int universe::find(int x) {
+  int y = x;
+  while (y != elts[y].p)
+    y = elts[y].p;
