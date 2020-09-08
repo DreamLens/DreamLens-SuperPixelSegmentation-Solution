@@ -23,4 +23,9 @@ int universe::find(int x) {
 }
 
 void universe::join(int x, int y) {
-  if (elts[x].rank > elts[y].rank)
+  if (elts[x].rank > elts[y].rank) {
+    elts[y].p = x;
+    elts[x].size += elts[y].size;
+  } else {
+    elts[x].p = y;
+    elts[y].size += elts[x].size;
