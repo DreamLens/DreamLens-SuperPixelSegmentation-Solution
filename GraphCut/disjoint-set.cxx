@@ -29,3 +29,8 @@ void universe::join(int x, int y) {
   } else {
     elts[x].p = y;
     elts[y].size += elts[x].size;
+    if (elts[x].rank == elts[y].rank)
+      elts[y].rank++;
+  }
+  num--;
+}
