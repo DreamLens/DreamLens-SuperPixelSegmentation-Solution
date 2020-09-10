@@ -8,3 +8,10 @@ void normalize(std::vector<float> &mask) {
   }
   sum = 2*sum + fabs(mask[0]);
   for (int i = 0; i < len; i++) {
+    mask[i] /= sum;
+  }
+}
+
+
+/* convolve image with gaussian filter */
+image<float
