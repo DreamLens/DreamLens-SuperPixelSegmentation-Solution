@@ -14,4 +14,6 @@ void normalize(std::vector<float> &mask) {
 
 
 /* convolve image with gaussian filter */
-image<float
+image<float> *smooth(image<float> *src, float sigma) {
+  std::vector<float> mask = make_fgauss(sigma);
+  norm
