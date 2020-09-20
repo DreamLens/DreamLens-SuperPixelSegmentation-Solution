@@ -45,4 +45,7 @@ image<float> *laplacian(image<float> *src) {
     for (int x = 1; x < width-1; x++) {
       float d2x = imRef(src, x-1, y) + imRef(src, x+1, y) -
 	2*imRef(src, x, y);
-      float d2y = imRef
+      float d2y = imRef(src, x, y-1) + imRef(src, x, y+1) -
+	2*imRef(src, x, y);
+      imRef(dst, x, y) = d2x + d2y;
+    }
