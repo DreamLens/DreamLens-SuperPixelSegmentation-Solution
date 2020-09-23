@@ -1,3 +1,6 @@
 #include "imconv.h"
 
-image<uchar> *im
+image<uchar> *imageRGBtoGRAY(image<rgb> *input) {
+  int width = input->width();
+  int height = input->height();
+  image<uc
