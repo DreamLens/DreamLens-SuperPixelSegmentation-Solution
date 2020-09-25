@@ -6,4 +6,7 @@ image<uchar> *imageRGBtoGRAY(image<rgb> *input) {
   image<uchar> *output = new image<uchar>(width, height, false);
 
   for (int y = 0; y < height; y++) {
-    for (
+    for (int x = 0; x < width; x++) {
+      imRef(output, x, y) = (uchar)
+	(imRef(input, x, y).r * RED_WEIGHT +
+	 imRef(input, x, y).g * 
