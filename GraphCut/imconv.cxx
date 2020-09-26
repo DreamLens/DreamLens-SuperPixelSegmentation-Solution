@@ -16,4 +16,7 @@ image<uchar> *imageRGBtoGRAY(image<rgb> *input) {
   return output;
 }
 
-image<rgb> *imageGRAYtoRGB(image
+image<rgb> *imageGRAYtoRGB(image<uchar> *input) {
+  int width = input->width();
+  int height = input->height();
+  image<rgb> *output = new image
