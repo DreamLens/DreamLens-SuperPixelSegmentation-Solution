@@ -9,4 +9,11 @@ image<uchar> *imageRGBtoGRAY(image<rgb> *input) {
     for (int x = 0; x < width; x++) {
       imRef(output, x, y) = (uchar)
 	(imRef(input, x, y).r * RED_WEIGHT +
-	 imRef(input, x, y).g * 
+	 imRef(input, x, y).g * GREEN_WEIGHT +
+	 imRef(input, x, y).b * BLUE_WEIGHT);
+    }
+  }
+  return output;
+}
+
+image<rgb> *imageGRAYtoRGB(image
