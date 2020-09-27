@@ -19,4 +19,7 @@ image<uchar> *imageRGBtoGRAY(image<rgb> *input) {
 image<rgb> *imageGRAYtoRGB(image<uchar> *input) {
   int width = input->width();
   int height = input->height();
-  image<rgb> *output = new image
+  image<rgb> *output = new image<rgb>(width, height, false);
+
+  for (int y = 0; y < height; y++) {
+    for (int x = 
