@@ -24,4 +24,11 @@ image<rgb> *imageGRAYtoRGB(image<uchar> *input) {
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
       imRef(output, x, y).r = imRef(input, x, y);
-      imRef(output, x, y).g = imRef(input, x, 
+      imRef(output, x, y).g = imRef(input, x, y);
+      imRef(output, x, y).b = imRef(input, x, y);
+    }
+  }
+  return output;  
+}
+
+image<
