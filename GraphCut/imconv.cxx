@@ -31,4 +31,7 @@ image<rgb> *imageGRAYtoRGB(image<uchar> *input) {
   return output;  
 }
 
-image<
+image<float> *imageUCHARtoFLOAT(image<uchar> *input) {
+  int width = input->width();
+  int height = input->height();
+ 
