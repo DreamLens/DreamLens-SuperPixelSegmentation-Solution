@@ -34,4 +34,7 @@ image<rgb> *imageGRAYtoRGB(image<uchar> *input) {
 image<float> *imageUCHARtoFLOAT(image<uchar> *input) {
   int width = input->width();
   int height = input->height();
- 
+  image<float> *output = new image<float>(width, height, false);
+
+  for (int y = 0; y < height; y++) {
+    for (int x = 
