@@ -37,4 +37,11 @@ image<float> *imageUCHARtoFLOAT(image<uchar> *input) {
   image<float> *output = new image<float>(width, height, false);
 
   for (int y = 0; y < height; y++) {
-    for (int x = 
+    for (int x = 0; x < width; x++) {
+      imRef(output, x, y) = imRef(input, x, y);
+    }
+  }
+  return output;  
+}
+
+image<float
