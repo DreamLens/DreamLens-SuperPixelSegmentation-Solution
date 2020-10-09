@@ -47,4 +47,6 @@ image<float> *imageUCHARtoFLOAT(image<uchar> *input) {
 image<float> *imageINTtoFLOAT(image<int> *input) {
   int width = input->width();
   int height = input->height();
-  im
+  image<float> *output = new image<float>(width, height, false);
+
+  for (int y = 0; y < height; y++
