@@ -54,4 +54,8 @@ image<float> *imageINTtoFLOAT(image<int> *input) {
       imRef(output, x, y) = imRef(input, x, y);
     }
   }
-  return o
+  return output;  
+}
+
+image<uchar> *imageFLOATtoUCHAR(image<float> *input, 
+				       float min, 
