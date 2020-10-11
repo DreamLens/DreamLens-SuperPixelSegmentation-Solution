@@ -58,4 +58,7 @@ image<float> *imageINTtoFLOAT(image<int> *input) {
 }
 
 image<uchar> *imageFLOATtoUCHAR(image<float> *input, 
-				       float min, 
+				       float min, float max) {
+  int width = input->width();
+  int height = input->height();
+  image<uchar> *output = new image<uchar>(width, h
