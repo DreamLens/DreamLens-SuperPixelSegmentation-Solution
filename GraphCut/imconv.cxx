@@ -61,4 +61,10 @@ image<uchar> *imageFLOATtoUCHAR(image<float> *input,
 				       float min, float max) {
   int width = input->width();
   int height = input->height();
-  image<uchar> *output = new image<uchar>(width, h
+  image<uchar> *output = new image<uchar>(width, height, false);
+
+  if (max == min)
+    return output;
+
+  float scale = UCHAR_MAX / (max - min);
+ 
