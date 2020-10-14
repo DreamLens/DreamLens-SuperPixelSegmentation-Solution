@@ -67,4 +67,6 @@ image<uchar> *imageFLOATtoUCHAR(image<float> *input,
     return output;
 
   float scale = UCHAR_MAX / (max - min);
- 
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      uchar val = (uchar)((
