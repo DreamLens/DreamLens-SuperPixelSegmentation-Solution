@@ -82,4 +82,7 @@ image<uchar> *imageFLOATtoUCHAR(image<float> *input) {
   return imageFLOATtoUCHAR(input, min, max);
 }
 
-image<long> *imageUCHARtoLONG(image<uchar> *input)
+image<long> *imageUCHARtoLONG(image<uchar> *input) {
+  int width = input->width();
+  int height = input->height();
+  image<long> *output = new im
