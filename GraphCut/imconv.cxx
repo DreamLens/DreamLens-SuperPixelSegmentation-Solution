@@ -78,4 +78,8 @@ image<uchar> *imageFLOATtoUCHAR(image<float> *input,
 
 image<uchar> *imageFLOATtoUCHAR(image<float> *input) {
   float min, max;
-  min_ma
+  min_max(input, &min, &max);
+  return imageFLOATtoUCHAR(input, min, max);
+}
+
+image<long> *imageUCHARtoLONG(image<uchar> *input)
