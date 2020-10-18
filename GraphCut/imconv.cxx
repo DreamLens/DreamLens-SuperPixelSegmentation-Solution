@@ -85,4 +85,7 @@ image<uchar> *imageFLOATtoUCHAR(image<float> *input) {
 image<long> *imageUCHARtoLONG(image<uchar> *input) {
   int width = input->width();
   int height = input->height();
-  image<long> *output = new im
+  image<long> *output = new image<long>(width, height, false);
+
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; 
