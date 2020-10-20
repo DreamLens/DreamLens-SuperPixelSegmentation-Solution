@@ -95,4 +95,5 @@ image<long> *imageUCHARtoLONG(image<uchar> *input) {
   return output;  
 }
 
-ima
+image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) {
+  int width = input->width(
