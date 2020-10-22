@@ -100,4 +100,8 @@ image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) {
   int height = input->height();
   image<uchar> *output = new image<uchar>(width, height, false);
 
-  if (ma
+  if (max == min)
+    return output;
+
+  float scale = UCHAR_MAX / (float)(max - min);
+  for (int y = 0; y
