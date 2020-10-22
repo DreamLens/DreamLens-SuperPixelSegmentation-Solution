@@ -96,4 +96,8 @@ image<long> *imageUCHARtoLONG(image<uchar> *input) {
 }
 
 image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) {
-  int width = input->width(
+  int width = input->width();
+  int height = input->height();
+  image<uchar> *output = new image<uchar>(width, height, false);
+
+  if (ma
