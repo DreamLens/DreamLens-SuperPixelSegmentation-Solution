@@ -104,4 +104,6 @@ image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) {
     return output;
 
   float scale = UCHAR_MAX / (float)(max - min);
-  for (int y = 0; y
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      uchar val = (uchar)((imRef(inp
