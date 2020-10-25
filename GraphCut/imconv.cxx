@@ -110,4 +110,9 @@ image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) {
       imRef(output, x, y) = bound(val, (uchar)0, (uchar)UCHAR_MAX);
     }
   }
-  re
+  return output;
+}
+
+image<uchar> *imageLONGtoUCHAR(image<long> *input) {
+  long min, max;
+  min_max(input, &mi
