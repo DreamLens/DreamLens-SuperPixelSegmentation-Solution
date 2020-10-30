@@ -115,4 +115,8 @@ image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) {
 
 image<uchar> *imageLONGtoUCHAR(image<long> *input) {
   long min, max;
-  min_max(input, &mi
+  min_max(input, &min, &max);
+  return imageLONGtoUCHAR(input, min, max);
+}
+
+image<uchar> *imageSHORTtoUCHAR(image<short> *input
