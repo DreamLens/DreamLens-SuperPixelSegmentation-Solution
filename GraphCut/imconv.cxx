@@ -119,4 +119,8 @@ image<uchar> *imageLONGtoUCHAR(image<long> *input) {
   return imageLONGtoUCHAR(input, min, max);
 }
 
-image<uchar> *imageSHORTtoUCHAR(image<short> *input
+image<uchar> *imageSHORTtoUCHAR(image<short> *input, 
+					short min, short max) {
+  int width = input->width();
+  int height = input->height();
+  image<uchar> *output = n
