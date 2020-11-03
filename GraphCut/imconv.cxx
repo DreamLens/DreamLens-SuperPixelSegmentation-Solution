@@ -128,4 +128,7 @@ image<uchar> *imageSHORTtoUCHAR(image<short> *input,
   if (max == min)
     return output;
 
-  float scale = UCHAR_MAX / (f
+  float scale = UCHAR_MAX / (float)(max - min);
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      uch
