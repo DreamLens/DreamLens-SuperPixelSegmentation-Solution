@@ -139,4 +139,7 @@ image<uchar> *imageSHORTtoUCHAR(image<short> *input,
 }
 
 image<uchar> *imageSHORTtoUCHAR(image<short> *input) {
- 
+  short min, max;
+  min_max(input, &min, &max);
+  return imageSHORTtoUCHAR(input, min, max);
+}
