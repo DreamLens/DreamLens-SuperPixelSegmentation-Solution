@@ -32,4 +32,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 
 image<uchar> *imageRGBtoGRAY(image<rgb> *input);
 
-image<rgb> *imageGRAYtoRGB(image<uchar> *inpu
+image<rgb> *imageGRAYtoRGB(image<uchar> *input);
+
+image<float> *imageUCHARtoFLOAT(image<uchar> *input);
+
+image<float> *imageINTtoFLOAT(
