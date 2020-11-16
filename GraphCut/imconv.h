@@ -36,4 +36,9 @@ image<rgb> *imageGRAYtoRGB(image<uchar> *input);
 
 image<float> *imageUCHARtoFLOAT(image<uchar> *input);
 
-image<float> *imageINTtoFLOAT(
+image<float> *imageINTtoFLOAT(image<int> *input);
+
+image<uchar> *imageFLOATtoUCHAR(image<float> *input, 
+				       float min, float max);
+
+im
