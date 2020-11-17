@@ -45,3 +45,6 @@ image<uchar> *imageFLOATtoUCHAR(image<float> *input);
 
 image<long> *imageUCHARtoLONG(image<uchar> *input);
 
+image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) ;
+
+image<uchar
