@@ -47,4 +47,6 @@ image<long> *imageUCHARtoLONG(image<uchar> *input);
 
 image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) ;
 
-image<uchar
+image<uchar> *imageLONGtoUCHAR(image<long> *input);
+
+image<uchar> *imageSHORTtoUCHAR(image<short> *input, 
