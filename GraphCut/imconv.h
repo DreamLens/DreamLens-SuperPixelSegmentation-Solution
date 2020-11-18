@@ -50,3 +50,8 @@ image<uchar> *imageLONGtoUCHAR(image<long> *input, long min, long max) ;
 image<uchar> *imageLONGtoUCHAR(image<long> *input);
 
 image<uchar> *imageSHORTtoUCHAR(image<short> *input, 
+					short min, short max);
+
+image<uchar> *imageSHORTtoUCHAR(image<short> *input);
+
+#endif
