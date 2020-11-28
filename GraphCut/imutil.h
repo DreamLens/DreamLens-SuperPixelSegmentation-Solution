@@ -28,3 +28,8 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA  02111-1307 USA
 template <class T>
 void min_max(image<T> *im, T *ret_min, T *ret_max) {
   int width = im->width();
+  int height = im->height();
+  
+  T min = imRef(im, 0, 0);
+  T max = imRef(im, 0, 0);
+  for (int y
