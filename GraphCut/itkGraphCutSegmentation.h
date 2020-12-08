@@ -60,3 +60,9 @@ private:
   float m_Sigma;
   
   bool m_BlurFirst;
+};
+} //namespace ITK
+
+#include "itkGraphCutSegmentation.hxx"
+
+#endif
