@@ -93,3 +93,56 @@ void GraphCutSegmentation< TInputImage, TOutputLabelImage>
     }
 
   Helpers::WriteImage<TInputImage>(input, "finalInput.mha");
+
+  itk::Size<2> size = input->GetLargestPossibleRegion().GetSize();
+  //std::cout << "Size: " << size << std::endl;
+  unsigned int width = size[0];
+  unsigned int height = size[1];
+  image<rgb> *im = new image<rgb>(width, height);
+
+  itk::ImageRegionConstIterator<TInputImage> imageIterator(input, input->GetLargestPossibleRegion());
+
+  while(!imageIterator.IsAtEnd())
+    {
+    itk::Index<2> index = imageIterator.GetIndex();
+  
+    typename TInputImage::PixelType color = imageIterator.Get();
+    rgb rgbColor;
+    rgbColor.r = color[0];
+    rgbColor.g = color[1];
+    rgbColor.b = color[2];
+    im->access[index[1]][index[0]] = rgbColor; // [r][c]
+
+    ++imageIterator;
+    }
+
+  int numberOfSegments;
+  image<int> *segmentImage = segment_image(im, this->m_K, this->m_MinSize, &numberOfSegments);
+
+  std::cout << "There were " << numberOfSegments << " segments." << std::endl;
+  this->FinalNumberOfSegments = numberOfSegments;
+
+  typename TOutputLabelImage::Pointer outputLabelImage = this->GetLabelImage();
+  outputLabelImage->SetRegions(input->GetLargestPossibleRegion());
+  outputLabelImage->Allocate();
+
+  itk::ImageRegionIterator<TOutputLabelImage> outputIterator(outputLabelImage, outputLabelImage->GetLargestPossibleRegion());
+
+  while(!outputIterator.IsAtEnd())
+    {
+    itk::Index<2> index = outputIterator.GetIndex();
+
+    int segmentId = segmentImage->access[index[1]][index[0]];
+    outputIterator.Set(segmentId);
+    ++outputIterator;
+    }
+
+  Helpers::RelabelSequential<TOutputLabelImage>(outputLabelImage, outputLabelImage);
+    
+  Helpers::ColorLabelsByAverageColor<TInputImage, TOutputLabelImage>(input, this->GetLabelImage(), this->GetColoredImage());
+}
+
+}// end namespace
+
+
+#endif
