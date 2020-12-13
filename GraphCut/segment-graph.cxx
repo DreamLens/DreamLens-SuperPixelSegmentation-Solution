@@ -6,4 +6,8 @@ bool operator<(const edge &a, const edge &b) {
 
 universe *segment_graph(int num_vertices, int num_edges, edge *edges, 
 			float c) { 
-  // sort edges by weigh
+  // sort edges by weight
+  std::sort(edges, edges + num_edges);
+
+  // make a disjoint-set forest
+  universe *u = new universe(num_v
