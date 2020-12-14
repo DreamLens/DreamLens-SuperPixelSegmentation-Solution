@@ -10,4 +10,8 @@ universe *segment_graph(int num_vertices, int num_edges, edge *edges,
   std::sort(edges, edges + num_edges);
 
   // make a disjoint-set forest
-  universe *u = new universe(num_v
+  universe *u = new universe(num_vertices);
+
+  // init thresholds
+  float *threshold = new float[num_vertices];
+  for (int i = 0; i < num_vertice
