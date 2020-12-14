@@ -14,4 +14,8 @@ universe *segment_graph(int num_vertices, int num_edges, edge *edges,
 
   // init thresholds
   float *threshold = new float[num_vertices];
-  for (int i = 0; i < num_vertice
+  for (int i = 0; i < num_vertices; i++)
+    threshold[i] = THRESHOLD(1,c);
+
+  // for each edge, in non-decreasing weight order...
+  for (int i =
