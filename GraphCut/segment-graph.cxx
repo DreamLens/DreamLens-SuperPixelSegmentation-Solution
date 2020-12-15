@@ -18,4 +18,7 @@ universe *segment_graph(int num_vertices, int num_edges, edge *edges,
     threshold[i] = THRESHOLD(1,c);
 
   // for each edge, in non-decreasing weight order...
-  for (int i =
+  for (int i = 0; i < num_edges; i++) {
+    edge *pedge = &edges[i];
+    
+    // components conected 
