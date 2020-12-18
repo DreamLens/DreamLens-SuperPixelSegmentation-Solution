@@ -12,4 +12,6 @@ rgb random_rgb()
   return c;
 }
 
-image<int> *segment_image(
+image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
+  int width = im->width();
+  int height = im->height()
