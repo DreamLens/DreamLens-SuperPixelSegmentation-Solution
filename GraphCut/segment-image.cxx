@@ -17,4 +17,7 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
   int height = im->height();
 
   image<float> *r = new image<float>(width, height);
-  image<float> *g = new image<float>(width, he
+  image<float> *g = new image<float>(width, height);
+  image<float> *b = new image<float>(width, height);
+ 
+  // Copy the input image into the separate cha
