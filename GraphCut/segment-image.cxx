@@ -20,4 +20,7 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
   image<float> *g = new image<float>(width, height);
   image<float> *b = new image<float>(width, height);
  
-  // Copy the input image into the separate cha
+  // Copy the input image into the separate channel images
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      imRef(r, x, y) = imRef(
