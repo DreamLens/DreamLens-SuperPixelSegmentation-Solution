@@ -29,4 +29,7 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
     }
   }
 
- 
+  // build graph
+  edge *edges = new edge[width*height*4];
+  int num = 0;
+  for (int y = 0; y < height;
