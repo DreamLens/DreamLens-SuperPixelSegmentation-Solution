@@ -32,4 +32,7 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
   // build graph
   edge *edges = new edge[width*height*4];
   int num = 0;
-  for (int y = 0; y < height;
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      if (x < width-1) {
+	edges[num].a = y * 
