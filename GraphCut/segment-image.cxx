@@ -39,4 +39,9 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
 	edges[num].b = y * width + (x+1);
 	edges[num].w = diff(r, g, b, x, y, x+1, y);
 	num++;
-   
+      }
+
+      if (y < height-1) {
+	edges[num].a = y * width + x;
+	edges[num].b = (y+1) * width + x;
+	edges[n
