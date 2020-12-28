@@ -44,4 +44,9 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
       if (y < height-1) {
 	edges[num].a = y * width + x;
 	edges[num].b = (y+1) * width + x;
-	edges[n
+	edges[num].w = diff(r, g, b, x, y, x, y+1);
+	num++;
+      }
+
+      if ((x < width-1) && (y < height-1)) {
+	edges[
