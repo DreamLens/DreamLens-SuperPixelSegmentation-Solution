@@ -64,4 +64,10 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
     }
   }
 
-  d
+  delete r;
+  delete g;
+  delete b;
+
+
+  // segment
+  universe *u = segment_graph(width*height, num, edges
