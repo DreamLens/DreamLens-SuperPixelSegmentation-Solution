@@ -70,4 +70,8 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
 
 
   // segment
-  universe *u = segment_graph(width*height, num, edges
+  universe *u = segment_graph(width*height, num, edges, c);
+  
+  // post process small components
+  for (int i = 0; i < num; i++) {
+    int a = u->find(edg
