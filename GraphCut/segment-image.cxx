@@ -76,4 +76,10 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
   for (int i = 0; i < num; i++) {
     int a = u->find(edges[i].a);
     int b = u->find(edges[i].b);
-    if ((a != b) && ((u->size(a) < min_size) || (u->
+    if ((a != b) && ((u->size(a) < min_size) || (u->size(b) < min_size)))
+      u->join(a, b);
+  }
+  delete [] edges;
+  *num_ccs = u->num_sets();
+
+  
