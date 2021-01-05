@@ -74,4 +74,6 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
   
   // post process small components
   for (int i = 0; i < num; i++) {
-    int a = u->find(edg
+    int a = u->find(edges[i].a);
+    int b = u->find(edges[i].b);
+    if ((a != b) && ((u->size(a) < min_size) || (u->
