@@ -82,4 +82,7 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
   delete [] edges;
   *num_ccs = u->num_sets();
 
-  
+  image<int> *output = new image<int>(width, height);
+
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x
