@@ -85,4 +85,10 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
   image<int> *output = new image<int>(width, height);
 
   for (int y = 0; y < height; y++) {
-    for (int x = 0; x
+    for (int x = 0; x < width; x++) {
+      int comp = u->find(y * width + x);
+      imRef(output, x, y) = comp;
+    }
+  }  
+
+  
