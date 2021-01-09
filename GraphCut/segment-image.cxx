@@ -98,4 +98,6 @@ image<int> *segment_image(image<rgb> *im, float c, int min_size, int *num_ccs) {
 }
 
 
-image<int> *segment_image_with_smoothing(im
+image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, int min_size,
+                          int *num_ccs) {
+  int width =
