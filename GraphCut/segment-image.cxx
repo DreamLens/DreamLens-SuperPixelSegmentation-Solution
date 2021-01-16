@@ -104,4 +104,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   int height = im->height();
 
   image<float> *r = new image<float>(width, height);
-  image<float> *g
+  image<float> *g = new image<float>(width, height);
+  image<float> *b = new image<float>(width, height);
+
+  // smoot
