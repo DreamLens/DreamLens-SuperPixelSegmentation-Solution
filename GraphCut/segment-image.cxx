@@ -107,4 +107,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   image<float> *g = new image<float>(width, height);
   image<float> *b = new image<float>(width, height);
 
-  // smoot
+  // smooth each color channel  
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      imRef(
