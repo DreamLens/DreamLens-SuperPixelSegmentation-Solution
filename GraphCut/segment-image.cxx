@@ -110,4 +110,6 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   // smooth each color channel  
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      imRef(
+      imRef(r, x, y) = imRef(im, x, y).r;
+      imRef(g, x, y) = imRef(im, x, y).g;
+      imRef(b, x, y) = imRef(im, x, 
