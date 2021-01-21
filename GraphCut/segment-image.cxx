@@ -116,4 +116,11 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
     }
   }
   image<float> *smooth_r = smooth(r, sigma);
-  image<float> *smooth_g = smo
+  image<float> *smooth_g = smooth(g, sigma);
+  image<float> *smooth_b = smooth(b, sigma);
+  delete r;
+  delete g;
+  delete b;
+ 
+  // build graph
+  e
