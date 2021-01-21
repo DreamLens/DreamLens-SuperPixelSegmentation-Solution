@@ -112,4 +112,8 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
     for (int x = 0; x < width; x++) {
       imRef(r, x, y) = imRef(im, x, y).r;
       imRef(g, x, y) = imRef(im, x, y).g;
-      imRef(b, x, y) = imRef(im, x, 
+      imRef(b, x, y) = imRef(im, x, y).b;
+    }
+  }
+  image<float> *smooth_r = smooth(r, sigma);
+  image<float> *smooth_g = smo
