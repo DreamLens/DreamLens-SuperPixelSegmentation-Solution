@@ -126,4 +126,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   edge *edges = new edge[width*height*4];
   int num = 0;
   for (int y = 0; y < height; y++) {
-    for (int x = 0
+    for (int x = 0; x < width; x++) {
+      if (x < width-1) {
+        edges[num].a = y * width + x;
+        edges[num].b = y *
