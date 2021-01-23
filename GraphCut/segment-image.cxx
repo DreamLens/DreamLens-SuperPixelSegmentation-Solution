@@ -123,4 +123,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   delete b;
  
   // build graph
-  e
+  edge *edges = new edge[width*height*4];
+  int num = 0;
+  for (int y = 0; y < height; y++) {
+    for (int x = 0
