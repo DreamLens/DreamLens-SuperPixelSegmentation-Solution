@@ -161,3 +161,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   delete smooth_b;
 
   // segment
+  universe *u = segment_graph(width*height, num, edges, c);
+  
+  // post process small components
+  for (int i = 0; i < n
