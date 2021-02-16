@@ -164,4 +164,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   universe *u = segment_graph(width*height, num, edges, c);
   
   // post process small components
-  for (int i = 0; i < n
+  for (int i = 0; i < num; i++) {
+    int a = u->find(edges[i].a);
+    int b = u->find(edges[i].b);
+    if ((a
