@@ -152,4 +152,12 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
         edges[num].a = y * width + x;
         edges[num].b = (y-1) * width + (x+1);
         edges[num].w = diff(smooth_r, smooth_g, smooth_b, x, y, x+1, y-1);
-        
+        num++;
+      }
+    }
+  }
+  delete smooth_r;
+  delete smooth_g;
+  delete smooth_b;
+
+  // segment
