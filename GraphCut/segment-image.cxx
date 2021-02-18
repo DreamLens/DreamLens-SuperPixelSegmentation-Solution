@@ -184,3 +184,6 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
 
   //delete [] colors;  
   delete u;
+
+  return output;
+}
