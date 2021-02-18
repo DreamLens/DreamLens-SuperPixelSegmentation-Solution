@@ -167,4 +167,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   for (int i = 0; i < num; i++) {
     int a = u->find(edges[i].a);
     int b = u->find(edges[i].b);
-    if ((a
+    if ((a != b) && ((u->size(a) < min_size) || (u->size(b) < min_size)))
+      u->join(a, b);
+  }
+  delete [] edge
