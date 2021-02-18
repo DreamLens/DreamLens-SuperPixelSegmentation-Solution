@@ -9,4 +9,6 @@ void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsign
 {
   //std::cout << "DeepCopy<FloatVectorImageType>()" << std::endl;
   bool changed = false;
-  if(inpu
+  if(input->GetNumberOfComponentsPerPixel() != output->GetNumberOfComponentsPerPixel())
+    {
+    output
