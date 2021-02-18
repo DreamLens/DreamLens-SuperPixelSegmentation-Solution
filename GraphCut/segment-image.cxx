@@ -177,4 +177,10 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
 
   for (int y = 0; y < height; y++) {
     for (int x = 0; x < width; x++) {
-      int comp
+      int comp = u->find(y * width + x);
+      imRef(output, x, y) = comp;
+    }
+  }  
+
+  //delete [] colors;  
+  delete u;
