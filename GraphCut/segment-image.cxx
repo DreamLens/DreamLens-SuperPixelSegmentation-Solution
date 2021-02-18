@@ -174,3 +174,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
   *num_ccs = u->num_sets();
 
   image<int> *output = new image<int>(width, height);
+
+  for (int y = 0; y < height; y++) {
+    for (int x = 0; x < width; x++) {
+      int comp
