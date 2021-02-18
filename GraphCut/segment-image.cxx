@@ -170,4 +170,7 @@ image<int> *segment_image_with_smoothing(image<rgb> *im, float sigma, float c, i
     if ((a != b) && ((u->size(a) < min_size) || (u->size(b) < min_size)))
       u->join(a, b);
   }
-  delete [] edge
+  delete [] edges;
+  *num_ccs = u->num_sets();
+
+  image<int> *output = new image<int>(width, height);
