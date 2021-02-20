@@ -11,4 +11,5 @@ void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsign
   bool changed = false;
   if(input->GetNumberOfComponentsPerPixel() != output->GetNumberOfComponentsPerPixel())
     {
-    output
+    output->SetNumberOfComponentsPerPixel(input->GetNumberOfComponentsPerPixel());
+    //std::cout << "Set out
