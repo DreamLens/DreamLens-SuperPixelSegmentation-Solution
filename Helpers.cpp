@@ -14,4 +14,8 @@ void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsign
     output->SetNumberOfComponentsPerPixel(input->GetNumberOfComponentsPerPixel());
     //std::cout << "Set output NumberOfComponentsPerPixel to " << input->GetNumberOfComponentsPerPixel() << std::endl;
     changed = true;
-  
+    }
+    
+  if(input->GetLargestPossibleRegion() != output->GetLargestPossibleRegion())
+    {
+   
