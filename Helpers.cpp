@@ -26,4 +26,8 @@ void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsign
     output->Allocate();
     }
 
-  DeepCopyInRegion<itk::VectorImage<unsigned char, 2> >(input, input->GetLar
+  DeepCopyInRegion<itk::VectorImage<unsigned char, 2> >(input, input->GetLargestPossibleRegion(), output);
+    
+}
+
+} // end namespace
