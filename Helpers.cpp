@@ -22,4 +22,8 @@ void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsign
     changed = true;
     }
   if(changed)
-   
+    {
+    output->Allocate();
+    }
+
+  DeepCopyInRegion<itk::VectorImage<unsigned char, 2> >(input, input->GetLar
