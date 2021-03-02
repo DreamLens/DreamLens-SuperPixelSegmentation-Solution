@@ -18,4 +18,8 @@ void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsign
     
   if(input->GetLargestPossibleRegion() != output->GetLargestPossibleRegion())
     {
+    output->SetRegions(input->GetLargestPossibleRegion());
+    changed = true;
+    }
+  if(changed)
    
