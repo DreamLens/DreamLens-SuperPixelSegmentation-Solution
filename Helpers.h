@@ -16,4 +16,13 @@
  *
  *=========================================================================*/
 
-#ifndef HELPE
+#ifndef HELPERS_H
+#define HELPERS_H
+
+// ITK
+#include "itkVectorImage.h"
+
+namespace Helpers
+{
+
+template <typename TImage, typename TLa
