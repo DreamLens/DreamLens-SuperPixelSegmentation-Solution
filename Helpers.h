@@ -25,4 +25,5 @@
 namespace Helpers
 {
 
-template <typename TImage, typename TLa
+template <typename TImage, typename TLabelImage>
+void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImage, TImage*
