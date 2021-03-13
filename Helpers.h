@@ -34,4 +34,8 @@ typename TImage::PixelType MaxValue(const TImage* image);
 template<typename TImage>
 unsigned int CountPixelsWithValue(const TImage* image, typename TImage::PixelType value);
 
-template<typename TImage
+template<typename TImage>
+void WriteRGBImage(const TImage* input, const std::string& filename);
+
+template <class TImage>
+vo
