@@ -31,4 +31,7 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
 template <typename TImage>
 typename TImage::PixelType MaxValue(const TImage* image);
 
-template<typename TIma
+template<typename TImage>
+unsigned int CountPixelsWithValue(const TImage* image, typename TImage::PixelType value);
+
+template<typename TImage
