@@ -26,4 +26,9 @@ namespace Helpers
 {
 
 template <typename TImage, typename TLabelImage>
-void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImage, TImage*
+void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImage, TImage* output);
+
+template <typename TImage>
+typename TImage::PixelType MaxValue(const TImage* image);
+
+template<typename TIma
