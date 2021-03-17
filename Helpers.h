@@ -38,4 +38,7 @@ template<typename TImage>
 void WriteRGBImage(const TImage* input, const std::string& filename);
 
 template <class TImage>
-vo
+void WriteScaledScalarImage(const TImage* image, std::string filename);
+
+template<typename TImage>
+void WriteI
