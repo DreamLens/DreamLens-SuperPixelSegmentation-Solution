@@ -41,4 +41,7 @@ template <class TImage>
 void WriteScaledScalarImage(const TImage* image, std::string filename);
 
 template<typename TImage>
-void WriteI
+void WriteImage(const TImage* image, const std::string& filename);
+
+template<typename TImage>
+void Writ
