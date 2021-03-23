@@ -59,4 +59,5 @@ template<typename TImage>
 void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer output);
 
 template<typename TVectorImage>
-void BilateralFilterAllChannels(
+void BilateralFilterAllChannels(const TVectorImage* image, TVectorImage* output, const float domainSigma, const float rangeSigma);
+
