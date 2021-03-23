@@ -53,4 +53,4 @@ template<typename TImage>
 void DeepCopyInRegion(const TImage* input, const itk::ImageRegion<2>& region, TImage* output);
 
 template<>
-void DeepCopy<itk::VectorIm
+void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsigned char, 2>* input, itk::VectorImage<unsigned char
