@@ -44,4 +44,6 @@ template<typename TImage>
 void WriteImage(const TImage* image, const std::string& filename);
 
 template<typename TImage>
-void Writ
+void WriteRegion(const TImage* image, const itk::ImageRegion<2>& region, const std::string& filename);
+
+template<typen
