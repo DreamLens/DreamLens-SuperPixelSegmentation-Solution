@@ -46,4 +46,8 @@ void WriteImage(const TImage* image, const std::string& filename);
 template<typename TImage>
 void WriteRegion(const TImage* image, const itk::ImageRegion<2>& region, const std::string& filename);
 
-template<typen
+template<typename TImage>
+void DeepCopy(const TImage* input, TImage* output);
+
+template<typename TImage>
+void DeepCopyInRegion(con
