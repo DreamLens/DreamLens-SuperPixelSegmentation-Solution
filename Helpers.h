@@ -56,4 +56,7 @@ template<>
 void DeepCopy<itk::VectorImage<unsigned char, 2> >(const itk::VectorImage<unsigned char, 2>* input, itk::VectorImage<unsigned char, 2>* output);
 
 template<typename TImage>
-void RelabelSequential(typename TImage::Poin
+void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer output);
+
+template<typename TVectorImage>
+void BilateralFilterAllChannels(
