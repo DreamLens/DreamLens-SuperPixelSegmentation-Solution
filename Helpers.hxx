@@ -22,4 +22,13 @@
 #include "itkImageFileWriter.h"
 #include "itkVectorIndexSelectionCastImageFilter.h"
 #include "itkComposeImageFilter.h"
-#i
+#include "itkBilateralImageFilter.h"
+
+// STL
+#include <set>
+
+namespace Helpers
+{
+
+template<typename TImage>
+void DeepCopy(cons
