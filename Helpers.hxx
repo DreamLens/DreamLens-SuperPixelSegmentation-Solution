@@ -31,4 +31,9 @@ namespace Helpers
 {
 
 template<typename TImage>
-void DeepCopy(cons
+void DeepCopy(const TImage* input, TImage* output)
+{
+  DeepCopyInRegion<TImage>(input, input->GetLargestPossibleRegion(), output);
+}
+
+templat
