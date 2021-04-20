@@ -19,4 +19,7 @@
 // ITK
 #include "itkRegionOfInterestImageFilter.h"
 #include "itkRescaleIntensityImageFilter.h"
-#include "itk
+#include "itkImageFileWriter.h"
+#include "itkVectorIndexSelectionCastImageFilter.h"
+#include "itkComposeImageFilter.h"
+#i
