@@ -36,4 +36,5 @@ void DeepCopy(const TImage* input, TImage* output)
   DeepCopyInRegion<TImage>(input, input->GetLargestPossibleRegion(), output);
 }
 
-templat
+template<typename TImage>
+void DeepCopyInRegion(const TImage* input, const itk::ImageRegion<2>& region, TIma
