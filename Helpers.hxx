@@ -37,4 +37,9 @@ void DeepCopy(const TImage* input, TImage* output)
 }
 
 template<typename TImage>
-void DeepCopyInRegion(const TImage* input, const itk::ImageRegion<2>& region, TIma
+void DeepCopyInRegion(const TImage* input, const itk::ImageRegion<2>& region, TImage* output)
+{
+  output->SetRegions(region);
+  output->Allocate();
+
+  itk::ImageRegionConstIterator<TImage> inputIter
