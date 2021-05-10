@@ -43,4 +43,8 @@ void DeepCopyInRegion(const TImage* input, const itk::ImageRegion<2>& region, TI
   output->Allocate();
 
   itk::ImageRegionConstIterator<TImage> inputIterator(input, input->GetLargestPossibleRegion());
-  itk::ImageRegionIterator<TImage> outputIt
+  itk::ImageRegionIterator<TImage> outputIterator(output, output->GetLargestPossibleRegion());
+
+  while(!inputIterator.IsAtEnd())
+    {
+    outputIterato
