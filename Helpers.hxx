@@ -55,4 +55,6 @@ void DeepCopyInRegion(const TImage* input, const itk::ImageRegion<2>& region, TI
 
 
 template <class T>
-void WriteSca
+void WriteScaledScalarImage(const typename T::Pointer image, const std::string& filename)
+{
+  if(T::PixelType::Dimension > 1)
