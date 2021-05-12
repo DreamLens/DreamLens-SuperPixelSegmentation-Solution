@@ -47,4 +47,12 @@ void DeepCopyInRegion(const TImage* input, const itk::ImageRegion<2>& region, TI
 
   while(!inputIterator.IsAtEnd())
     {
-    outputIterato
+    outputIterator.Set(inputIterator.Get());
+    ++inputIterator;
+    ++outputIterator;
+    }
+}
+
+
+template <class T>
+void WriteSca
