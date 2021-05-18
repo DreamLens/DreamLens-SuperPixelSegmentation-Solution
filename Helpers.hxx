@@ -60,4 +60,7 @@ void WriteScaledScalarImage(const typename T::Pointer image, const std::string& 
   if(T::PixelType::Dimension > 1)
     {
     std::cerr << "Cannot write scaled scalar image with vector image input!" << std::endl;
-    return
+    return;
+    }
+  typedef itk::Image<unsigned char, 2> UnsignedCharScalarImageType;
+  typedef itk::RescaleI
