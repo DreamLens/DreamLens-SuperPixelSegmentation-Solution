@@ -58,3 +58,6 @@ template <class T>
 void WriteScaledScalarImage(const typename T::Pointer image, const std::string& filename)
 {
   if(T::PixelType::Dimension > 1)
+    {
+    std::cerr << "Cannot write scaled scalar image with vector image input!" << std::endl;
+    return
