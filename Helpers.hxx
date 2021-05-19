@@ -63,4 +63,7 @@ void WriteScaledScalarImage(const typename T::Pointer image, const std::string& 
     return;
     }
   typedef itk::Image<unsigned char, 2> UnsignedCharScalarImageType;
-  typedef itk::RescaleIntensityImageFilter<T, UnsignedCharScalarImageType> RescaleFilterType; // expected ';' be
+  typedef itk::RescaleIntensityImageFilter<T, UnsignedCharScalarImageType> RescaleFilterType; // expected ';' before rescaleFilter
+
+  typename RescaleFilterType::Pointer rescaleFilter = RescaleFilterType::New();
+  rescaleFil
