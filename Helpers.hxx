@@ -72,4 +72,11 @@ void WriteScaledScalarImage(const typename T::Pointer image, const std::string& 
   rescaleFilter->Update();
 
   typedef itk::ImageFileWriter<UnsignedCharScalarImageType> WriterType;
-  typename WriterType::Pointer writer = WriterType:
+  typename WriterType::Pointer writer = WriterType::New();
+  writer->SetFileName(filename);
+  writer->SetInput(rescaleFilter->GetOutput());
+  writer->Update();
+}
+
+
+template<t
