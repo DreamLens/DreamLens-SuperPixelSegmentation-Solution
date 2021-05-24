@@ -69,4 +69,7 @@ void WriteScaledScalarImage(const typename T::Pointer image, const std::string& 
   rescaleFilter->SetInput(image);
   rescaleFilter->SetOutputMinimum(0);
   rescaleFilter->SetOutputMaximum(255);
-  rescaleFilter->U
+  rescaleFilter->Update();
+
+  typedef itk::ImageFileWriter<UnsignedCharScalarImageType> WriterType;
+  typename WriterType::Pointer writer = WriterType:
