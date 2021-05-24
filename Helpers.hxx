@@ -79,4 +79,7 @@ void WriteScaledScalarImage(const typename T::Pointer image, const std::string& 
 }
 
 
-template<t
+template<typename TImage>
+void WriteImage(const TImage* image, const std::string& filename)
+{
+  // This is a conve
