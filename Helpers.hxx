@@ -82,4 +82,5 @@ void WriteScaledScalarImage(const typename T::Pointer image, const std::string& 
 template<typename TImage>
 void WriteImage(const TImage* image, const std::string& filename)
 {
-  // This is a conve
+  // This is a convenience function so that images can be written in 1 line instead of 4.
+  typename itk::ImageFi
