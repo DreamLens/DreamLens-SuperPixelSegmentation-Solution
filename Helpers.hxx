@@ -83,4 +83,5 @@ template<typename TImage>
 void WriteImage(const TImage* image, const std::string& filename)
 {
   // This is a convenience function so that images can be written in 1 line instead of 4.
-  typename itk::ImageFi
+  typename itk::ImageFileWriter<TImage>::Pointer writer = itk::ImageFileWriter<TImage>::New();
+  writer->SetFileName(f
