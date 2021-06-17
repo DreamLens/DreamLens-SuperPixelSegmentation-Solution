@@ -96,4 +96,7 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
   typedef itk::Image<itk::CovariantVector<unsigned char, 3>, 2> RGBImageType;
 
   RGBImageType::Pointer output = RGBImageType::New();
-  output->SetRegions(input->G
+  output->SetRegions(input->GetLargestPossibleRegion());
+  output->Allocate();
+
+  itk::ImageRegionConstIterator<TImage> inputIterator(
