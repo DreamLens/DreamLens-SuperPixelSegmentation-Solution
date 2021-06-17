@@ -99,4 +99,5 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
   output->SetRegions(input->GetLargestPossibleRegion());
   output->Allocate();
 
-  itk::ImageRegionConstIterator<TImage> inputIterator(
+  itk::ImageRegionConstIterator<TImage> inputIterator(input, input->GetLargestPossibleRegion());
+  itk::ImageRegionIterator<RGBImageType> outputIterator(output,
