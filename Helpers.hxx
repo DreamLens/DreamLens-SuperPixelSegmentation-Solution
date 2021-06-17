@@ -100,4 +100,8 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
   output->Allocate();
 
   itk::ImageRegionConstIterator<TImage> inputIterator(input, input->GetLargestPossibleRegion());
-  itk::ImageRegionIterator<RGBImageType> outputIterator(output,
+  itk::ImageRegionIterator<RGBImageType> outputIterator(output, output->GetLargestPossibleRegion());
+
+  while(!inputIterator.IsAtEnd())
+    {
+    itk::CovariantVector
