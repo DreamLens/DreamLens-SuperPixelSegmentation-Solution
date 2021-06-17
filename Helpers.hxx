@@ -91,4 +91,6 @@ void WriteImage(const TImage* image, const std::string& filename)
 
 
 template<typename TImage>
-void WriteRGB
+void WriteRGBImage(const TImage* input, const std::string& filename)
+{
+  typedef itk::Image<itk::CovariantVector<unsigned char, 3>,
