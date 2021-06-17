@@ -104,4 +104,7 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
 
   while(!inputIterator.IsAtEnd())
     {
-    itk::CovariantVector
+    itk::CovariantVector<unsigned char, 3> pixel;
+    for(unsigned int i = 0; i < 3; ++i)
+      {
+      pixel[i] = inputIterator.Get()[i];
