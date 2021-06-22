@@ -108,3 +108,10 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
     for(unsigned int i = 0; i < 3; ++i)
       {
       pixel[i] = inputIterator.Get()[i];
+      }
+    outputIterator.Set(pixel);
+    ++inputIterator;
+    ++outputIterator;
+    }
+
+  typename itk::I
