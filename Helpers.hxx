@@ -125,4 +125,5 @@ template<typename TImage>
 void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>& region, const std::string& filename)
 {
   //std::cout << "WriteRegion() " << filename << std::endl;
-  //std::cout << "region " << regi
+  //std::cout << "region " << region << std::endl;
+  typedef itk::RegionOfInterestImageFilter<TImage, TImage> RegionOfInterestI
