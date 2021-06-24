@@ -115,4 +115,11 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
     }
 
   typename itk::ImageFileWriter<RGBImageType>::Pointer writer = itk::ImageFileWriter<RGBImageType>::New();
-  writer->SetFi
+  writer->SetFileName(filename);
+  writer->SetInput(output);
+  writer->Update();
+
+}
+
+template<typename TImage>
+void W
