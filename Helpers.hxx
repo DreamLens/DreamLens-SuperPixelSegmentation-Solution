@@ -126,4 +126,6 @@ void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>
 {
   //std::cout << "WriteRegion() " << filename << std::endl;
   //std::cout << "region " << region << std::endl;
-  typedef itk::RegionOfInterestImageFilter<TImage, TImage> RegionOfInterestI
+  typedef itk::RegionOfInterestImageFilter<TImage, TImage> RegionOfInterestImageFilterType;
+
+  typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionO
