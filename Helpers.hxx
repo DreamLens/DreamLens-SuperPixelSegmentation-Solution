@@ -122,4 +122,4 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
 }
 
 template<typename TImage>
-void W
+void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>& region, const std::strin
