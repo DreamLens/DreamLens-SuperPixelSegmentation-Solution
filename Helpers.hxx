@@ -114,4 +114,5 @@ void WriteRGBImage(const TImage* input, const std::string& filename)
     ++outputIterator;
     }
 
-  typename itk::I
+  typename itk::ImageFileWriter<RGBImageType>::Pointer writer = itk::ImageFileWriter<RGBImageType>::New();
+  writer->SetFi
