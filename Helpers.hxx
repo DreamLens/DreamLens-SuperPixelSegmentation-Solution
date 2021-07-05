@@ -130,4 +130,7 @@ void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>
 
   typename RegionOfInterestImageFilterType::Pointer regionOfInterestImageFilter = RegionOfInterestImageFilterType::New();
   regionOfInterestImageFilter->SetRegionOfInterest(region);
-  regionOfInteres
+  regionOfInterestImageFilter->SetInput(image);
+  regionOfInterestImageFilter->Update();
+
+  //std::cout << "regionOfI
