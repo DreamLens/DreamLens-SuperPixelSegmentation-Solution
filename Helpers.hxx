@@ -134,3 +134,5 @@ void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>
   regionOfInterestImageFilter->Update();
 
   //std::cout << "regionOfInterestImageFilter " << regionOfInterestImageFilter->GetOutput()->GetLargestPossibleRegion() << std::endl;
+  
+  typename itk::ImageFileWriter<TImage>::Pointer writer = itk::ImageFileWriter<TImage
