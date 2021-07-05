@@ -133,4 +133,4 @@ void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>
   regionOfInterestImageFilter->SetInput(image);
   regionOfInterestImageFilter->Update();
 
-  //std::cout << "regionOfI
+  //std::cout << "regionOfInterestImageFilter " << regionOfInterestImageFilter->GetOutput()->GetLargestPossibleRegion() << std::endl;
