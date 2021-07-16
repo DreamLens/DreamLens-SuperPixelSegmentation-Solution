@@ -142,4 +142,9 @@ void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>
 }
 
 template<typename TImage>
-void RelabelSequential(typename TImage::Pointer input, typename TImage::
+void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer output)
+{
+  output->SetRegions(input->GetLargestPossibleRegion());
+  output->Allocate();
+
+  // Keep only unique
