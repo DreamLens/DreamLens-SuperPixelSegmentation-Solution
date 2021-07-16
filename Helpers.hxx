@@ -138,4 +138,8 @@ void WriteRegion(const typename TImage::Pointer image, const itk::ImageRegion<2>
   typename itk::ImageFileWriter<TImage>::Pointer writer = itk::ImageFileWriter<TImage>::New();
   writer->SetFileName(filename);
   writer->SetInput(regionOfInterestImageFilter->GetOutput());
-  writer->
+  writer->Update();
+}
+
+template<typename TImage>
+void RelabelSequential(typename TImage::Pointer input, typename TImage::
