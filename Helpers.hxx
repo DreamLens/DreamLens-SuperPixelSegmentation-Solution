@@ -147,4 +147,6 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
   output->SetRegions(input->GetLargestPossibleRegion());
   output->Allocate();
 
-  // Keep only unique
+  // Keep only unique label ids
+  std::set<typename TImage::PixelType> uniqueLabels;
+  itk::ImageRegionConstIterator<TImage> i
