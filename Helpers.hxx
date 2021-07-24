@@ -153,4 +153,8 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
 
   while(!imageIterator.IsAtEnd())
     {
-   
+    uniqueLabels.insert(imageIterator.Get());
+    ++imageIterator;
+    }
+
+  // Copy the set into a v
