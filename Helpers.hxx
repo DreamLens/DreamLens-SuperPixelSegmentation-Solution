@@ -159,4 +159,9 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
 
   // Copy the set into a vector to induce an ordering
   std::vector<typename TImage::PixelType> sequentialLabels;
-  for(typename std::set<typename TImage::PixelType>::iterator iterator = uniqueLabels.begin(); iterator != uniqueLa
+  for(typename std::set<typename TImage::PixelType>::iterator iterator = uniqueLabels.begin(); iterator != uniqueLabels.end(); iterator++)
+    {
+    sequentialLabels.push_back(*iterator);
+    }
+
+  std::map <typename TImage::Pixel
