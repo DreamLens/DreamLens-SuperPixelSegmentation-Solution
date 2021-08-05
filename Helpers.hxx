@@ -165,4 +165,9 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
     }
 
   std::map <typename TImage::PixelType, typename TImage::PixelType> labelMap;
-  for(unsigned int i = 0; i < sequentialLabels.size(
+  for(unsigned int i = 0; i < sequentialLabels.size(); ++i)
+    {
+    labelMap[sequentialLabels[i]] = i;
+    }
+
+  // Set old values to new sequentia
