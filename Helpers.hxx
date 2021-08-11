@@ -170,4 +170,5 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
     labelMap[sequentialLabels[i]] = i;
     }
 
-  // Set old values to new sequentia
+  // Set old values to new sequential labels
+  itk::ImageRegionIterator<TImage> outputIterator(output, output->GetLargest
