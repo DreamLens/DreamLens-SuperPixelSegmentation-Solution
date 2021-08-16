@@ -171,4 +171,8 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
     }
 
   // Set old values to new sequential labels
-  itk::ImageRegionIterator<TImage> outputIterator(output, output->GetLargest
+  itk::ImageRegionIterator<TImage> outputIterator(output, output->GetLargestPossibleRegion());
+
+  while(!outputIterator.IsAtEnd())
+    {
+    // We check the input image because if we
