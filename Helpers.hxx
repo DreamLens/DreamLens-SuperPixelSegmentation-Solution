@@ -175,4 +175,4 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
 
   while(!outputIterator.IsAtEnd())
     {
-    // We check the input image because if we
+    // We check the input image because if we change pixels in the output image and then search it later, we could accidentiall
