@@ -178,4 +178,10 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
     // We check the input image because if we change pixels in the output image and then search it later, we could accidentially write incorrect values.
     outputIterator.Set(labelMap[input->GetPixel(outputIterator.GetIndex())]);
 
-    ++outputIterator
+    ++outputIterator;
+    }
+
+}
+
+template<typename TImage>
+unsigned int CountPixelsWithValue(const TImage* image, typenam
