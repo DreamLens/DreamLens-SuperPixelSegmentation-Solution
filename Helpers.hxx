@@ -184,4 +184,6 @@ void RelabelSequential(typename TImage::Pointer input, typename TImage::Pointer 
 }
 
 template<typename TImage>
-unsigned int CountPixelsWithValue(const TImage* image, typenam
+unsigned int CountPixelsWithValue(const TImage* image, typename TImage::PixelType value)
+{
+  itk::ImageRegionConstIterator<TImage> imageIterator(image, image->GetLa
