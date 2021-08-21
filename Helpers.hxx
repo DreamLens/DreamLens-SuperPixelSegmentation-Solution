@@ -200,4 +200,7 @@ unsigned int CountPixelsWithValue(const TImage* image, typename TImage::PixelTyp
   return counter;
 }
 
-tem
+template <class TImage>
+typename TImage::PixelType MaxValue(const TImage* image)
+{
+  typedef typename itk::MinimumMaximum
