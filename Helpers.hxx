@@ -191,4 +191,13 @@ unsigned int CountPixelsWithValue(const TImage* image, typename TImage::PixelTyp
   unsigned int counter = 0;
   while(!imageIterator.IsAtEnd())
     {
-    if
+    if(image->Get() == value)
+      {
+      counter++;
+      }
+    ++imageIterator;
+    }
+  return counter;
+}
+
+tem
