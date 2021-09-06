@@ -203,4 +203,7 @@ unsigned int CountPixelsWithValue(const TImage* image, typename TImage::PixelTyp
 template <class TImage>
 typename TImage::PixelType MaxValue(const TImage* image)
 {
-  typedef typename itk::MinimumMaximum
+  typedef typename itk::MinimumMaximumImageCalculator<TImage>
+          ImageCalculatorFilterType;
+
+  typename ImageCalculatorFilte
