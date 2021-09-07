@@ -206,4 +206,6 @@ typename TImage::PixelType MaxValue(const TImage* image)
   typedef typename itk::MinimumMaximumImageCalculator<TImage>
           ImageCalculatorFilterType;
 
-  typename ImageCalculatorFilte
+  typename ImageCalculatorFilterType::Pointer imageCalculatorFilter
+          = ImageCalculatorFilterType::New ();
+  imageCalculator
