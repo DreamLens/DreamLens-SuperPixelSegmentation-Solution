@@ -208,4 +208,7 @@ typename TImage::PixelType MaxValue(const TImage* image)
 
   typename ImageCalculatorFilterType::Pointer imageCalculatorFilter
           = ImageCalculatorFilterType::New ();
-  imageCalculator
+  imageCalculatorFilter->SetImage(image);
+  imageCalculatorFilter->Compute();
+
+  return imageCalculatorFilter->GetMaxi
