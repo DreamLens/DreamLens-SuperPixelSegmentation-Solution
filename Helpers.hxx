@@ -211,4 +211,9 @@ typename TImage::PixelType MaxValue(const TImage* image)
   imageCalculatorFilter->SetImage(image);
   imageCalculatorFilter->Compute();
 
-  return imageCalculatorFilter->GetMaxi
+  return imageCalculatorFilter->GetMaximum();
+}
+
+
+template<typename TVectorImage>
+void BilateralAllChannels(const TVectorImage* image, TVectorImage* out
