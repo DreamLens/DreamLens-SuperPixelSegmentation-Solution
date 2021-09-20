@@ -221,4 +221,5 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
   typedef itk::Image<typename TVectorImage::InternalPixelType, 2> ScalarImageType;
   
   // Disassembler
-  typedef itk::VectorIndexSelectionCastIm
+  typedef itk::VectorIndexSelectionCastImageFilter<TVectorImage, ScalarImageType> IndexSelectionType;
+  typename IndexSelectionType::Pointer indexSelectionFil
