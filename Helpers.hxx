@@ -218,4 +218,7 @@ typename TImage::PixelType MaxValue(const TImage* image)
 template<typename TVectorImage>
 void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const float domainSigma, const float rangeSigma)
 {
-  typedef itk::Image<typename TVectorImag
+  typedef itk::Image<typename TVectorImage::InternalPixelType, 2> ScalarImageType;
+  
+  // Disassembler
+  typedef itk::VectorIndexSelectionCastIm
