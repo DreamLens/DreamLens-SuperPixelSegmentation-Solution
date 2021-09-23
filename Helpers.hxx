@@ -226,4 +226,5 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
   indexSelectionFilter->SetInput(image);
   
   // Reassembler
-  typedef itk::Co
+  typedef itk::ComposeImageFilter<ScalarImageType, TVectorImage> ImageToVectorImageFilterType;
+  typename ImageToVectorIma
