@@ -227,4 +227,6 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
   
   // Reassembler
   typedef itk::ComposeImageFilter<ScalarImageType, TVectorImage> ImageToVectorImageFilterType;
-  typename ImageToVectorIma
+  typename ImageToVectorImageFilterType::Pointer imageToVectorImageFilter = ImageToVectorImageFilterType::New();
+  
+  std::vector< 
