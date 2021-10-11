@@ -229,4 +229,6 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
   typedef itk::ComposeImageFilter<ScalarImageType, TVectorImage> ImageToVectorImageFilterType;
   typename ImageToVectorImageFilterType::Pointer imageToVectorImageFilter = ImageToVectorImageFilterType::New();
   
-  std::vector< 
+  std::vector< typename ScalarImageType::Pointer > filteredImages;
+  
+  for(unsigned int i = 0; i < image->GetNumberOfComponentsPerPix
