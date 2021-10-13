@@ -231,4 +231,9 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
   
   std::vector< typename ScalarImageType::Pointer > filteredImages;
   
-  for(unsigned int i = 0; i < image->GetNumberOfComponentsPerPix
+  for(unsigned int i = 0; i < image->GetNumberOfComponentsPerPixel(); ++i)
+    {
+    indexSelectionFilter->SetIndex(i);
+    indexSelectionFilter->Update();
+  
+    typenam
