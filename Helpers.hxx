@@ -236,4 +236,5 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
     indexSelectionFilter->SetIndex(i);
     indexSelectionFilter->Update();
   
-    typenam
+    typename ScalarImageType::Pointer imageChannel = ScalarImageType::New();
+    DeepCopy<ScalarImageType>(indexSelectionFilter-
