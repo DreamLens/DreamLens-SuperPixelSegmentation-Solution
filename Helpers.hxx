@@ -259,4 +259,6 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
 }
 
 template <typename TImage, typename TLabelImage>
-void ColorLabe
+void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImage, TImage* output)
+{
+  output->SetRegions(
