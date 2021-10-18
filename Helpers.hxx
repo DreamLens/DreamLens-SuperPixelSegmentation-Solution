@@ -239,4 +239,5 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
     typename ScalarImageType::Pointer imageChannel = ScalarImageType::New();
     DeepCopy<ScalarImageType>(indexSelectionFilter->GetOutput(), imageChannel);
   
-    typedef itk::BilateralImageFilter<ScalarImageType, ScalarI
+    typedef itk::BilateralImageFilter<ScalarImageType, ScalarImageType>  BilateralFilterType;
+    typename BilateralFilterType::Pointer bilateralFilter = Bila
