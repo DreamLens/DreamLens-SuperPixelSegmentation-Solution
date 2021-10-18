@@ -244,4 +244,7 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
     bilateralFilter->SetInput(imageChannel);
     bilateralFilter->SetDomainSigma(domainSigma);
     bilateralFilter->SetRangeSigma(rangeSigma);
-    bilateralFilter->Updat
+    bilateralFilter->Update();
+    
+    typename ScalarImageType::Pointer blurred = ScalarImageType::New();
+    DeepCopy<ScalarI
