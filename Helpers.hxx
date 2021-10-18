@@ -242,4 +242,6 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
     typedef itk::BilateralImageFilter<ScalarImageType, ScalarImageType>  BilateralFilterType;
     typename BilateralFilterType::Pointer bilateralFilter = BilateralFilterType::New();
     bilateralFilter->SetInput(imageChannel);
-    bilateralFilter->SetDo
+    bilateralFilter->SetDomainSigma(domainSigma);
+    bilateralFilter->SetRangeSigma(rangeSigma);
+    bilateralFilter->Updat
