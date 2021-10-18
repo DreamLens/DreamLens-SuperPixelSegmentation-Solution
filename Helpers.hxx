@@ -247,4 +247,7 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
     bilateralFilter->Update();
     
     typename ScalarImageType::Pointer blurred = ScalarImageType::New();
-    DeepCopy<ScalarI
+    DeepCopy<ScalarImageType>(bilateralFilter->GetOutput(), blurred);
+    
+    filteredImages.push_back(blurred);
+    imageToVectorImag
