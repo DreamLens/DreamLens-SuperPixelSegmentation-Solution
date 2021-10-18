@@ -255,4 +255,8 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
 
   imageToVectorImageFilter->Update();
  
-  DeepCopy<TVectorI
+  DeepCopy<TVectorImage>(imageToVectorImageFilter->GetOutput(), output);
+}
+
+template <typename TImage, typename TLabelImage>
+void ColorLabe
