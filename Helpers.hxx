@@ -250,4 +250,9 @@ void BilateralAllChannels(const TVectorImage* image, TVectorImage* output, const
     DeepCopy<ScalarImageType>(bilateralFilter->GetOutput(), blurred);
     
     filteredImages.push_back(blurred);
-    imageToVectorImag
+    imageToVectorImageFilter->SetInput(i, filteredImages[i]);
+    }
+
+  imageToVectorImageFilter->Update();
+ 
+  DeepCopy<TVectorI
