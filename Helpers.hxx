@@ -262,4 +262,8 @@ template <typename TImage, typename TLabelImage>
 void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImage, TImage* output)
 {
   output->SetRegions(labelImage->GetLargestPossibleRegion());
-  output->SetNumberOfComponentsPerPixel(image->GetNumberOfCom
+  output->SetNumberOfComponentsPerPixel(image->GetNumberOfComponentsPerPixel());
+  output->Allocate();
+
+  // Determine how many labels there are
+  unsigne
