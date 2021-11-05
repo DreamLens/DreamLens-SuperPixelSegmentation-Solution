@@ -266,4 +266,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   output->Allocate();
 
   // Determine how many labels there are
-  unsigne
+  unsigned int maxLabel = Helpers::MaxValue<TLabelImage>(labelImage);
+
+//   typedef itk::Vector<float, 
