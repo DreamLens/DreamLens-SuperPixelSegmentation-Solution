@@ -284,4 +284,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   
   //std::cout << "Coloring label " << labelId << std::endl;
   FloatPixelType floatColor;
-  floatColor.SetSize(image->GetNumberOfComponentsPerP
+  floatColor.SetSize(image->GetNumberOfComponentsPerPixel());
+  floatColor.Fill(0);
+  itk::ImageRegionConstIterator<TLabelImage> labelIterator(labelImage, label
