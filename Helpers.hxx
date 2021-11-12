@@ -282,4 +282,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   std::vector<FloatPixelType> segmentFloatColors(maxLabel + 1, zeroFloatPixel); // +1 because Labels start at 0
   std::vector<unsigned int> labelCount(maxLabel + 1, 0); // +1 because Labels start at 0
   
-  //std::cout << "Coloring label " << l
+  //std::cout << "Coloring label " << labelId << std::endl;
+  FloatPixelType floatColor;
+  floatColor.SetSize(image->GetNumberOfComponentsPerP
