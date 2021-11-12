@@ -279,4 +279,5 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   zeroFloatPixel.Fill(0);
   
   // We have to use float pixels or we would cause overflows while summing
-  std::vector<FloatPixelType> 
+  std::vector<FloatPixelType> segmentFloatColors(maxLabel + 1, zeroFloatPixel); // +1 because Labels start at 0
+  std::vector<unsigned int> 
