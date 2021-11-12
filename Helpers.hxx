@@ -269,4 +269,8 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   unsigned int maxLabel = Helpers::MaxValue<TLabelImage>(labelImage);
 
 //   typedef itk::Vector<float, 3> FloatPixelType; // This should really be based on the input image pixel dimension
-//   FloatPixelTyp
+//   FloatPixelType zeroFloatPixel;
+//   //zeroFloatPixel.SetSize(3);
+//   zeroFloatPixel.Fill(0);
+  
+  typedef itk:
