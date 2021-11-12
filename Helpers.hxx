@@ -273,4 +273,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
 //   //zeroFloatPixel.SetSize(3);
 //   zeroFloatPixel.Fill(0);
   
-  typedef itk:
+  typedef itk::VariableLengthVector<float> FloatPixelType;
+  FloatPixelType zeroFloatPixel;
+  zeroFloatPixel.S
