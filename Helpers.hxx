@@ -278,4 +278,5 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   zeroFloatPixel.SetSize(image->GetNumberOfComponentsPerPixel());
   zeroFloatPixel.Fill(0);
   
-  
+  // We have to use float pixels or we would cause overflows while summing
+  std::vector<FloatPixelType> 
