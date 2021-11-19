@@ -290,4 +290,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   
   while(!labelIterator.IsAtEnd())
     {
-    labelCount[labelI
+    labelCount[labelIterator.Get()]++;
+    floatColor[0] = image->GetPixel(labelIterator.GetIndex())[0];
+    floatColor[1
