@@ -300,4 +300,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
     } // end while
     
   typename TImage::PixelType zeroPixel;
-  zeroPixel.SetSize(im
+  zeroPixel.SetSize(image->GetNumberOfComponentsPerPixel());
+  zeroPixel.Fill(0);
+  std::vector<typename TImage::PixelType
