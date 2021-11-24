@@ -302,4 +302,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   typename TImage::PixelType zeroPixel;
   zeroPixel.SetSize(image->GetNumberOfComponentsPerPixel());
   zeroPixel.Fill(0);
-  std::vector<typename TImage::PixelType
+  std::vector<typename TImage::PixelType> segmentColors(maxLabel + 1, zeroPixel); // +1 because Labels start at 0
+  
+  typename TImage::PixelTyp
