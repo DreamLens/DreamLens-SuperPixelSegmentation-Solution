@@ -310,4 +310,6 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
   
   for(unsigned int i = 0; i < segmentColors.size(); ++i)
     {
-    colorPixel[0] = segmentFloatColors[i][0]/static_cast<float>(labelC
+    colorPixel[0] = segmentFloatColors[i][0]/static_cast<float>(labelCount[i]);
+    colorPixel[1] = segmentFloatColors[i][1]/static_cast<float>(labelCount[i]);
+    colorPix
