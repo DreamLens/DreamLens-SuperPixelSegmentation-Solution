@@ -314,4 +314,7 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
     colorPixel[1] = segmentFloatColors[i][1]/static_cast<float>(labelCount[i]);
     colorPixel[2] = segmentFloatColors[i][2]/static_cast<float>(labelCount[i]);
 
-    segmentColors[i] = c
+    segmentColors[i] = colorPixel;
+    }
+
+  itk::ImageRegionConstIterator<TLabelImage> colorIterator(labelImage, labelImage->GetLargestPo
