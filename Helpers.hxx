@@ -327,4 +327,4 @@ void ColorLabelsByAverageColor(const TImage* image, const TLabelImage* labelImag
     } // end while
 }
 
-} // end
+} // end namespace
