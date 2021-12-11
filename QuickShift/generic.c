@@ -310,3 +310,117 @@ GNU GPLv2, or (at your option) any later version.
   VLFeat uses the macros ::VL_PRINT and ::VL_PRINTF to print progress
   or debug informations. These functions are normally mapped to the @c
   printf function of the underlying standard C library. However
+  ::vl_set_printf_func can be used to map it to a different
+  implementation. For instance, in MATLAB MEX files this function is
+  mapped to @c mexPrintf. Setting the function to @c NULL disables
+  logging.
+
+  @section generic-time Measuring time
+
+  VLFeat provides ::vl_tic and ::vl_toc as an easy way of measuring
+  elapsed time.
+
+**/
+
+#include "generic.h"
+
+#include <assert.h>
+#include <stdlib.h>
+#include <stdio.h>
+#include <stdarg.h>
+#include <math.h>
+
+#if defined(VL_OS_WIN)
+#include <Windows.h>
+#elif defined(_POSIX_THREADS)
+#include <pthread.h>
+#endif
+
+#if defined(VL_OS_MACOSX) || defined(VL_OS_LINUX)
+#include <unistd.h>
+#endif
+
+/** ------------------------------------------------------------------
+ ** @brief Get version string
+ ** @return library version string
+ **/
+
+VL_EXPORT char const *
+vl_get_version_string ()
+{
+  return VL_VERSION_STRING ;
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Human readable library configuration
+ ** @return a new string with the library configuration.
+ **
+ ** The function returns a new string with a human readable
+ ** rendition of the library configuration.
+ **/
+
+VL_EXPORT char *
+vl_configuration_to_string_copy ()
+{
+  char * string = 0 ;
+  int length = 0 ;
+  char * staticString = vl_static_configuration_to_string_copy() ;
+  char * cpuString =
+#if defined(VL_ARCH_IX86) || defined(VL_ARCH_X64) || defined(VL_ARCH_IA64)
+  _vl_x86cpu_info_to_string_copy(&vl_get_state()->cpuInfo) ;
+#else
+  "Generic CPU" ;
+#endif
+
+  while (string == 0) {
+    if (length > 0) {
+      string = vl_malloc(sizeof(char) * length) ;
+      if (string == NULL) break ;
+    }
+    length = snprintf(string, length,
+                      "VLFeat version %s\n"
+                      "    Static config: %s\n"
+                      "    %d CPU(s): %s\n",
+                      vl_get_version_string (),
+                      staticString,
+                      vl_get_num_cpus(), cpuString) ;
+    length += 1 ;
+  }
+
+  if (staticString) vl_free(staticString) ;
+  if (cpuString) vl_free(cpuString) ;
+  return string ;
+}
+
+/** @internal @brief A printf that does not do anything */
+static int
+do_nothing_printf (char const* format VL_UNUSED, ...)
+{
+  return 0 ;
+}
+
+/** --------------------------------------------------------------- */
+
+VlState _vl_state ;
+
+/** ------------------------------------------------------------------
+ ** @internal @brief Lock VLFeat state
+ **
+ ** The function locks VLFeat global state mutex.
+ **
+ ** The mutex is recursive: locking multiple times from the same thread
+ ** is a valid operations, but requires an equivalent number
+ ** of calls to ::vl_unlock_state.
+ **
+ ** @sa ::vl_unlock_state
+ **/
+
+VL_EXPORT void
+vl_lock_state ()
+{
+#if ! defined(VL_DISABLE_THREADS)
+#if   defined(VL_THREADS_POSIX)
+  VlState * state = vl_get_state () ;
+  pthread_t thisThread = pthread_self () ;
+  pthread_mutex_lock (&state->mutex) ;
+  if (state->mutexCount >= 1 &&
