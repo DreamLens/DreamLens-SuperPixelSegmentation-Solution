@@ -424,3 +424,105 @@ vl_lock_state ()
   pthread_t thisThread = pthread_self () ;
   pthread_mutex_lock (&state->mutex) ;
   if (state->mutexCount >= 1 &&
+      pthread_equal (state->mutexOwner, thisThread)) {
+    state->mutexCount ++ ;
+  } else {
+    while (state->mutexCount >= 1) {
+      pthread_cond_wait (&state->mutexCondition, &state->mutex) ;
+    }
+    state->mutexOwner = thisThread ;
+    state->mutexCount = 1 ;
+  }
+  pthread_mutex_unlock (&state->mutex) ;
+#elif defined(VL_THREADS_WIN)
+  EnterCriticalSection (&vl_get_state()->mutex) ;
+#endif
+#endif
+}
+
+/** ------------------------------------------------------------------
+ ** @internal @brief Unlock VLFeat state
+ **
+ ** The function unlocks VLFeat global state mutex.
+ **
+ ** @sa ::vl_lock_state
+ **/
+
+VL_EXPORT void
+vl_unlock_state ()
+{
+#if ! defined(VL_DISABLE_THREADS)
+#if   defined(VL_THREADS_POSIX)
+  VlState * state = vl_get_state () ;
+  pthread_mutex_lock (&state->mutex) ;
+  -- state->mutexCount ;
+  if (state->mutexCount == 0) {
+    pthread_cond_signal (&state->mutexCondition) ;
+  }
+  pthread_mutex_unlock (&state->mutex) ;
+#elif defined(VL_THREADS_WIN)
+  LeaveCriticalSection (&vl_get_state()->mutex) ;
+#endif
+#endif
+}
+
+/** @internal @fn ::vl_get_state()
+ ** @brief Return VLFeat global state
+ **
+ ** The function returns a pointer to VLFeat global state.
+ **
+ ** @return pointer to the global state structure.
+ **/
+
+/** @internal @fn ::vl_get_thread_specific_state()
+ ** @brief Get VLFeat thread state
+ **
+ ** The function returns a pointer to VLFeat thread state.
+ **
+ ** @return pointer to the thread state structure.
+ **/
+
+/** @fn ::vl_malloc(size_t)
+ ** @brief Call customizable @c malloc function
+ ** @param n number of bytes to allocate.
+ **
+ ** The function calls the user customizable @c malloc.
+ **
+ ** @return result of @c malloc
+ **/
+
+/** @fn ::vl_realloc(void*,size_t)
+ ** @brief Call customizable @c resize function
+ **
+ ** @param ptr buffer to reallocate.
+ ** @param n   number of bytes to allocate.
+ **
+ ** The function calls the user-customizable @c realloc.
+ **
+ ** @return result of the user-customizable @c realloc.
+ **/
+
+/** @fn ::vl_calloc(size_t,size_t)
+ ** @brief Call customizable @c calloc function
+ **
+ ** @param n    size of each element in byte.
+ ** @param size size of the array to allocate (number of elements).
+ **
+ ** The function calls the user-customizable @c calloc.
+ **
+ ** @return result of the user-customizable @c calloc.
+ **/
+
+/** @fn ::vl_free(void*)
+ ** @brief Call customizable @c free function
+ **
+ ** @param ptr buffer to free.
+ **
+ ** The function calls the user customizable @c free.
+ **/
+
+/** @fn ::vl_get_last_error()
+ ** @brief Get VLFeat last error code
+ **
+ ** The function returns the code of the last error generated
+ ** by VLFeat.
