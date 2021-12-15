@@ -640,3 +640,110 @@ vl_set_printf_func (printf_func_t printf_func)
  ** @brief Get processor time
  ** @return processor time.
  ** @sa ::vl_tic, ::vl_toc
+ **/
+
+VL_EXPORT double
+vl_get_cpu_time ()
+{
+  #ifdef VL_OS_WIN
+  VlThreadSpecificState * threadState = vl_get_thread_specific_state() ;
+  LARGE_INTEGER mark ;
+  QueryPerformanceCounter (&mark) ;
+  return (double)mark.QuadPart / (double)threadState->ticFreq.QuadPart ;
+#else
+  return (double)clock() / (double)CLOCKS_PER_SEC ;
+#endif
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Reset processor time reference
+ ** The function resets VLFeat TIC/TOC time reference.
+ ** @sa ::vl_get_cpu_time, ::vl_toc.
+ **/
+
+VL_EXPORT void
+vl_tic ()
+{
+  VlThreadSpecificState * threadState = vl_get_thread_specific_state() ;
+#ifdef VL_OS_WIN
+  QueryPerformanceCounter (&threadState->ticMark) ;
+#else
+  threadState->ticMark = clock() ;
+#endif
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Get elapsed time since tic
+ **
+ ** The function
+ ** returns the processor time elapsed since ::vl_tic was called last.
+ **
+ ** @remark In multi-threaded applications, there is an independent
+ ** timer for each execution thread.
+ **
+ ** @remark On UNIX, this function uses the @c clock() system call.
+ ** On Windows, it uses the @c QueryPerformanceCounter() system call,
+ ** which is more accurate than @c clock() on this platform.
+ **
+ ** @return elapsed time in seconds.
+ **/
+
+VL_EXPORT double
+vl_toc ()
+{
+  VlThreadSpecificState * threadState = vl_get_thread_specific_state() ;
+#ifdef VL_OS_WIN
+  LARGE_INTEGER tocMark ;
+  QueryPerformanceCounter(&tocMark) ;
+  return (double) (tocMark.QuadPart - threadState->ticMark.QuadPart) /
+    threadState->ticFreq.QuadPart ;
+#else
+  return (double) (clock() - threadState->ticMark) / CLOCKS_PER_SEC ;
+#endif
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Get the random number generator for this thread
+ ** @return random number generator.
+ **
+ ** The function returns a pointer to the random number genrator
+ ** for this thread.
+ **/
+
+VL_EXPORT VlRand *
+vl_get_rand ()
+{
+  return &vl_get_thread_specific_state()->rand ;
+}
+
+/* -------------------------------------------------------------------
+ *                       Library construction and destruction routines
+ *  --------------------------------------------------------------- */
+
+VL_EXPORT VlThreadSpecificState *
+vl_thread_specific_state_new ()
+{
+  VlThreadSpecificState * self ;
+#if defined(DEBUG)
+  printf("VLFeat thread constructor called\n") ;
+#endif
+  self = malloc(sizeof(VlThreadSpecificState)) ;
+  self->lastError = 0 ;
+  self->lastErrorMessage[0] = 0 ;
+#if defined(VL_OS_WIN)
+  QueryPerformanceFrequency (&self->ticFreq) ;
+  self->ticMark.QuadPart = 0 ;
+#else
+  self->ticMark = 0 ;
+#endif
+  vl_rand_init (&self->rand) ;
+
+  return self ;
+}
+
+VL_EXPORT void
+vl_thread_specific_state_delete (VlThreadSpecificState * self)
+{
+#if defined(DEBUG)
+  printf("VLFeat thread destructor called\n") ;
+#endif
