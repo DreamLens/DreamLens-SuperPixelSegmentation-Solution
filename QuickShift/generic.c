@@ -747,3 +747,114 @@ vl_thread_specific_state_delete (VlThreadSpecificState * self)
 #if defined(DEBUG)
   printf("VLFeat thread destructor called\n") ;
 #endif
+  free (self) ;
+}
+
+#if (defined(VL_OS_LINUX) || defined(VL_OS_MACOSX)) && defined(VL_COMPILER_GNUC)
+
+static void vl_constructor () __attribute__ ((constructor)) ;
+static void vl_destructor () __attribute__ ((destructor))  ;
+
+#elif defined(VL_OS_WIN)
+
+static void vl_constructor () ;
+static void vl_destructor () ;
+
+BOOL WINAPI DllMain(
+    HINSTANCE hinstDLL,  // handle to DLL module
+    DWORD fdwReason,     // reason for calling function
+    LPVOID lpReserved )  // reserved
+{
+  VlState * state ;
+  VlThreadSpecificState * threadState ;
+  switch (fdwReason) {
+    case DLL_PROCESS_ATTACH:
+      /* Initialize once for each new process */
+      vl_constructor () ;
+      break ;
+
+    case DLL_THREAD_ATTACH:
+      /* Do thread-specific initialization */
+      break ;
+
+    case DLL_THREAD_DETACH:
+      /* Do thread-specific cleanup */
+#if ! defined(VL_DISABLE_THREADS) && defined(VL_THREADS_WIN)
+      state = vl_get_state() ;
+      threadState = (VlThreadSpecificState*) TlsGetValue(state->tlsIndex) ;
+      if (threadState) {
+        vl_thread_specific_state_delete (threadState) ;
+      }
+#endif
+      break;
+
+    case DLL_PROCESS_DETACH:
+      /* Perform any necessary cleanup */
+      vl_destructor () ;
+      break;
+    }
+    return TRUE ; /* Successful DLL_PROCESS_ATTACH */
+}
+
+#endif
+
+/** @internal @brief Initialize VLFeat */
+static void
+vl_constructor ()
+{
+  VlState * state ;
+#if defined(DEBUG)
+  printf("VLFeat constructor called\n") ;
+#endif
+
+  state = vl_get_state() ;
+
+#if ! defined(VL_DISABLE_THREADS)
+#if   defined(VL_THREADS_POSIX)
+  {
+    typedef void (*destructorType)(void * );
+    pthread_key_create (&state->threadKey,
+                        (destructorType)
+                          vl_thread_specific_state_delete) ;
+    pthread_mutex_init (&state->mutex, NULL) ;
+    pthread_cond_init (&state->mutexCondition, NULL) ;
+  }
+#elif defined(VL_THREADS_WIN)
+  InitializeCriticalSection (&state->mutex) ;
+  state->tlsIndex = TlsAlloc () ;
+#endif
+#else
+  vl_get_state()->threadState = vl_thread_specific_state_new() ;
+#endif
+
+  state->malloc_func  = malloc ;
+  state->realloc_func = realloc ;
+  state->calloc_func  = calloc ;
+  state->free_func    = free ;
+  state->printf_func  = printf ;
+
+#if defined(VL_ARCH_IX86) || defined(VL_ARCH_X64) || defined(VL_ARCH_IA64)
+  _vl_x86cpu_info_init (&state->cpuInfo) ;
+#endif
+
+#if defined(VL_OS_WIN)
+  {
+    SYSTEM_INFO info;
+    GetSystemInfo (&info) ;
+    state->numCPUs = info.dwNumberOfProcessors ;
+  }
+#elif defined(VL_OS_MACOSX) || defined(VL_OS_LINUX)
+  state->numCPUs = sysconf(_SC_NPROCESSORS_ONLN) ;
+#else
+  state->numCPUs = 1 ;
+#endif
+  state->simdEnabled = VL_TRUE ;
+  state->maxNumThreads = 1 ;
+}
+
+/** @internal @brief Destruct VLFeat */
+static void
+vl_destructor ()
+{
+  VlState * state ;
+#if defined(DEBUG)
