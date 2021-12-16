@@ -858,3 +858,51 @@ vl_destructor ()
 {
   VlState * state ;
 #if defined(DEBUG)
+  printf("VLFeat destructor called\n") ;
+#endif
+
+  state = vl_get_state() ;
+
+#if ! defined(VL_DISABLE_THREADS)
+#if   defined(VL_THREADS_POSIX)
+  {
+    /* Delete the thread state of this thread as the
+       destructor is not called by pthread_key_delete or after
+       the key is deleted. When the library
+       is unloaded, this thread should also be the last one
+       using the library, so this is fine.
+     */
+    VlThreadSpecificState * threadState =
+       pthread_getspecific(state->threadKey) ;
+    if (threadState) {
+      vl_thread_specific_state_delete (threadState) ;
+      pthread_setspecific(state->threadKey, NULL) ;
+    }
+  }
+  pthread_cond_destroy (&state->mutexCondition) ;
+  pthread_mutex_destroy (&state->mutex) ;
+  pthread_key_delete (state->threadKey) ;
+#elif defined(VL_THREADS_WIN)
+ {
+    /* Delete the thread state of this thread as the
+       destructor is not called by pthread_key_delete or after
+       the key is deleted. When the library
+       is unloaded, this thread should also be the last one
+       using the library, so this is fine.
+     */
+    VlThreadSpecificState * threadState =
+       TlsGetValue(state->tlsIndex) ;
+    if (threadState) {
+      vl_thread_specific_state_delete (threadState) ;
+      TlsSetValue(state->tlsIndex, NULL) ;
+    }
+  }
+  TlsFree (state->tlsIndex) ;
+  DeleteCriticalSection (&state->mutex) ;
+#endif
+#else
+  vl_thread_specific_state_delete(vl_get_state()->threadState) ;
+#endif
+}
+
+
