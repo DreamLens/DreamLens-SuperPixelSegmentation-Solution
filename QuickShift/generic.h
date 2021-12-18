@@ -173,3 +173,114 @@ VL_INLINE VlThreadSpecificState * vl_get_thread_specific_state () ;
 VL_EXPORT void vl_lock_state () ;
 VL_EXPORT void vl_unlock_state () ;
 VL_EXPORT VlThreadSpecificState * vl_thread_specific_state_new () ;
+VL_EXPORT void vl_thread_specific_state_delete (VlThreadSpecificState * self) ;
+VL_EXPORT char const * vl_get_version_string () ;
+VL_EXPORT char * vl_configuration_to_string_copy () ;
+VL_INLINE void vl_set_simd_enabled (vl_bool x) ;
+VL_INLINE vl_bool vl_get_simd_enabled () ;
+VL_INLINE vl_bool vl_cpu_has_sse3 () ;
+VL_INLINE vl_bool vl_cpu_has_sse2 () ;
+VL_INLINE int vl_get_num_cpus () ;
+VL_EXPORT VlRand * vl_get_rand () ;
+
+/** @} */
+
+/** ------------------------------------------------------------------
+ ** @name Error handling
+ ** @{ */
+
+#define VL_ERR_OK       0  /**< No error */
+#define VL_ERR_OVERFLOW 1  /**< Buffer overflow error */
+#define VL_ERR_ALLOC    2  /**< Resource allocation error */
+#define VL_ERR_BAD_ARG  3  /**< Bad argument or illegal data error */
+#define VL_ERR_IO       4  /**< Input/output error */
+#define VL_ERR_EOF      5  /**< End-of-file or end-of-sequence error */
+#define VL_ERR_NO_MORE  5  /**< End-of-sequence @deprecated */
+
+VL_INLINE int vl_get_last_error () ;
+VL_INLINE char const *  vl_get_last_error_message () ;
+VL_EXPORT int vl_set_last_error (int error, char const * errorMessage, ...) ;
+
+/** @} */
+
+/** ------------------------------------------------------------------
+ ** @name Memory allocation
+ ** @{ */
+
+VL_EXPORT void
+vl_set_alloc_func (void *(*malloc_func)  (size_t),
+                   void *(*realloc_func) (void*,size_t),
+                   void *(*calloc_func)  (size_t, size_t),
+                   void  (*free_func)    (void*)) ;
+VL_INLINE void *vl_malloc  (size_t n) ;
+VL_INLINE void *vl_realloc (void *ptr, size_t n) ;
+VL_INLINE void *vl_calloc  (size_t n, size_t size) ;
+VL_INLINE void  vl_free    (void* ptr) ;
+
+/** @} */
+
+/** ------------------------------------------------------------------
+ ** @name Logging
+ ** @{ */
+
+/** ------------------------------------------------------------------
+ ** @brief Customizable printf function pointer type */
+typedef int(*printf_func_t) (char const *format, ...) ;
+
+/** @brief Set printf function
+ ** @param printf_func  pointer to @c printf.
+ ** Let @c print_func be NULL to disable printf.
+ **/
+VL_EXPORT void vl_set_printf_func (printf_func_t printf_func) ;
+
+/** @def VL_PRINTF
+ ** @brief Call user-customizable @c printf function
+ **
+ ** The function calls the user customizable @c printf.
+ **/
+#define VL_PRINTF (*vl_get_state()->printf_func)
+
+/** @def VL_PRINT
+ ** @brief Same as ::VL_PRINTF (legacy code)
+ **/
+#define VL_PRINT (*vl_get_state()->printf_func)
+
+/** @} */
+
+/** ------------------------------------------------------------------
+ ** @name Common operations
+ ** @{ */
+
+/** @brief Min operation
+ ** @param x value
+ ** @param y value
+ ** @return the minimum of @a x and @a y.
+ **/
+#define VL_MIN(x,y) (((x)<(y))?(x):(y))
+
+/** @brief Max operation
+ ** @param x value.
+ ** @param y value.
+ ** @return the maximum of @a x and @a y.
+ **/
+#define VL_MAX(x,y) (((x)>(y))?(x):(y))
+
+/** @brief Signed left shift operation
+ **
+ ** The macro is equivalent to the builtin @c << operator, but it
+ ** supports negative shifts too.
+ **
+ ** @param x value.
+ ** @param n number of shift positions.
+ ** @return @c x << n .
+ **/
+#define VL_SHIFT_LEFT(x,n) (((n)>=0)?((x)<<(n)):((x)>>-(n)))
+/* @} */
+
+/** ------------------------------------------------------------------
+ ** @name Measuring time
+ ** @{
+ **/
+VL_EXPORT void vl_tic () ;
+VL_EXPORT double vl_toc () ;
+VL_EXPORT double vl_get_cpu_time () ;
