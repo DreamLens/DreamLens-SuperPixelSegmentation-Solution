@@ -284,3 +284,123 @@ VL_EXPORT void vl_set_printf_func (printf_func_t printf_func) ;
 VL_EXPORT void vl_tic () ;
 VL_EXPORT double vl_toc () ;
 VL_EXPORT double vl_get_cpu_time () ;
+/** @} */
+
+/* -------------------------------------------------------------------
+ *                                                    Inline functions
+ * ---------------------------------------------------------------- */
+
+VL_INLINE VlState *
+vl_get_state ()
+{
+  return &_vl_state ;
+}
+
+VL_INLINE VlThreadSpecificState *
+vl_get_thread_specific_state ()
+{
+#ifdef VL_DISABLE_THREADS
+  return vl_get_state()->threadState ;
+#else
+  VlState * state ;
+  VlThreadSpecificState * threadState ;
+
+  vl_lock_state() ;
+  state = vl_get_state() ;
+
+#if defined(VL_THREADS_POSIX)
+  threadState = (VlThreadSpecificState *) pthread_getspecific(state->threadKey) ;
+#elif defined(VL_THREADS_WIN)
+  threadState = (VlThreadSpecificState *) TlsGetValue(state->tlsIndex) ;
+#endif
+
+  if (! threadState) {
+    threadState = vl_thread_specific_state_new () ;
+  }
+
+#if defined(VL_THREADS_POSIX)
+  pthread_setspecific(state->threadKey, threadState) ;
+#elif defined(VL_THREADS_WIN)
+  TlsSetValue(state->tlsIndex, threadState) ;
+#endif
+
+  vl_unlock_state() ;
+  return threadState ;
+#endif
+}
+
+VL_INLINE void
+vl_set_simd_enabled (vl_bool x)
+{
+  vl_get_state()->simdEnabled = x ;
+}
+
+VL_INLINE vl_bool
+vl_get_simd_enabled ()
+{
+  return vl_get_state()->simdEnabled ;
+}
+
+VL_INLINE vl_bool
+vl_cpu_has_sse3 ()
+{
+#if defined(VL_ARCH_IX86) || defined(VL_ARCH_X64) || defined(VL_ARCH_IA64)
+  return vl_get_state()->cpuInfo.hasSSE3 ;
+#else
+  return 0 ;
+#endif
+}
+
+VL_INLINE vl_bool
+vl_cpu_has_sse2 ()
+{
+#if defined(VL_ARCH_IX86) || defined(VL_ARCH_X64) || defined(VL_ARCH_IA64)
+  return vl_get_state()->cpuInfo.hasSSE2 ;
+#else
+  return 0 ;
+#endif
+}
+
+VL_INLINE int
+vl_get_num_cpus ()
+{
+  return vl_get_state()->numCPUs ;
+}
+
+VL_INLINE int
+vl_get_last_error () {
+  return vl_get_thread_specific_state()->lastError ;
+}
+
+VL_INLINE char const *
+vl_get_last_error_message ()
+{
+  return vl_get_thread_specific_state()->lastErrorMessage ;
+}
+
+VL_INLINE void*
+vl_malloc (size_t n)
+{
+  return (vl_get_state()->malloc_func)(n) ;
+}
+
+VL_INLINE void*
+vl_realloc (void* ptr, size_t n)
+{
+  return (vl_get_state()->realloc_func)(ptr, n) ;
+}
+
+VL_INLINE void*
+vl_calloc (size_t n, size_t size)
+{
+  return (vl_get_state()->calloc_func)(n, size) ;
+}
+
+VL_INLINE void
+vl_free (void *ptr)
+{
+  (vl_get_state()->free_func)(ptr) ;
+}
+
+/* VL_GENERIC_H */
+#endif
