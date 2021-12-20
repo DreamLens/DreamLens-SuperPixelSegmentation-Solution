@@ -189,3 +189,121 @@ GNU GPLv2, or (at your option) any later version.
  <td>Unix/GCC</td>
  <td>::VL_INLINE</td>
  <td>static inline</td>
+ </tr>
+ <tr>
+ <td>Win/Visual C++</td>
+ <td>::VL_INLINE</td>
+ <td>static __inline</td>
+ </tr>
+ </table>
+
+ @section host-arch Host CPU architecture
+
+ The module defines a symbol to identify the host CPU architecture:
+ ::VL_ARCH_IX86 for Intel x86, ::VL_ARCH_IA64 for Intel 64, and so on.
+
+ @subsection host-arch-endianness Endianness
+
+ The module defines a symbol to identify the host CPU endianness:
+ ::VL_ARCH_BIG_ENDIAN for big endian and ::VL_ARCH_LITTLE_ENDIAN for
+ little endian. The functions ::vl_swap_host_big_endianness_8(),
+ ::vl_swap_host_big_endianness_4(), ::vl_swap_host_big_endianness_2()
+ to change the endianness of data (from/to host and network order).
+
+ Recall that <em>endianness</em> concerns the way multi-byte data
+ types (such as 16, 32 and 64 bits integers) are stored into the
+ addressable memory.  All CPUs uses a contiguous address range to
+ store atomic data types (e.g. a 16-bit integer could be assigned to
+ the addresses <c>0x10001</c> and <c>0x10002</c>), but the order may
+ differ.
+
+ - The convention is <em>big endian</em>, or in <em>network
+   order</em>, if the most significant byte of the multi-byte data
+   types is assigned to the smaller memory address. This is the
+   convention used for instance by the PPC architecture.
+
+ - The convention is <em>little endian</em> if the least significant
+   byte is assigned to the smaller memory address. This is the
+   convention used for instance by the x86 architecture.
+
+ @remark The names &ldquo;big endian&rdquo; and &ldquo;little
+ endian&rdquo; are a little confusing. &ldquo;Big endian&rdquo; means
+ &ldquo;big endian first&rdquo;, i.e.  the address of the most
+ significant byte comes first. Similarly, &ldquo;little endian&rdquo;
+ means &ldquo;little endian first&rdquo;, in the sense that the
+ address of the least significant byte comes first.
+
+ Endianness is a concern when data is either exchanged with processors
+ that use different conventions, transmitted over a network, or stored
+ to a file. For the latter two cases, one usually saves data in big
+ endian (network) order regardless of the host CPU.
+
+@section Multi-threading host-threads
+
+The file defines #VL_THREADS_WIN if multi-threading support is
+enabled and the host supports Windows threads and #VL_THREADS_POSIX if
+it supports POSIX threads.
+
+ **/
+
+/** @def VL_OS_LINUX
+ ** @brief Defined if the host operating system is Linux.
+ **/
+
+/** @def VL_OS_MACOSX
+ ** @brief Defined if the host operating system is Mac OS X.
+ **/
+
+/** @def VL_OS_WIN
+ ** @brief Defined if the host operating system is Windows (32 or 64)
+ **/
+
+/** @def VL_OS_WIN64
+ ** @brief Defined if the host operating system is Windows-64.
+ **/
+
+/** @def VL_COMPILER_GNUC
+ ** @brief Defined if the host compiler is GNU C.
+ **
+ ** This macro is defined if the compiler is GNUC.
+ ** Its value is calculated as
+ ** @code
+ ** 10000 * MAJOR + 100 * MINOR + PATCHLEVEL
+ ** @endcode
+ ** @see @ref host-compiler
+ **/
+
+/** @def VL_COMPILER_MSC
+ ** @brief Defined if the host compiler is Microsoft Visual C++.
+ ** @see @ref host-compiler
+ **/
+
+/** @def VL_COMPILER_LLP64
+ ** @brief Defined if the host compiler data model is LLP64.
+ ** @see @ref host-compiler-data-model
+ **/
+
+/** @def VL_COMPILER_LP64
+ ** @brief Defined if the host compiler data model is LP64.
+ ** @see @ref host-compiler-data-model
+ **/
+
+/** @def VL_COMPILER_ILP32
+ ** @brief Defined if the host compiler data model is ILP32.
+ ** @see @ref host-compiler-data-model
+ **/
+
+/** @def VL_ARCH_IX86
+ ** @brief Defined if the host CPU is of the Intel x86 family.
+ ** @see @ref host-arch
+ **/
+
+/** @def VL_ARCH_IA64
+ ** @brief Defined if the host CPU is of the Intel Architecture-64 family.
+ ** @see @ref host-arch
+ **/
+
+/** @def VL_ARCH_LITTLE_ENDIAN
+ ** @brief Defined if the host CPU is little endian
+ ** @see @ref host-arch-endianness
+ **/
