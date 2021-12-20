@@ -97,3 +97,95 @@ GNU GPLv2, or (at your option) any later version.
  <td style="background-color:#ffa;">16</td>
  <td>64</td>
  <td>64</td>
+ <td>64</td>
+ <td>64</td>
+ <td>Alpha, Cray</td>
+ </tr>
+ <tr>
+ <td>SLIP64</td>
+ <td>64</td>
+ <td>64</td>
+ <td>64</td>
+ <td>64</td>
+ <td>64</td>
+ <td></td>
+ </tr>
+ <tr>
+ <td>LLP64</td>
+ <td style="background-color:#ffa;">16</td>
+ <td style="background-color:#afa;">32</td>
+ <td style="background-color:#afa;">32</td>
+ <td>64</td>
+ <td>64</td>
+ <td>Windows-64</td>
+ </tr>
+ </table>
+
+ @subsection host-compiler-other Other compiler-specific features
+
+ The module provides the macro ::VL_EXPORT to declare symbols exported
+ from the library and the macro ::VL_INLINE to declare inline
+ functions.  Such features are not part of the C89 standard, and
+ change depending on the compiler.
+
+ @par "Example:"
+ The following header file declares a function @c f that
+ should be visible from outside the library.
+ @code
+ #include <vl/generic.h>
+ VL_EXPORT void f () ;
+ VL_EXPORT int i ;
+ @endcode
+ Notice that the macro ::VL_EXPORT needs not to be included again
+ when the function is defined.
+
+ @par "Example:"
+ The following header file declares an inline function @c f:
+ @code
+ #include <vl/generic.h>
+ VL_INLINE int f() ;
+
+ VL_INLINE int f() { return 1 ; }
+ @endcode
+
+ Here the first instruction defines the function @c f, where the
+ second declares it. Notice that since this is an inline function, its
+ definition must be found in the header file rather than in an
+ implementation file.  Notice also that definition and declaration can
+ be merged.
+
+ These macros translate according to the following tables:
+
+ <table style="font-size:70%;">
+ <caption>Macros for exporting library symbols</caption>
+ <tr>
+ <td>Platform</td>
+ <td>Macro name</td>
+ <td>Value when building the library</td>
+ <td>Value when importing the library</td>
+ </tr>
+ <tr>
+ <td>Unix/GCC</td>
+ <td>::VL_EXPORT</td>
+ <td>empty (assumes <c>-visibility=hidden</c> GCC option)</td>
+ <td><c>__attribute__((visibility ("default")))</c></td>
+ </tr>
+ <tr>
+ <td>Win/Visual C++</td>
+ <td>::VL_EXPORT</td>
+ <td>@c __declspec(dllexport)</td>
+ <td>@c __declspec(dllimport)</td>
+ </tr>
+ </table>
+
+ <table style="font-size:70%;">
+ <caption>Macros for declaring inline functions</caption>
+ <tr>
+ <td>Platform</td>
+ <td>Macro name</td>
+ <td>Value</td>
+ </tr>
+ <tr>
+ <td>Unix/GCC</td>
+ <td>::VL_INLINE</td>
+ <td>static inline</td>
