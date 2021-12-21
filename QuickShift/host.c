@@ -307,3 +307,101 @@ it supports POSIX threads.
  ** @brief Defined if the host CPU is little endian
  ** @see @ref host-arch-endianness
  **/
+
+/** @def VL_ARCH_BIG_ENDIAN
+ ** @brief Defined if the host CPU is big endian
+ ** @see @ref host-arch-endianness
+ **/
+
+/** @def VL_INLINE
+ ** @brief Adds appropriate inline function qualifier
+ ** @see @ref host-compiler-other
+ **/
+
+/** @def VL_EXPORT
+ ** @brief Declares a DLL exported symbol
+ ** @see @ref host-compiler-other
+ **/
+
+/** @def VL_DISABLE_SSE2
+ ** @brief Defined if SSE2 support if disabled
+ **
+ ** Define this symbol to disable SSE2 support.
+ **/
+
+/** @def VL_DISABLE_THREADS
+ ** @brief Defined if multi-threading support is disabled
+ **
+ ** Define this symbol to disable multi-threading support.
+ **/
+
+/** @def VL_THREADS_WIN
+ ** @biref Defined if the host uses Windows threads.
+ **/
+
+/** @def VL_THREADS_POSIX
+ ** @brief Defiend if the host uses POISX threads.
+ **/
+
+/** --------------------------------------------------------------- */
+
+#if defined(VL_ARCH_IX86) || defined(VL_ARCH_IA64) || defined(VL_ARCH_X64)
+#define HAS_CPUID
+#else
+#undef HAS_CPUID
+#endif
+
+#if defined(HAS_CPUID) & defined(VL_COMPILER_MSC)
+#include <intrin.h>
+VL_INLINE void
+_vl_cpuid (vl_int32* info, int function)
+{
+  __cpuid(info, function) ;
+}
+#endif
+
+#if defined(HAS_CPUID) & defined(VL_COMPILER_GNUC)
+VL_INLINE void
+_vl_cpuid (vl_int32* info, int function)
+{
+#if defined(VL_ARCH_IX86) && (defined(__PIC__) || defined(__pic__))
+  /* This version is compatible with -fPIC on x386 targets. This special
+   * case is required becaus
+   * on such platform -fPIC alocates ebx as global offset table pointer.
+   * Note that =r below will be mapped to a register different from ebx,
+   * so the code is sound. */
+  __asm__ __volatile__
+  ("pushl %%ebx      \n" /* save %ebx */
+   "cpuid            \n"
+   "movl %%ebx, %1   \n" /* save what cpuid just put in %ebx */
+   "popl %%ebx       \n" /* restore the old %ebx */
+   : "=a"(info[0]), "=r"(info[1]), "=c"(info[2]), "=d"(info[3])
+   : "a"(function)
+   : "cc") ; /* clobbered (cc=condition codes) */
+#else /* no -fPIC or -fPIC with a 64-bit target */
+  __asm__ __volatile__
+  ("cpuid"
+   : "=a"(info[0]), "=b"(info[1]), "=c"(info[2]), "=d"(info[3])
+   : "a"(function)
+   : "cc") ;
+#endif
+}
+
+#endif
+
+void
+_vl_x86cpu_info_init (VlX86CpuInfo *self)
+{
+  vl_int32 info [4] ;
+  int max_func = 0 ;
+  _vl_cpuid(info, 0) ;
+  max_func = info[0] ;
+  self->vendor.words[0] = info[1] ;
+  self->vendor.words[1] = info[3] ;
+  self->vendor.words[2] = info[2] ;
+
+  if (max_func >= 1) {
+    _vl_cpuid(info, 1) ;
+    self->hasMMX   = info[3] & (1 << 23) ;
+    self->hasSSE   = info[3] & (1 << 25) ;
+    self->hasSSE2  = info[3] & (1 << 26) ;
