@@ -511,3 +511,17 @@ snprintf(compilerString, 1024,
     int length = 0 ;
     while (string == 0) {
       if (length > 0) {
+        string = vl_malloc(sizeof(char) * length) ;
+        if (string == NULL) break ;
+      }
+      length = snprintf(string, length, "%s, %s, %s",
+                        hostString,
+                        compilerString,
+                        libraryString) ;
+      length += 1 ;
+    }
+    return string ;
+  }
+}
+
+
