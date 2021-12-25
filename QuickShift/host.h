@@ -14,4 +14,14 @@ GNU GPLv2, or (at your option) any later version.
 #define VL_HOST_H
 
 /** ------------------------------------------------------------------
- ** @name Configurati
+ ** @name Configuration options
+ ** @{ */
+
+#if defined(__DOXYGEN__)
+#define VL_DISABLE_THREADS
+#define VL_DISABLE_SSE2
+#endif
+
+/** @} */
+
+/**
