@@ -11,3 +11,7 @@ GNU GPLv2, or (at your option) any later version.
 */
 
 #ifndef VL_HOST_H
+#define VL_HOST_H
+
+/** ------------------------------------------------------------------
+ ** @name Configurati
