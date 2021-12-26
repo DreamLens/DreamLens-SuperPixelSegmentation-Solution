@@ -28,4 +28,11 @@ GNU GPLv2, or (at your option) any later version.
  ** @name Defining functions
  ** @{ */
 
-#
+#if defined(__DOXYGEN__)
+#define VL_EXPORT
+#define VL_INLINE
+#endif
+
+/** @} */
+
+/** --------------------------
