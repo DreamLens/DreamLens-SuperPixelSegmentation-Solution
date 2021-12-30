@@ -39,4 +39,8 @@ GNU GPLv2, or (at your option) any later version.
  ** @name C preprocessor helper macros
  ** @{ */
 
-/** @brief Convert t
+/** @brief Convert the argument to a string
+ **
+ ** @param x value to be stringified.
+ **
+ ** This macro stringif
