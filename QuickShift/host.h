@@ -43,4 +43,7 @@ GNU GPLv2, or (at your option) any later version.
  **
  ** @param x value to be stringified.
  **
- ** This macro stringif
+ ** This macro stringifies the argument @a x by means of the
+ ** <code>#</code> prerpocessor operator.
+ **
+ ** The standard C preproce
