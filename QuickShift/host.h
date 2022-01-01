@@ -51,4 +51,8 @@ GNU GPLv2, or (at your option) any later version.
  **
  ** @code
  ** #define A B
- ** char cons
+ ** char const * str = VL_STRINGIFY(A) ;
+ ** @endcode
+ **
+ ** initializes <code>str</code> with a pointer to the string
+ 
