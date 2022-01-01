@@ -46,4 +46,9 @@ GNU GPLv2, or (at your option) any later version.
  ** This macro stringifies the argument @a x by means of the
  ** <code>#</code> prerpocessor operator.
  **
- ** The standard C preproce
+ ** The standard C preprocessor does not prescan arguments which are
+ ** stringified, so
+ **
+ ** @code
+ ** #define A B
+ ** char cons
