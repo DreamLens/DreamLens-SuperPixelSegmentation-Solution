@@ -55,4 +55,7 @@ GNU GPLv2, or (at your option) any later version.
  ** @endcode
  **
  ** initializes <code>str</code> with a pointer to the string
- 
+ ** <code>"A"</code>, which mihgt be unexpected. To fix this issue,
+ ** you can use ::VL_XSTRINGIFY.
+ **
+ ** @sa 
