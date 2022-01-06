@@ -58,4 +58,9 @@ GNU GPLv2, or (at your option) any later version.
  ** <code>"A"</code>, which mihgt be unexpected. To fix this issue,
  ** you can use ::VL_XSTRINGIFY.
  **
- ** @sa 
+ ** @sa ::VL_XSTRINGIFY
+ **/
+
+#define VL_STRINGIFY(x) # x
+
+/** @brief Expand and then convert the argument to
