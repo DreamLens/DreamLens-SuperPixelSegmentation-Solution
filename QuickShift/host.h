@@ -63,4 +63,8 @@ GNU GPLv2, or (at your option) any later version.
 
 #define VL_STRINGIFY(x) # x
 
-/** @brief Expand and then convert the argument to
+/** @brief Expand and then convert the argument to a string
+ **
+ ** @param x value to be macro-expanded and converted.
+ **
+ ** This macro ma
