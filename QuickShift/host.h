@@ -70,4 +70,9 @@ GNU GPLv2, or (at your option) any later version.
  ** This macro macro-expands the argument @a x and stringifies the
  ** result of the expansion. For instance
  **
- ** @cod
+ ** @code
+ ** #define A B
+ ** char const * str = VL_STRINGIFY(A) ;
+ ** @endcode
+ **
+ ** initializes <code>str</code> with a
