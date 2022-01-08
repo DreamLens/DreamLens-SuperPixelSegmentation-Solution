@@ -67,4 +67,7 @@ GNU GPLv2, or (at your option) any later version.
  **
  ** @param x value to be macro-expanded and converted.
  **
- ** This macro ma
+ ** This macro macro-expands the argument @a x and stringifies the
+ ** result of the expansion. For instance
+ **
+ ** @cod
