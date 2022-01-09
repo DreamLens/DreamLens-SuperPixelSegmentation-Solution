@@ -81,4 +81,8 @@ GNU GPLv2, or (at your option) any later version.
  ** @sa ::VL_STRINGIFY
  **/
 
-#define VL_XSTRINGIFY(x) VL_STRING
+#define VL_XSTRINGIFY(x) VL_STRINGIFY(x)
+
+/** @brief Concatenate two arguments into a lexical unit
+ **
+ ** @param x first argument to be concat
