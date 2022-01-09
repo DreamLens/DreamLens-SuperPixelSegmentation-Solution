@@ -75,4 +75,10 @@ GNU GPLv2, or (at your option) any later version.
  ** char const * str = VL_STRINGIFY(A) ;
  ** @endcode
  **
- ** initializes <code>str</code> with a
+ ** initializes <code>str</code> with a pointer to the string
+ ** <code>"B"</code>.
+ **
+ ** @sa ::VL_STRINGIFY
+ **/
+
+#define VL_XSTRINGIFY(x) VL_STRING
