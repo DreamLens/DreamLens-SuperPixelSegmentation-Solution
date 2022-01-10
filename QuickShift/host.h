@@ -85,4 +85,7 @@ GNU GPLv2, or (at your option) any later version.
 
 /** @brief Concatenate two arguments into a lexical unit
  **
- ** @param x first argument to be concat
+ ** @param x first argument to be concatenated.
+ ** @param y second argument to be concatenated.
+ **
+ ** This macro concatenates its arguments in
