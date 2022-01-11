@@ -88,4 +88,5 @@ GNU GPLv2, or (at your option) any later version.
  ** @param x first argument to be concatenated.
  ** @param y second argument to be concatenated.
  **
- ** This macro concatenates its arguments in
+ ** This macro concatenates its arguments into a single lexical unit
+ ** by means of the <code>##</code> preprocessor operator. Notice t
