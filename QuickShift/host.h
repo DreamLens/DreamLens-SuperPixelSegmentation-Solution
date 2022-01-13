@@ -97,4 +97,8 @@ GNU GPLv2, or (at your option) any later version.
  ** @see ::VL_XCAT
  **/
 
-#define VL_CAT(x
+#define VL_CAT(x,y) x ## y
+
+/** @brief Expand and then concatenate two arguments into a lexical unit
+ **
+ ** @param x first argument t
