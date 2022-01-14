@@ -101,4 +101,7 @@ GNU GPLv2, or (at your option) any later version.
 
 /** @brief Expand and then concatenate two arguments into a lexical unit
  **
- ** @param x first argument t
+ ** @param x first argument to be concatenated.
+ ** @param y second argument to be concatenated.
+ **
+ ** This macro is the same as ::VL_CAT, except that t
