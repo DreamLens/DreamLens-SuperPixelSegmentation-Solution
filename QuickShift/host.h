@@ -104,4 +104,11 @@ GNU GPLv2, or (at your option) any later version.
  ** @param x first argument to be concatenated.
  ** @param y second argument to be concatenated.
  **
- ** This macro is the same as ::VL_CAT, except that t
+ ** This macro is the same as ::VL_CAT, except that the arguments are
+ ** macro expanded before being concatenated.
+ **
+ ** @see ::VL_CAT
+ **/
+
+#define VL_XCAT(x,y) VL_CAT(x,y)
+
