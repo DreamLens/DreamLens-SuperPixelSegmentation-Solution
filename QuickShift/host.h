@@ -112,3 +112,6 @@ GNU GPLv2, or (at your option) any later version.
 
 #define VL_XCAT(x,y) VL_CAT(x,y)
 
+/** @brief Expand and then concatenate three arguments into a lexical unit
+ **
+ ** @param x first 
