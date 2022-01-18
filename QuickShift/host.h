@@ -120,4 +120,9 @@ GNU GPLv2, or (at your option) any later version.
  **
  ** This macro is the same as ::VL_XCAT, except that it has three arguments.
  **
- ** 
+ ** @see ::VL_XCAT
+ **/
+
+#define VL_XCAT3(x,y,z) VL_XCAT(VL_XCAT(x,y),z)
+
+/** @brief Expand and 
