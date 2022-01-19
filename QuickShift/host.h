@@ -125,4 +125,6 @@ GNU GPLv2, or (at your option) any later version.
 
 #define VL_XCAT3(x,y,z) VL_XCAT(VL_XCAT(x,y),z)
 
-/** @brief Expand and 
+/** @brief Expand and then concatenate four arguments into a lexical unit
+ **
+ ** @param x first argument to be concate
