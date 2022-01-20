@@ -127,4 +127,7 @@ GNU GPLv2, or (at your option) any later version.
 
 /** @brief Expand and then concatenate four arguments into a lexical unit
  **
- ** @param x first argument to be concate
+ ** @param x first argument to be concatenated.
+ ** @param y second argument to be concatenated.
+ ** @param z third argument to be concatenated.
+ ** @param u fourt
