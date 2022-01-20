@@ -130,4 +130,6 @@ GNU GPLv2, or (at your option) any later version.
  ** @param x first argument to be concatenated.
  ** @param y second argument to be concatenated.
  ** @param z third argument to be concatenated.
- ** @param u fourt
+ ** @param u fourth argument to be concatenated.
+ **
+ ** This macro is the same as ::VL_XCAT, except that it has four arguments.
