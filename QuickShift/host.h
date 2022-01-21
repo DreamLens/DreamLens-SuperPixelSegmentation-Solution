@@ -133,3 +133,10 @@ GNU GPLv2, or (at your option) any later version.
  ** @param u fourth argument to be concatenated.
  **
  ** This macro is the same as ::VL_XCAT, except that it has four arguments.
+ **
+ ** @see ::VL_XCAT
+ **/
+
+#define VL_XCAT4(x,y,z,u) VL_XCAT(VL_XCAT3(x,y,z),u)
+
+/** @brief Expan
