@@ -144,4 +144,7 @@ GNU GPLv2, or (at your option) any later version.
  ** @param x first argument to be concatenated.
  ** @param y second argument to be concatenated.
  ** @param z third argument to be concatenated.
- ** @para
+ ** @param u fourth argument to be concatenated.
+ ** @param v fifth argument to be concatenated.
+ **
+ ** T
