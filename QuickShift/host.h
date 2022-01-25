@@ -147,4 +147,9 @@ GNU GPLv2, or (at your option) any later version.
  ** @param u fourth argument to be concatenated.
  ** @param v fifth argument to be concatenated.
  **
- ** T
+ ** This macro is the same as ::VL_XCAT, except that it has five arguments.
+ **
+ ** @see ::VL_XCAT
+ **/
+
+#define VL_XCA
