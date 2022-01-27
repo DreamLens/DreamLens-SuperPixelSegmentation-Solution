@@ -152,4 +152,8 @@ GNU GPLv2, or (at your option) any later version.
  ** @see ::VL_XCAT
  **/
 
-#define VL_XCA
+#define VL_XCAT5(x,y,z,u,v) VL_XCAT(VL_XCAT4(x,y,z,u),v)
+
+/** @} */
+
+/** @brief Convert a boolean t
