@@ -156,4 +156,6 @@ GNU GPLv2, or (at your option) any later version.
 
 /** @} */
 
-/** @brief Convert a boolean t
+/** @brief Convert a boolean to "yes" or "no" strings
+ ** @param x boolean to convert.
+ ** A pointer to either the string "yes" (i
