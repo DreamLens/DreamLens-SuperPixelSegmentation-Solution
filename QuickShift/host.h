@@ -158,4 +158,9 @@ GNU GPLv2, or (at your option) any later version.
 
 /** @brief Convert a boolean to "yes" or "no" strings
  ** @param x boolean to convert.
- ** A pointer to either the string "yes" (i
+ ** A pointer to either the string "yes" (if @a x is true)
+ ** or the string "no".
+ ** @par Example
+ ** @code
+ ** VL_PRINTF("Is x true? %s.", VL_YESNO(x))
+ 
