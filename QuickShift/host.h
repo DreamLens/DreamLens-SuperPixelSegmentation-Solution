@@ -163,4 +163,10 @@ GNU GPLv2, or (at your option) any later version.
  ** @par Example
  ** @code
  ** VL_PRINTF("Is x true? %s.", VL_YESNO(x))
- 
+ ** @endcode
+ **/
+
+#define VL_YESNO(x) ((x)?"yes":"no")
+
+/*
+ The following macros identify the ho
