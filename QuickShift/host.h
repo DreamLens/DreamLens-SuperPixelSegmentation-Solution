@@ -173,4 +173,7 @@ GNU GPLv2, or (at your option) any later version.
  They are derived from http://predef.sourceforge.net/
  */
 
-/**
+/** @name Identifying the host operating system
+ ** @{ */
+#if defined(linux)     || \
+    defined(__linux
