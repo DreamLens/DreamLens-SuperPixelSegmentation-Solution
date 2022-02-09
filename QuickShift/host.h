@@ -169,4 +169,8 @@ GNU GPLv2, or (at your option) any later version.
 #define VL_YESNO(x) ((x)?"yes":"no")
 
 /*
- The following macros identify the ho
+ The following macros identify the host OS, architecture and compiler.
+ They are derived from http://predef.sourceforge.net/
+ */
+
+/**
