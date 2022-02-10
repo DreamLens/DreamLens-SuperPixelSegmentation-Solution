@@ -181,4 +181,9 @@ GNU GPLv2, or (at your option) any later version.
     defined(__DOXYGEN__)
 #define VL_OS_LINUX 1
 #define VL_THREADS_POSIX 1
-#end
+#endif
+
+#if (defined(__APPLE__) & defined(__MACH__)) || \
+     defined(__DOXYGEN__)
+#define VL_OS_MACOSX 1
+#d
