@@ -186,4 +186,9 @@ GNU GPLv2, or (at your option) any later version.
 #if (defined(__APPLE__) & defined(__MACH__)) || \
      defined(__DOXYGEN__)
 #define VL_OS_MACOSX 1
-#d
+#define VL_THREADS_POSIX 1
+#endif
+
+#if defined(__WIN32__) || \
+    defined(_WIN32)    || \
+    
