@@ -191,4 +191,9 @@ GNU GPLv2, or (at your option) any later version.
 
 #if defined(__WIN32__) || \
     defined(_WIN32)    || \
-    
+    defined(__DOXYGEN__)
+#define VL_OS_WIN 1
+#define VL_THREADS_WIN 1
+#endif
+
+#if defined(_WIN64) || \
