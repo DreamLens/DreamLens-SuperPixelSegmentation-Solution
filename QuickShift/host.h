@@ -203,4 +203,7 @@ GNU GPLv2, or (at your option) any later version.
 #endif
 /** @} */
 
-/** @name
+/** @name Identifying the host compiler
+ ** @{ */
+#if defined(__GNUC__) || defined(__DOXYGEN__)
+# if defi
