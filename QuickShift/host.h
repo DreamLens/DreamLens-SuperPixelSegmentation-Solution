@@ -197,3 +197,10 @@ GNU GPLv2, or (at your option) any later version.
 #endif
 
 #if defined(_WIN64) || \
+    defined(__DOXYGEN__)
+#define VL_OS_WIN64 1
+#define VL_THREADS_WIN 1
+#endif
+/** @} */
+
+/** @name
