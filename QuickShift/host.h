@@ -206,4 +206,6 @@ GNU GPLv2, or (at your option) any later version.
 /** @name Identifying the host compiler
  ** @{ */
 #if defined(__GNUC__) || defined(__DOXYGEN__)
-# if defi
+# if defined(__GNUC_PATCHLEVEL__)
+#  define VL_COMPILER_GNUC (__GNUC__ * 10000 \
++ __GNUC_MINOR__ * 1
