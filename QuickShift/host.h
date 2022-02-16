@@ -208,4 +208,8 @@ GNU GPLv2, or (at your option) any later version.
 #if defined(__GNUC__) || defined(__DOXYGEN__)
 # if defined(__GNUC_PATCHLEVEL__)
 #  define VL_COMPILER_GNUC (__GNUC__ * 10000 \
-+ __GNUC_MINOR__ * 1
++ __GNUC_MINOR__ * 100 \
++ __GNUC_PATCHLEVEL__)
+# else
+#  define VL_COMPILER_GNUC (__GNUC__ * 10000 \
++ __GNUC_MINOR__ *
