@@ -212,4 +212,12 @@ GNU GPLv2, or (at your option) any later version.
 + __GNUC_PATCHLEVEL__)
 # else
 #  define VL_COMPILER_GNUC (__GNUC__ * 10000 \
-+ __GNUC_MINOR__ *
++ __GNUC_MINOR__ * 100)
+# endif
+#endif
+
+#if defined(_MSC_VER) || defined(__DOXYGEN__)
+#define VL_COMPILER_MSC _MSC_VER
+#endif
+
+#if defined(__L
