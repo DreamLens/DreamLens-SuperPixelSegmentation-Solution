@@ -220,4 +220,7 @@ GNU GPLv2, or (at your option) any later version.
 #define VL_COMPILER_MSC _MSC_VER
 #endif
 
-#if defined(__L
+#if defined(__LCC__) || defined(__DOXYGEN__)
+#warning "LCC support is experimental!"
+#define VL_COMPILER_LCC 1
+#endif
