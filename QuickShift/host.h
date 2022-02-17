@@ -224,3 +224,9 @@ GNU GPLv2, or (at your option) any later version.
 #warning "LCC support is experimental!"
 #define VL_COMPILER_LCC 1
 #endif
+
+/** @} */
+
+/** @name Identifying the host CPU architecture
+ ** @{ */
+#if defi
