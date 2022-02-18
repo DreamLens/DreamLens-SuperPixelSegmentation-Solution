@@ -233,4 +233,8 @@ GNU GPLv2, or (at your option) any later version.
     defined(__i386__) || \
     defined(__DOXYGEN__)
 #define VL_ARCH_IX86 300
-#e
+#elif defined(__i486__)
+#define VL_ARCH_IX86 400
+#elif defined(__i586__)
+#define VL_ARCH_IX86 500
+#elif defined(
