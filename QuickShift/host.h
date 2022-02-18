@@ -229,4 +229,8 @@ GNU GPLv2, or (at your option) any later version.
 
 /** @name Identifying the host CPU architecture
  ** @{ */
-#if defi
+#if defined(i386)     || \
+    defined(__i386__) || \
+    defined(__DOXYGEN__)
+#define VL_ARCH_IX86 300
+#e
