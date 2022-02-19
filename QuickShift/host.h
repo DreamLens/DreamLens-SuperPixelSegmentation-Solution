@@ -237,4 +237,10 @@ GNU GPLv2, or (at your option) any later version.
 #define VL_ARCH_IX86 400
 #elif defined(__i586__)
 #define VL_ARCH_IX86 500
-#elif defined(
+#elif defined(__i686__)
+#define VL_ARCH_IX86 600
+#elif defined(_M_IX86)
+#define VL_ARCH_IX86 _M_IX86
+#endif
+
+#if defined(_M_X
