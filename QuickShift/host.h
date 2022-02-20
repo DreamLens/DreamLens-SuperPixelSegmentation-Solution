@@ -243,4 +243,7 @@ GNU GPLv2, or (at your option) any later version.
 #define VL_ARCH_IX86 _M_IX86
 #endif
 
-#if defined(_M_X
+#if defined(_M_X64)    || \
+    defined(__amd64__) || \
+    defined(__amd64)   || \
+    defined(__x86_64)
