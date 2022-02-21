@@ -252,4 +252,7 @@ GNU GPLv2, or (at your option) any later version.
 #endif
 
 #if defined(__ia64__)   || \
-    defin
+    defined(_IA64)      || \
+    defined(__IA64)     || \
+    defined(__ia64)     || \
+    defined(_M_IA64)
