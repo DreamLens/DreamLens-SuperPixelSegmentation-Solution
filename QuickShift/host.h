@@ -255,4 +255,10 @@ GNU GPLv2, or (at your option) any later version.
     defined(_IA64)      || \
     defined(__IA64)     || \
     defined(__ia64)     || \
-    defined(_M_IA64)
+    defined(_M_IA64)    || \
+    defined(__DOXYGEN__)
+#define VL_ARCH_IA64
+#endif
+/** @} */
+
+/** @name Identifying the hos
