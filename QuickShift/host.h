@@ -261,4 +261,8 @@ GNU GPLv2, or (at your option) any later version.
 #endif
 /** @} */
 
-/** @name Identifying the hos
+/** @name Identifying the host data model
+ ** @{ */
+#if defined(__LLP64__) || \
+    defined(__LLP64)   || \
+    defined(__LLP64)   |
