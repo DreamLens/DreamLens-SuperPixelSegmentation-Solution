@@ -267,4 +267,9 @@ GNU GPLv2, or (at your option) any later version.
     defined(__LLP64)   || \
     defined(__LLP64)   || \
     (defined(VL_COMPILER_MSC) & defined(VL_OS_WIN64)) || \
-    (defined(VL_COMPILER_LCC) & defined(V
+    (defined(VL_COMPILER_LCC) & defined(VL_OS_WIN64)) || \
+    defined(__DOXYGEN__)
+#define VL_COMPILER_LLP64
+#endif
+
+#if defined(__LP64
