@@ -265,4 +265,6 @@ GNU GPLv2, or (at your option) any later version.
  ** @{ */
 #if defined(__LLP64__) || \
     defined(__LLP64)   || \
-    defined(__LLP64)   |
+    defined(__LLP64)   || \
+    (defined(VL_COMPILER_MSC) & defined(VL_OS_WIN64)) || \
+    (defined(VL_COMPILER_LCC) & defined(V
