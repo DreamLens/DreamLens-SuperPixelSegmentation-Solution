@@ -275,4 +275,7 @@ GNU GPLv2, or (at your option) any later version.
 #if defined(__LP64__) || \
     defined(__LP64)   || \
     defined(__LP64)   || \
-    (defined(VL_OS_MACOSX) & defin
+    (defined(VL_OS_MACOSX) & defined(VL_ARCH_IA64)) || \
+    defined(__DOXYGEN__)
+#define VL_COMPILER_LP64
+#endif
