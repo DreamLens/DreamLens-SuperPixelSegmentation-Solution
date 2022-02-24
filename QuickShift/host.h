@@ -272,4 +272,7 @@ GNU GPLv2, or (at your option) any later version.
 #define VL_COMPILER_LLP64
 #endif
 
-#if defined(__LP64
+#if defined(__LP64__) || \
+    defined(__LP64)   || \
+    defined(__LP64)   || \
+    (defined(VL_OS_MACOSX) & defin
