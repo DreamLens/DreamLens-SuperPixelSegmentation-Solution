@@ -279,3 +279,8 @@ GNU GPLv2, or (at your option) any later version.
     defined(__DOXYGEN__)
 #define VL_COMPILER_LP64
 #endif
+
+#if (!defined(VL_COMPILER_LLP64) & !defined(VL_COMPILER_LP64)) || \
+    defined(__DOXYGEN__)
+#define VL_COMPILER_ILP32
+#endif
