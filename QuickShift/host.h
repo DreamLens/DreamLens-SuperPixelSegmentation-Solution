@@ -284,3 +284,9 @@ GNU GPLv2, or (at your option) any later version.
     defined(__DOXYGEN__)
 #define VL_COMPILER_ILP32
 #endif
+/** @} */
+
+/** @name Identifying the host endianness
+ ** @{ */
+#if defined(__LITTLE_ENDIAN__) || \
+    de
