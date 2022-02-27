@@ -289,4 +289,7 @@ GNU GPLv2, or (at your option) any later version.
 /** @name Identifying the host endianness
  ** @{ */
 #if defined(__LITTLE_ENDIAN__) || \
-    de
+    defined(VL_ARCH_IX86)      || \
+    defined(VL_ARCH_IA64)      || \
+    defined(VL_ARCH_X64)       || \
+    d
