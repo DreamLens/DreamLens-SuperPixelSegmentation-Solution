@@ -292,4 +292,10 @@ GNU GPLv2, or (at your option) any later version.
     defined(VL_ARCH_IX86)      || \
     defined(VL_ARCH_IA64)      || \
     defined(VL_ARCH_X64)       || \
-    d
+    defined(__DOXYGEN__)
+#define VL_ARCH_LITTLE_ENDIAN
+#endif
+
+#if  defined(__DOXYGEN__) || \
+    !defined(VL_ARCH_LITTLE_ENDIAN)
+#de
