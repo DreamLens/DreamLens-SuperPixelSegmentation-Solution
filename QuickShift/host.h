@@ -298,4 +298,10 @@ GNU GPLv2, or (at your option) any later version.
 
 #if  defined(__DOXYGEN__) || \
     !defined(VL_ARCH_LITTLE_ENDIAN)
-#de
+#define VL_ARCH_BIG_ENDIAN
+#endif
+/** @} */
+
+#if defined(VL_COMPILER_MSC) & ! defined(__DOXYGEN__)
+#  define VL_UNUSED
+# 
