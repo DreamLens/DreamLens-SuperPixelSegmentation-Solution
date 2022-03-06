@@ -308,4 +308,7 @@ GNU GPLv2, or (at your option) any later version.
 #  define snprintf _snprintf
 #  define isnan _isnan
 #  ifdef VL_BUILD_DLL
-#    i
+#    ifdef __cplusplus
+#      define VL_EXPORT extern "C" __declspec(dllexport)
+#    else
+#      define VL_EXPORT e
