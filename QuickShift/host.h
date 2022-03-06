@@ -311,4 +311,8 @@ GNU GPLv2, or (at your option) any later version.
 #    ifdef __cplusplus
 #      define VL_EXPORT extern "C" __declspec(dllexport)
 #    else
-#      define VL_EXPORT e
+#      define VL_EXPORT extern __declspec(dllexport)
+#    endif
+#  else
+#    ifdef __cplusplus
+#      define VL_EXPORT extern "C
