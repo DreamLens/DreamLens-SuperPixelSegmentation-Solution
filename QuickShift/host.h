@@ -315,4 +315,7 @@ GNU GPLv2, or (at your option) any later version.
 #    endif
 #  else
 #    ifdef __cplusplus
-#      define VL_EXPORT extern "C
+#      define VL_EXPORT extern "C" __declspec(dllimport)
+#    else
+#      define VL_EXPORT extern __declspec(dllimport)
+#    endi
