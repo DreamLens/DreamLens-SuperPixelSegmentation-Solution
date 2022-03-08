@@ -318,4 +318,10 @@ GNU GPLv2, or (at your option) any later version.
 #      define VL_EXPORT extern "C" __declspec(dllimport)
 #    else
 #      define VL_EXPORT extern __declspec(dllimport)
-#    endi
+#    endif
+#  endif
+#endif
+
+#if defined(VL_COMPILER_LCC) & ! defined(__DOXYGEN__)
+#  define VL_UNUSED
+#  defin
