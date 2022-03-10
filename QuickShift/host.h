@@ -329,4 +329,10 @@ GNU GPLv2, or (at your option) any later version.
 #  define isnan _isnan
 VL_INLINE float fabsf(float x) { return (float) fabs((double) x) ; }
 #  ifdef VL_BUILD_DLL
-#    define VL_EXPORT extern __declspec(d
+#    define VL_EXPORT extern __declspec(dllexport)
+#  else
+#    define VL_EXPORT extern
+#  endif
+#endif
+
+#if defined(VL_COMPILER_GNUC) & ! de
