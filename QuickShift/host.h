@@ -335,4 +335,7 @@ VL_INLINE float fabsf(float x) { return (float) fabs((double) x) ; }
 #  endif
 #endif
 
-#if defined(VL_COMPILER_GNUC) & ! de
+#if defined(VL_COMPILER_GNUC) & ! defined(__DOXYGEN__)
+#  define VL_UNUSED __attribute__((unused))
+#  define VL_INLINE static __inline__
+#  
