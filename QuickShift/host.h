@@ -338,4 +338,6 @@ VL_INLINE float fabsf(float x) { return (float) fabs((double) x) ; }
 #if defined(VL_COMPILER_GNUC) & ! defined(__DOXYGEN__)
 #  define VL_UNUSED __attribute__((unused))
 #  define VL_INLINE static __inline__
-#  
+#  ifdef VL_BUILD_DLL
+#    ifdef __cplusplus
+#      define VL_EXPORT __attribute__((visibility ("default")))
