@@ -344,3 +344,8 @@ VL_INLINE float fabsf(float x) { return (float) fabs((double) x) ; }
 #    else
 #      define VL_EXPORT __attribute__((visibility ("default"))) extern
 #    endif
+#  else
+#    ifdef __cplusplus
+#      define VL_EXPORT extern "C"
+#    else
+#      define VL_EXPORT ext
