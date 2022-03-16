@@ -348,4 +348,9 @@ VL_INLINE float fabsf(float x) { return (float) fabs((double) x) ; }
 #    ifdef __cplusplus
 #      define VL_EXPORT extern "C"
 #    else
-#      define VL_EXPORT ext
+#      define VL_EXPORT extern
+#    endif
+#  endif
+#endif
+
+VL_EXPORT char * vl_static_configuration_to_string_c
