@@ -353,4 +353,7 @@ VL_INLINE float fabsf(float x) { return (float) fabs((double) x) ; }
 #  endif
 #endif
 
-VL_EXPORT char * vl_static_configuration_to_string_c
+VL_EXPORT char * vl_static_configuration_to_string_copy () ;
+
+/** ------------------------------------------------------------------
+ ** @name Atomic dat
