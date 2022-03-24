@@ -356,4 +356,9 @@ VL_INLINE float fabsf(float x) { return (float) fabs((double) x) ; }
 VL_EXPORT char * vl_static_configuration_to_string_copy () ;
 
 /** ------------------------------------------------------------------
- ** @name Atomic dat
+ ** @name Atomic data types
+ ** @{
+ **/
+
+#define VL_TRUE 1   /**< @brief @c true (1) constant */
+#define VL_FALSE 
