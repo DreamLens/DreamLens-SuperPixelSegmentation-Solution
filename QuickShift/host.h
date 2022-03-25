@@ -364,4 +364,5 @@ VL_EXPORT char * vl_static_configuration_to_string_copy () ;
 #define VL_FALSE 0  /**< @brief @c false (0) constant */
 
 #if defined(VL_COMPILER_LP64) || defined(VL_COMPILER_LLP64)
-ty
+typedef long long           vl_int64 ;   /**< @brief Signed 64-bit integer. */
+typedef int     
