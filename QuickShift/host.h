@@ -361,4 +361,7 @@ VL_EXPORT char * vl_static_configuration_to_string_copy () ;
  **/
 
 #define VL_TRUE 1   /**< @brief @c true (1) constant */
-#define VL_FALSE 
+#define VL_FALSE 0  /**< @brief @c false (0) constant */
+
+#if defined(VL_COMPILER_LP64) || defined(VL_COMPILER_LLP64)
+ty
