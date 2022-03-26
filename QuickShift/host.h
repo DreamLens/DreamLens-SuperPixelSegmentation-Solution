@@ -366,4 +366,6 @@ VL_EXPORT char * vl_static_configuration_to_string_copy () ;
 #if defined(VL_COMPILER_LP64) || defined(VL_COMPILER_LLP64)
 typedef long long           vl_int64 ;   /**< @brief Signed 64-bit integer. */
 typedef int                 vl_int32 ;   /**< @brief Signed 32-bit integer. */
-typedef short               vl_int16 ;  
+typedef short               vl_int16 ;   /**< @brief Signed 16-bit integer. */
+typedef char                vl_int8  ;   /**< @brief Signed  8-bit integer. */
+
