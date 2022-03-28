@@ -370,4 +370,5 @@ typedef short               vl_int16 ;   /**< @brief Signed 16-bit integer. */
 typedef char                vl_int8  ;   /**< @brief Signed  8-bit integer. */
 
 typedef long long unsigned  vl_uint64 ;  /**< @brief Unsigned 64-bit integer. */
-typedef int       unsig
+typedef int       unsigned  vl_uint32 ;  /**< @brief Unsigned 32-bit integer. */
+typedef short     unsigned  vl_uint16 ;  /**
