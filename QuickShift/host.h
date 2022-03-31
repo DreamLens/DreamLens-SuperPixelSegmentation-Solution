@@ -377,4 +377,6 @@ typedef char      unsigned  vl_uint8 ;   /**< @brief Unsigned  8-bit integer. */
 typedef int                 vl_int ;     /**< @brief Same as @c int. */
 typedef unsigned int        vl_uint ;    /**< @brief Same as <code>unsigned int</code>. */
 
-typedef int                 vl_bool ;    /**<
+typedef int                 vl_bool ;    /**< @brief Boolean. */
+typedef vl_int64            vl_intptr ;  /**< @brief Integer holding a pointer. */
+t
