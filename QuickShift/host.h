@@ -379,4 +379,5 @@ typedef unsigned int        vl_uint ;    /**< @brief Same as <code>unsigned int<
 
 typedef int                 vl_bool ;    /**< @brief Boolean. */
 typedef vl_int64            vl_intptr ;  /**< @brief Integer holding a pointer. */
-t
+typedef vl_uint64           vl_uintptr ; /**< @brief Unsigned integer holding a pointer. */
+typedef vl_uint64           
