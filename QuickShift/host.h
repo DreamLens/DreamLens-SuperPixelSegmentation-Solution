@@ -393,4 +393,8 @@ typedef __int64             vl_int64 ;
 typedef long long           vl_int64 ;
 #endif
 
-typedef int          
+typedef int                 vl_int32 ;
+typedef short               vl_int16 ;
+typedef char                vl_int8  ;
+
+#ifdef
