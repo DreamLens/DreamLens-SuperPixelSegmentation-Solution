@@ -388,4 +388,9 @@ typedef vl_uint64           vl_uindex ;  /**< @brief Same as ::vl_size */
 #if defined(VL_COMPILER_ILP32)
 
 #ifdef VL_COMPILER_MSC
-ty
+typedef __int64             vl_int64 ;
+#else
+typedef long long           vl_int64 ;
+#endif
+
+typedef int          
