@@ -402,4 +402,8 @@ typedef __int64   unsigned  vl_uint64 ;
 #else
 typedef long long unsigned  vl_uint64 ;
 #endif
-typedef i
+typedef int       unsigned  vl_uint32 ;
+typedef short     unsigned  vl_uint16 ;
+typedef char      unsigned  vl_uint8 ;
+
+t
