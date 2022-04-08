@@ -397,4 +397,9 @@ typedef int                 vl_int32 ;
 typedef short               vl_int16 ;
 typedef char                vl_int8  ;
 
-#ifdef
+#ifdef VL_COMPILER_MSC
+typedef __int64   unsigned  vl_uint64 ;
+#else
+typedef long long unsigned  vl_uint64 ;
+#endif
+typedef i
