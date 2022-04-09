@@ -406,4 +406,7 @@ typedef int       unsigned  vl_uint32 ;
 typedef short     unsigned  vl_uint16 ;
 typedef char      unsigned  vl_uint8 ;
 
-t
+typedef int                 vl_int ;
+typedef unsigned int        vl_uint ;
+
+typedef int  
