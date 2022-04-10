@@ -412,4 +412,6 @@ typedef unsigned int        vl_uint ;
 typedef int                 vl_bool ;
 typedef vl_int32            vl_intptr ;
 typedef vl_uint32           vl_uintptr ;
-typedef vl_uint3
+typedef vl_uint32           vl_size ;
+typedef vl_int32            vl_index ;
+typedef vl_uint32      
