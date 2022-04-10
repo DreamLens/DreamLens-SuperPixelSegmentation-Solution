@@ -409,4 +409,7 @@ typedef char      unsigned  vl_uint8 ;
 typedef int                 vl_int ;
 typedef unsigned int        vl_uint ;
 
-typedef int  
+typedef int                 vl_bool ;
+typedef vl_int32            vl_intptr ;
+typedef vl_uint32           vl_uintptr ;
+typedef vl_uint3
