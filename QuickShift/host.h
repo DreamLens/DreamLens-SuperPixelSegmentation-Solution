@@ -433,4 +433,8 @@ typedef vl_uint32           vl_uindex ;
  **/
 
 /** @def VL_FL_INT16
- ** @brief @c printf length flag for ::vl_int16 
+ ** @brief @c printf length flag for ::vl_int16 and ::vl_uint16.
+ **/
+
+/** @def VL_FL_INT8
+ ** @brief @c printf length flag for ::vl_int8 and
