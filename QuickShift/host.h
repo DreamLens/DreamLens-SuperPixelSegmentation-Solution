@@ -441,4 +441,12 @@ typedef vl_uint32           vl_uindex ;
  **/
 
 /** @def VL_FL_INDEX
- ** @brief @c printf length flag for ::vl_index and ::vl_uin
+ ** @brief @c printf length flag for ::vl_index and ::vl_uindex
+ **/
+
+#ifdef VL_COMPILER_MSC
+#define VL_FL_INT64  "I64"
+#else
+#define VL_FL_INT64  "ll"
+#endif
+#
