@@ -453,4 +453,9 @@ typedef vl_uint32           vl_uindex ;
 #define VL_FL_INT16  "h"
 #define VL_FL_INT8   "hh"
 
-#if defined(VL_COMPILER_LP64) 
+#if defined(VL_COMPILER_LP64) || defined(VL_COMPILER_LLP64)
+#define VL_FL_INDEX VL_FL_INT64
+#endif
+
+#if defined(VL_COMPILER_ILP32)
+#defin
