@@ -458,4 +458,10 @@ typedef vl_uint32           vl_uindex ;
 #endif
 
 #if defined(VL_COMPILER_ILP32)
-#defin
+#define VL_FL_INDEX VL_FL_INT32
+#endif
+
+/* Formats (but not conversions!): */
+
+/** @def VL_FMT_SIZE
+ ** @brief
