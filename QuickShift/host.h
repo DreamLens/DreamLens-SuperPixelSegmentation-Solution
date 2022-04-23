@@ -464,4 +464,11 @@ typedef vl_uint32           vl_uindex ;
 /* Formats (but not conversions!): */
 
 /** @def VL_FMT_SIZE
- ** @brief
+ ** @brief @c printf flag for ::vl_size
+ **/
+
+/** @def VL_FMT_INDEX
+ ** @brief @c printf flag for ::vl_index
+ **/
+
+/** @def 
