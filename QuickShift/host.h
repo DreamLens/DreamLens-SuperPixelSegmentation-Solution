@@ -471,4 +471,9 @@ typedef vl_uint32           vl_uindex ;
  ** @brief @c printf flag for ::vl_index
  **/
 
-/** @def 
+/** @def VL_FMT_UINDEX
+ ** @brief @c printf flag for ::vl_uindex
+ **/
+
+/** @def VL_FMT_INTPTR
+ ** @brief @c prin
