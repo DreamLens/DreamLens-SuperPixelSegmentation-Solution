@@ -485,4 +485,10 @@ typedef vl_uint32           vl_uindex ;
 
 #define VL_FMT_INDEX   VL_FL_INDEX "d"
 #define VL_FMT_INTPTR  VL_FMT_INDEX
-#define VL_FMT_UINDEX  VL_FL_IND
+#define VL_FMT_UINDEX  VL_FL_INDEX "u"
+#define VL_FMT_SIZE    VL_FMT_UINDEX
+#define VL_FMT_UINTPTR VL_FMT_UINDEX
+
+/** @} */
+
+/** ---------------------------
