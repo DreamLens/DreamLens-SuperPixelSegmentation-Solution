@@ -495,4 +495,8 @@ typedef vl_uint32           vl_uindex ;
  ** @name Atomic data types limits
  ** @{ */
 
-/** @brief Largest 
+/** @brief Largest integer (math constant) */
+#define VL_BIG_INT  0x7FFFFFFFL
+
+/** @brief Smallest integer (math constant) */
+#define 
