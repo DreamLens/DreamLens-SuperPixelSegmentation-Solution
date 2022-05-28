@@ -499,4 +499,7 @@ typedef vl_uint32           vl_uindex ;
 #define VL_BIG_INT  0x7FFFFFFFL
 
 /** @brief Smallest integer (math constant) */
-#define 
+#define VL_SMALL_INT  (- VL_BIG_INT - 1)
+
+/** @brief Largest unsigned integer (math constant) */
+#define VL_BIG_UINT 0xFF
