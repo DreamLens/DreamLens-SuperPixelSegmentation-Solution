@@ -507,4 +507,7 @@ typedef vl_uint32           vl_uindex ;
 /** @} */
 
 /** ------------------------------------------------------------------
- ** @name End
+ ** @name Endianness detection and conversion
+ ** @{
+ **/
+VL_INLINE void vl_swap_host_big_endianne
