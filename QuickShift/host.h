@@ -512,4 +512,7 @@ typedef vl_uint32           vl_uindex ;
  **/
 VL_INLINE void vl_swap_host_big_endianness_8 (void *dst, void* src) ;
 VL_INLINE void vl_swap_host_big_endianness_4 (void *dst, void* src) ;
-VL_INLINE void vl_
+VL_INLINE void vl_swap_host_big_endianness_2 (void *dst, void* src) ;
+/** @} */
+
+/** ----------------------------------------
