@@ -521,4 +521,9 @@ VL_INLINE void vl_swap_host_big_endianness_2 (void *dst, void* src) ;
 
 typedef struct _VlX86CpuInfo
 {
-  u
+  union {
+    char string [0x20] ;
+    vl_uint32 words [0x20 / 4] ;
+  } vendor ;
+  vl_bool hasSSE42 ;
+  vl_bool hasSSE
