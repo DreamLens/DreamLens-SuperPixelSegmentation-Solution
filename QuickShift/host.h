@@ -526,4 +526,11 @@ typedef struct _VlX86CpuInfo
     vl_uint32 words [0x20 / 4] ;
   } vendor ;
   vl_bool hasSSE42 ;
-  vl_bool hasSSE
+  vl_bool hasSSE41 ;
+  vl_bool hasSSE3 ;
+  vl_bool hasSSE2 ;
+  vl_bool hasSSE ;
+  vl_bool hasMMX ;
+} VlX86CpuInfo ;
+
+vo
