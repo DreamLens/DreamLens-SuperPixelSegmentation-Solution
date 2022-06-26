@@ -533,4 +533,5 @@ typedef struct _VlX86CpuInfo
   vl_bool hasMMX ;
 } VlX86CpuInfo ;
 
-vo
+void _vl_x86cpu_info_init (VlX86CpuInfo *self) ;
+char * _vl_x86cpu_info_to_string_copy (VlX86CpuInfo
