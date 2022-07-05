@@ -542,4 +542,9 @@ char * _vl_x86cpu_info_to_string_copy (VlX86CpuInfo const *self) ;
  ** @brief Host <-> big endian transformation for 8-bytes value
  **
  ** @param dst destination 8-byte buffer.
- ** @param s
+ ** @param src source 8-byte bufffer.
+ ** @see @ref host-arch-endianness.
+ **/
+
+VL_INLINE void
+vl_swap_host_big_endiann
