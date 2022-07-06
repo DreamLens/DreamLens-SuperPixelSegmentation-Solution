@@ -551,4 +551,8 @@ vl_swap_host_big_endianness_8 (void *dst, void* src)
 {
   char *dst_ = (char*) dst ;
   char *src_ = (char*) src ;
-#if defined(VL_ARCH_BIG_ENDIA
+#if defined(VL_ARCH_BIG_ENDIAN)
+    dst_ [0] = src_ [0] ;
+    dst_ [1] = src_ [1] ;
+    dst_ [2] = src_ [2] ;
+    dst_ [3] = src_ [3
