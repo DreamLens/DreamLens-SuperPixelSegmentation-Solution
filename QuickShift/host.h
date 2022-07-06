@@ -559,4 +559,9 @@ vl_swap_host_big_endianness_8 (void *dst, void* src)
     dst_ [4] = src_ [4] ;
     dst_ [5] = src_ [5] ;
     dst_ [6] = src_ [6] ;
-    dst_ [7] = src_
+    dst_ [7] = src_ [7] ;
+#else
+    dst_ [0] = src_ [7] ;
+    dst_ [1] = src_ [6] ;
+    dst_ [2] = src_ [5] ;
+    dst_ [3] = src_ 
