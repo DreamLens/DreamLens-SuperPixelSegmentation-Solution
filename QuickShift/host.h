@@ -547,4 +547,8 @@ char * _vl_x86cpu_info_to_string_copy (VlX86CpuInfo const *self) ;
  **/
 
 VL_INLINE void
-vl_swap_host_big_endiann
+vl_swap_host_big_endianness_8 (void *dst, void* src)
+{
+  char *dst_ = (char*) dst ;
+  char *src_ = (char*) src ;
+#if defined(VL_ARCH_BIG_ENDIA
