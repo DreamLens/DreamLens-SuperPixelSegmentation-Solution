@@ -568,4 +568,9 @@ vl_swap_host_big_endianness_8 (void *dst, void* src)
     dst_ [4] = src_ [3] ;
     dst_ [5] = src_ [2] ;
     dst_ [6] = src_ [1] ;
-    dst_ [7] = src_
+    dst_ [7] = src_ [0] ;
+#endif
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Host <-> big en
