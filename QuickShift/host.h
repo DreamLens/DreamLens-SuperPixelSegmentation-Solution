@@ -573,4 +573,7 @@ vl_swap_host_big_endianness_8 (void *dst, void* src)
 }
 
 /** ------------------------------------------------------------------
- ** @brief Host <-> big en
+ ** @brief Host <-> big endian transformation for 4-bytes value
+ **
+ ** @param dst destination 4-byte buffer.
+ ** @param src source 4-byte buff
