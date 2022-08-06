@@ -599,4 +599,7 @@ vl_swap_host_big_endianness_4 (void *dst, void* src)
 }
 
 /** ------------------------------------------------------------------
- ** @brief Host <-> big endian transf
+ ** @brief Host <-> big endian transformation for 2-bytes value
+ **
+ ** @param dst destination 2-byte buffer.
+ ** @param src source 2-byte 
