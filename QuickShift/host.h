@@ -595,3 +595,8 @@ vl_swap_host_big_endianness_4 (void *dst, void* src)
     dst_ [1] = src_ [2] ;
     dst_ [2] = src_ [1] ;
     dst_ [3] = src_ [0] ;
+#endif
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Host <-> big endian transf
