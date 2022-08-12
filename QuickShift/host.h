@@ -602,4 +602,11 @@ vl_swap_host_big_endianness_4 (void *dst, void* src)
  ** @brief Host <-> big endian transformation for 2-bytes value
  **
  ** @param dst destination 2-byte buffer.
- ** @param src source 2-byte 
+ ** @param src source 2-byte bufffer.
+ ** @see @ref host-arch-endianness.
+ **/
+
+VL_INLINE void
+vl_swap_host_big_endianness_2 (void *dst, void* src)
+{
+  ch
