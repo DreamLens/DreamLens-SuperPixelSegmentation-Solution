@@ -613,4 +613,11 @@ vl_swap_host_big_endianness_2 (void *dst, void* src)
   char *src_ = (char*) src ;
 #if defined(VL_ARCH_BIG_ENDIAN)
     dst_ [0] = src_ [0] ;
-  
+    dst_ [1] = src_ [1] ;
+#else
+    dst_ [0] = src_ [1] ;
+    dst_ [1] = src_ [0] ;
+#endif
+}
+
+/* VL_HOST_H
