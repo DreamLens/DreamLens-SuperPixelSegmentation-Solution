@@ -1,0 +1,4 @@
+#ifndef __itkQuickShiftSegmentation_h
+#define __itkQuickShiftSegmentation_h
+
+#includ
