@@ -9,4 +9,6 @@ template< typename TInputImage, typename TOutputLabelImage>
 class QuickShiftSegmentation : public ImageToImageFilter<TInputImage, TOutputLabelImage>
 {
 public:
-  /*
+  /** Standard class typedefs. */
+  typedef QuickShiftSegmentation Self;
+  typedef ImageToImageFilter<TInp
