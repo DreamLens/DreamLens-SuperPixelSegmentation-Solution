@@ -5,4 +5,8 @@
 
 namespace itk
 {
-template< typename TInputImage, typename TOutputLabelI
+template< typename TInputImage, typename TOutputLabelImage>
+class QuickShiftSegmentation : public ImageToImageFilter<TInputImage, TOutputLabelImage>
+{
+public:
+  /*
