@@ -11,4 +11,7 @@ class QuickShiftSegmentation : public ImageToImageFilter<TInputImage, TOutputLab
 public:
   /** Standard class typedefs. */
   typedef QuickShiftSegmentation Self;
-  typedef ImageToImageFilter<TInp
+  typedef ImageToImageFilter<TInputImage, TOutputLabelImage> Superclass;
+  typedef SmartPointer< Self >        Pointer;
+
+  /** M
