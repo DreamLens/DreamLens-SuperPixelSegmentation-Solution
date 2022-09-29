@@ -14,4 +14,7 @@ public:
   typedef ImageToImageFilter<TInputImage, TOutputLabelImage> Superclass;
   typedef SmartPointer< Self >        Pointer;
 
-  /** M
+  /** Method for creation through the object factory. */
+  itkNewMacro(Self);
+
+  /** Run-time type information (a
