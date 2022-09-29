@@ -17,4 +17,7 @@ public:
   /** Method for creation through the object factory. */
   itkNewMacro(Self);
 
-  /** Run-time type information (a
+  /** Run-time type information (and related methods). */
+  itkTypeMacro(QuickShiftSegmentation, ImageToImageFilter);
+
+  // The approximate number of super
