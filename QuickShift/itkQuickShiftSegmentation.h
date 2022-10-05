@@ -20,4 +20,6 @@ public:
   /** Run-time type information (and related methods). */
   itkTypeMacro(QuickShiftSegmentation, ImageToImageFilter);
 
-  // The approximate number of super
+  // The approximate number of superpixels in the result.
+  itkSetMacro( KernelSize, float);
+  itkGetMacro( KernelSize, float);
