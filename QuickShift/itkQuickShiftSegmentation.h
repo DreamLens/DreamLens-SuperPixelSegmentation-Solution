@@ -23,3 +23,7 @@ public:
   // The approximate number of superpixels in the result.
   itkSetMacro( KernelSize, float);
   itkGetMacro( KernelSize, float);
+
+  // Maximum distance between two pixels in the same label.
+  itkSetMacro( MaxDist, float );
+  itkGetM
