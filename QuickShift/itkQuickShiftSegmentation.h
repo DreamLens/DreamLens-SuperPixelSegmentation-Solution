@@ -28,4 +28,9 @@ public:
   itkSetMacro( MaxDist, float );
   itkGetMacro( MaxDist, float);
   
-  // Tradeoff between color and distance. Larger values give more importance to c
+  // Tradeoff between color and distance. Larger values give more importance to color.
+  itkSetMacro( Ratio, float );
+  itkGetMacro( Ratio, float);
+
+  TOutputLabelImage* GetLabelImage();
+  TInputImage* 
