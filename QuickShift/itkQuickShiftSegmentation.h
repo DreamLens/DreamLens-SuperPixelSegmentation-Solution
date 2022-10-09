@@ -26,4 +26,6 @@ public:
 
   // Maximum distance between two pixels in the same label.
   itkSetMacro( MaxDist, float );
-  itkGetM
+  itkGetMacro( MaxDist, float);
+  
+  // Tradeoff between color and distance. Larger values give more importance to c
