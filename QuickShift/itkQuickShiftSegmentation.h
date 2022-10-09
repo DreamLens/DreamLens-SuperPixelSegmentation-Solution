@@ -33,4 +33,10 @@ public:
   itkGetMacro( Ratio, float);
 
   TOutputLabelImage* GetLabelImage();
-  TInputImage* 
+  TInputImage* GetColoredImage();
+  
+protected:
+  QuickShiftSegmentation();
+  ~QuickShiftSegmentation(){}
+
+  /** Does the rea
