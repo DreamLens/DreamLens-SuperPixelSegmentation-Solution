@@ -39,4 +39,11 @@ protected:
   QuickShiftSegmentation();
   ~QuickShiftSegmentation(){}
 
-  /** Does the rea
+  /** Does the real work. */
+  virtual void GenerateData();
+
+  DataObject::Pointer MakeOutput(unsigned int idx);
+
+private:
+
+  tem
