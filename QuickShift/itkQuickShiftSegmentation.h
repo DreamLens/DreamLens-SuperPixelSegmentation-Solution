@@ -49,4 +49,5 @@ private:
   template<typename T>
   std::vector<T> GetVectorFromArray(const T* array, const unsigned int size);
   
-  std::vecto
+  std::vector<int> GetLabelsFromParents(const std::vector<int>& parents);
+  bool VectorsIdential(const std::vector<int>& v1, const std::v
