@@ -46,4 +46,7 @@ protected:
 
 private:
 
-  tem
+  template<typename T>
+  std::vector<T> GetVectorFromArray(const T* array, const unsigned int size);
+  
+  std::vecto
