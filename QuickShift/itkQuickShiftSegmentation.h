@@ -53,4 +53,6 @@ private:
   bool VectorsIdential(const std::vector<int>& v1, const std::vector<int>& v2);
   std::vector<int> SequentialLabels(const std::vector<int>& v);
   
-  unsigned int ComputeLinearValueIndex(const unsigned int row, const unsigned int col, const unsigned int width, const 
+  unsigned int ComputeLinearValueIndex(const unsigned int row, const unsigned int col, const unsigned int width, const unsigned int height, const unsigned int channel)
+  {
+    return channel*width*height + row + height *
