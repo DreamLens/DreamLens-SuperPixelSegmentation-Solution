@@ -50,4 +50,7 @@ private:
   std::vector<T> GetVectorFromArray(const T* array, const unsigned int size);
   
   std::vector<int> GetLabelsFromParents(const std::vector<int>& parents);
-  bool VectorsIdential(const std::vector<int>& v1, const std::v
+  bool VectorsIdential(const std::vector<int>& v1, const std::vector<int>& v2);
+  std::vector<int> SequentialLabels(const std::vector<int>& v);
+  
+  unsigned i
