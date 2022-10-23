@@ -67,4 +67,11 @@ private:
   void operator=(const Self &);  //purposely not implemented
 
   float m_KernelSize;
-  float m_M
+  float m_MaxDist;
+  float m_Ratio;
+};
+} //namespace ITK
+
+#include "itkQuickShiftSegmentation.hxx"
+
+#endif
