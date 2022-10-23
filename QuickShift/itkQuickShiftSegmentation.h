@@ -55,4 +55,7 @@ private:
   
   unsigned int ComputeLinearValueIndex(const unsigned int row, const unsigned int col, const unsigned int width, const unsigned int height, const unsigned int channel)
   {
-    return channel*width*height + row + height *
+    return channel*width*height + row + height * col;
+  }
+  
+  unsigned int ComputeLinearPixelIndex(const unsigned int row, const unsigned int col, const unsigned int heig
