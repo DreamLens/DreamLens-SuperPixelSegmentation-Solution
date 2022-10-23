@@ -58,4 +58,10 @@ private:
     return channel*width*height + row + height * col;
   }
   
-  unsigned int ComputeLinearPixelIndex(const unsigned int row, const unsigned int col, const unsigned int heig
+  unsigned int ComputeLinearPixelIndex(const unsigned int row, const unsigned int col, const unsigned int height)
+  {
+    return row + height * col;
+  }
+
+  QuickShiftSegmentation(const Self &); //purposely not implemented
+  v
