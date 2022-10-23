@@ -64,4 +64,7 @@ private:
   }
 
   QuickShiftSegmentation(const Self &); //purposely not implemented
-  v
+  void operator=(const Self &);  //purposely not implemented
+
+  float m_KernelSize;
+  float m_M
