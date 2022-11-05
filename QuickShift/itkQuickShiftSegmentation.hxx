@@ -209,3 +209,38 @@ bool QuickShiftSegmentation< TInputImage, TOutputLabelImage>
 template< typename TInputImage, typename TOutputLabelImage>
 std::vector<int> QuickShiftSegmentation< TInputImage, TOutputLabelImage>
 ::SequentialLabels(const std::vector<int>& v)
+{
+  std::vector<int> sequentialLabels(v.size());
+  std::set<int> uniqueLabelsSet;
+  for(unsigned int i = 0; i < v.size(); ++i)
+    {
+    uniqueLabelsSet.insert(v[i]);
+    }
+
+  std::vector<int> uniqueLabelsVector;
+  for(typename std::set<int>::iterator iterator = uniqueLabelsSet.begin(); iterator != uniqueLabelsSet.end(); iterator++)
+    {
+    uniqueLabelsVector.push_back(*iterator);
+    }
+
+  std::map<int,int> labelMap;
+  for(unsigned int i = 0; i < uniqueLabelsVector.size(); ++i)
+    {
+    labelMap[uniqueLabelsVector[i]] = i;
+    }
+    
+  // Set old values to new sequential labels
+  unsigned int sequentialLabelId = 0;
+
+  for(unsigned int i = 0; i < v.size(); ++i)
+    {
+    sequentialLabels[i] = labelMap[v[i]];
+    }
+    
+  return sequentialLabels;
+}
+
+
+}// end namespace
+
+#endif
