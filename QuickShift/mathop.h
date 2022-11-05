@@ -181,3 +181,96 @@ vl_log2_d (double x)
 {
 #ifdef VL_COMPILER_GNU
   return __builtin_log2(x) ;
+#elif VL_COMPILER_MSC
+  return log(x) / 0.693147180559945 ;
+#else
+  return log2(x) ;
+#endif
+}
+
+VL_INLINE float
+vl_log2_f (float x)
+{
+#ifdef VL_COMPILER_GNU
+  return __builtin_log2f (x) ;
+#elif VL_COMPILER_MSC
+  return logf(x) / 0.6931472F ;
+#else
+  return log2(x) ;
+#endif
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Fast @c atan2 approximation
+ ** @param y argument.
+ ** @param x argument.
+ **
+ ** The function computes a relatively rough but fast approximation of
+ ** @c atan2(y,x).
+ **
+ ** @par Algorithm
+ **
+ ** The algorithm approximates the function @f$ f(r)=atan((1-r)/(1+r))
+ ** @f$, @f$ r \in [-1,1] @f$ with a third order polynomial @f$
+ ** f(r)=c_0 + c_1 r + c_2 r^2 + c_3 r^3 @f$.  To fit the polynomial
+ ** we impose the constraints
+ **
+ ** @f{eqnarray*}
+ ** f(+1) &=& c_0 + c_1 + c_2 + c_3  = atan(0)       = 0,\\
+ ** f(-1) &=& c_0 - c_1 + c_2 - c_3  = atan(\infty)  = \pi/2,\\
+ ** f(0)  &=& c_0                    = atan(1)       = \pi/4.
+ ** @f}
+ **
+ ** The last degree of freedom is fixed by minimizing the @f$
+ ** l^{\infty} @f$ error, which yields
+ **
+ ** @f[
+ ** c_0=\pi/4, \quad
+ ** c_1=-0.9675, \quad
+ ** c_2=0, \quad
+ ** c_3=0.1821,
+ ** @f]
+ **
+ ** with maximum error of 0.0061 radians at 0.35 degrees.
+ **
+ ** @return Approximation of @c atan2(y,x).
+ **/
+
+VL_INLINE float
+vl_fast_atan2_f (float y, float x)
+{
+  float angle, r ;
+  float const c3 = 0.1821F ;
+  float const c1 = 0.9675F ;
+  float abs_y    = vl_abs_f (y) + VL_EPSILON_F ;
+
+  if (x >= 0) {
+    r = (x - abs_y) / (x + abs_y) ;
+    angle = (float) (VL_PI / 4) ;
+  } else {
+    r = (x + abs_y) / (abs_y - x) ;
+    angle = (float) (3 * VL_PI / 4) ;
+  }
+  angle += (c3*r*r - c1) * r ;
+  return (y < 0) ? - angle : angle ;
+}
+
+/** @brief Fast @c atan2 approximation
+ ** @sa vl_fast_atan2_f
+ **/
+
+VL_INLINE double
+vl_fast_atan2_d (double y, double x)
+{
+  double angle, r ;
+  double const c3 = 0.1821 ;
+  double const c1 = 0.9675 ;
+  double abs_y    = vl_abs_d (y) + VL_EPSILON_D ;
+
+  if (x >= 0) {
+    r = (x - abs_y) / (x + abs_y) ;
+    angle = VL_PI / 4 ;
+  } else {
+    r = (x + abs_y) / (abs_y - x) ;
+    angle = 3 * VL_PI / 4 ;
+  }
