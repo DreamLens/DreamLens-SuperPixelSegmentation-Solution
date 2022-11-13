@@ -274,3 +274,101 @@ vl_fast_atan2_d (double y, double x)
     r = (x + abs_y) / (abs_y - x) ;
     angle = 3 * VL_PI / 4 ;
   }
+  angle += (c3*r*r - c1) * r ;
+  return (y < 0) ? - angle : angle ;
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Fast @c resqrt approximation
+ ** @param x argument.
+ ** @return approximation of @c resqrt(x).
+ **
+ ** The function quickly computes an approximation of @f$ x^{-1/2}
+ ** @f$.
+ **
+ ** @par Algorithm
+ **
+ ** The goal is to compute @f$ y = x^{-1/2} @f$, which we do by
+ ** finding the solution of @f$ 0 = f(y) = y^{-2} - x @f$ by two Newton
+ ** steps. Each Newton iteration is given by
+ **
+ ** @f[
+ **   y \leftarrow
+ **   y - \frac{f(y)}{\frac{df(y)}{dy}} =
+ **   y + \frac{1}{2} (y-xy^3) =
+ **   \frac{y}{2} \left( 3 - xy^2 \right)
+ ** @f]
+ **
+ ** which yields a simple polynomial update rule.
+ **
+ ** The clever bit (attributed to either J. Carmack or G. Tarolli) is
+ ** the way an initial guess @f$ y \approx x^{-1/2} @f$ is chosen.
+ **
+ ** @see <a href="http://www.lomont.org/Math/Papers/2003/InvSqrt.pdf">Inverse Sqare Root</a>.
+ **
+ **/
+
+VL_INLINE float
+vl_fast_resqrt_f (float x)
+{
+  /* 32-bit version */
+  union {
+    float x ;
+    vl_int32  i ;
+  } u ;
+
+  float xhalf = (float) 0.5 * x ;
+
+  /* convert floating point value in RAW integer */
+  u.x = x ;
+
+  /* gives initial guess y0 */
+  u.i = 0x5f3759df - (u.i >> 1);
+  /*u.i = 0xdf59375f - (u.i>>1);*/
+
+  /* two Newton steps */
+  u.x = u.x * ( (float) 1.5  - xhalf*u.x*u.x) ;
+  u.x = u.x * ( (float) 1.5  - xhalf*u.x*u.x) ;
+  return u.x ;
+}
+
+/** @brief Fast @c resqrt approximation
+ ** @sa vl_fast_resqrt_d
+ **/
+
+VL_INLINE double
+vl_fast_resqrt_d (double x)
+{
+  /* 64-bit version */
+  union {
+    double x ;
+    vl_int64  i ;
+  } u ;
+
+  double xhalf = (double) 0.5 * x ;
+
+  /* convert floating point value in RAW integer */
+  u.x = x ;
+
+  /* gives initial guess y0 */
+#ifdef VL_COMPILER_MSC
+  u.i = 0x5fe6ec85e7de30dai64 - (u.i >> 1) ;
+#else
+  u.i = 0x5fe6ec85e7de30daLL - (u.i >> 1) ;
+#endif
+
+  /* two Newton steps */
+  u.x = u.x * ( (double) 1.5  - xhalf*u.x*u.x) ;
+  u.x = u.x * ( (double) 1.5  - xhalf*u.x*u.x) ;
+  return u.x ;
+}
+
+/** ------------------------------------------------------------------
+ ** @brief Fast @c sqrt approximation
+ ** @param x argument.
+ ** @return approximation of @c sqrt(x).
+ **
+ ** The function computes a cheap approximation of @c sqrt(x).
+ **
+ ** @par Floating-point algorithm
+ **
