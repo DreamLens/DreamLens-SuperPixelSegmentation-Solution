@@ -478,3 +478,62 @@ typedef float (*VlFloatVectorComparisonFunction)(vl_size dimension, float const 
 
 /** @typedef VlDoubleVectorComparisonFunction
  ** @brief Pointer to a function to compare vectors of doubles
+ **/
+typedef double (*VlDoubleVectorComparisonFunction)(vl_size dimension, double const * X, double const * Y) ;
+
+/** @brief Vector comparison types */
+enum _VlVectorComparisonType {
+  VlDistanceL1,        /**< l1 distance (squared intersection metric) */
+  VlDistanceL2,        /**< squared l2 distance */
+  VlDistanceChi2,      /**< squared Chi2 distance */
+  VlDistanceHellinger, /**< squared Hellinger's distance */
+  VlDistanceJS,        /**< squared Jensen-Shannon distance */
+  VlKernelL1,          /**< intersection kernel */
+  VlKernelL2,          /**< l2 kernel */
+  VlKernelChi2,        /**< Chi2 kernel */
+  VlKernelHellinger,   /**< Hellinger's kernel */
+  VlKernelJS           /**< Jensen-Shannon kernel */
+} ;
+
+/** @brief Vector comparison types */
+typedef enum _VlVectorComparisonType VlVectorComparisonType ;
+
+/** @brief Get the symbolic name of a vector comparison type
+ ** @param type vector comparison type.
+ ** @return data symbolic name.
+ **/
+
+VL_INLINE char const *
+vl_get_vector_comparison_type_name (int type)
+{
+  switch (type) {
+    case VlDistanceL1   : return "l1" ;
+    case VlDistanceL2   : return "l2" ;
+    case VlDistanceChi2 : return "chi2" ;
+    case VlKernelL1     : return "kl1" ;
+    case VlKernelL2     : return "kl2" ;
+    case VlKernelChi2   : return "kchi2" ;
+    default: return NULL ;
+  }
+}
+
+VL_EXPORT VlFloatVectorComparisonFunction
+vl_get_vector_comparison_function_f (VlVectorComparisonType type) ;
+
+VL_EXPORT VlDoubleVectorComparisonFunction
+vl_get_vector_comparison_function_d (VlVectorComparisonType type) ;
+
+VL_EXPORT void
+vl_eval_vector_comparison_on_all_pairs_f (float * result, vl_size dimension,
+                                          float const * X, vl_size numDataX,
+                                          float const * Y, vl_size numDataY,
+                                          VlFloatVectorComparisonFunction function) ;
+
+VL_EXPORT void
+vl_eval_vector_comparison_on_all_pairs_d (double * result, vl_size dimension,
+                                          double const * X, vl_size numDataX,
+                                          double const * Y, vl_size numDataY,
+                                          VlDoubleVectorComparisonFunction function) ;
+
+/* VL_MATHOP_H */
+#endif
