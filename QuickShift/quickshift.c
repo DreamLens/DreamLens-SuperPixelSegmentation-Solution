@@ -17,4 +17,12 @@ GNU GPLv2, or (at your option) any later version.
 @file   quickshift.h
 @author Brian Fulkerson
 @author Andrea Vedaldi
-@brief  Quick shift image segment
+@brief  Quick shift image segmentation
+
+- @ref quickshift-intro
+- @ref quickshift-usage
+- @ref quickshift-tech
+
+@section quickshift-intro Overview
+
+Quick 
