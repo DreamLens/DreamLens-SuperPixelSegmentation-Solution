@@ -25,4 +25,5 @@ GNU GPLv2, or (at your option) any later version.
 
 @section quickshift-intro Overview
 
-Quick 
+Quick shift [1] is a fast mode seeking algorithm, similar to mean
+shift. The algorithm segments a color image (or any
