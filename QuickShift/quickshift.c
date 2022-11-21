@@ -13,3 +13,8 @@ GNU GPLv2, or (at your option) any later version.
 */
 
 /** 
+
+@file   quickshift.h
+@author Brian Fulkerson
+@author Andrea Vedaldi
+@brief  Quick shift image segment
