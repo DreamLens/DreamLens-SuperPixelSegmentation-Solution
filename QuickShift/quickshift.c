@@ -28,4 +28,5 @@ GNU GPLv2, or (at your option) any later version.
 Quick shift [1] is a fast mode seeking algorithm, similar to mean
 shift. The algorithm segments a color image (or any image with more
 than one component) by identifying clusters of pixels in the joint
-spa
+spatial and color dimensions. Segments are local (superpixels) and can
+be used as a basis for further
