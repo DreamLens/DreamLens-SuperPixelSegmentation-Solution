@@ -35,4 +35,5 @@ Given an image, the algorithm calculates a forest of pixels whose
 branches are labeled with a distance value
 (::vl_quickshift_get_parents, ::vl_quickshift_get_dists). This
 specifies a hierarchical segmentation of the image, with segments
-corresponding to subtrees. Usef
+corresponding to subtrees. Useful superpixels can be identified by
+cutting the branches whose distance label is above a given threshold
