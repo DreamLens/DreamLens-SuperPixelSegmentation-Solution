@@ -32,4 +32,6 @@ spatial and color dimensions. Segments are local (superpixels) and can
 be used as a basis for further processing.
 
 Given an image, the algorithm calculates a forest of pixels whose
-branches are labeled with 
+branches are labeled with a distance value
+(::vl_quickshift_get_parents, ::vl_quickshift_get_dists). This
+specifies a hierarch
