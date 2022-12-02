@@ -37,3 +37,7 @@ branches are labeled with a distance value
 specifies a hierarchical segmentation of the image, with segments
 corresponding to subtrees. Useful superpixels can be identified by
 cutting the branches whose distance label is above a given threshold
+(the threshold can be either fixed by hand, or determined by cross
+validation).
+
+Parameter influencing the algorit
