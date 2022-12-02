@@ -40,4 +40,7 @@ cutting the branches whose distance label is above a given threshold
 (the threshold can be either fixed by hand, or determined by cross
 validation).
 
-Parameter influencing the algorit
+Parameter influencing the algorithm are:
+
+- <b>Kernel size.</b> The pixel density and its modes are
+estimated by using a Parzen wi
