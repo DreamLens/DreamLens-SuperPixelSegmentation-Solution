@@ -46,4 +46,5 @@ Parameter influencing the algorithm are:
 estimated by using a Parzen window estimator with a Gaussian kernel of
 the specified size (::vl_quickshift_set_kernel_size). The larger the
 size, the larger the neighborhoods of pixels considered.
-- <b>Maximum distance.</b> This (::vl_quickshift_
+- <b>Maximum distance.</b> This (::vl_quickshift_set_max_dist) is the maximum
+distance between two pixels that the algorithm considers when building
