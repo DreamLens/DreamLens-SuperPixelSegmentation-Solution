@@ -48,3 +48,5 @@ the specified size (::vl_quickshift_set_kernel_size). The larger the
 size, the larger the neighborhoods of pixels considered.
 - <b>Maximum distance.</b> This (::vl_quickshift_set_max_dist) is the maximum
 distance between two pixels that the algorithm considers when building
+the forest. In principle, it can be infinity (so that a tree is
+returned), but in practice
