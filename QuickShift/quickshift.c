@@ -44,4 +44,6 @@ Parameter influencing the algorithm are:
 
 - <b>Kernel size.</b> The pixel density and its modes are
 estimated by using a Parzen window estimator with a Gaussian kernel of
-the specified size (::vl_quickshift_set_kernel_size). The l
+the specified size (::vl_quickshift_set_kernel_size). The larger the
+size, the larger the neighborhoods of pixels considered.
+- <b>Maximum distance.</b> This (::vl_quickshift_
