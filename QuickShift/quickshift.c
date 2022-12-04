@@ -49,4 +49,6 @@ size, the larger the neighborhoods of pixels considered.
 - <b>Maximum distance.</b> This (::vl_quickshift_set_max_dist) is the maximum
 distance between two pixels that the algorithm considers when building
 the forest. In principle, it can be infinity (so that a tree is
-returned), but in practice
+returned), but in practice it is much faster to consider only
+relatively small distances (the maximum distance can be set to a small
+multi
