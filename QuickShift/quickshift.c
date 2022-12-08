@@ -54,4 +54,8 @@ relatively small distances (the maximum distance can be set to a small
 multiple of the kernel size).
 
 [1] A. Vedaldi and S. Soatto. &ldquo;Quick Shift and Kernel Methods
-for Mode
+for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
+
+@section quickshift-usage Usage
+
+- Create a new quick shift
