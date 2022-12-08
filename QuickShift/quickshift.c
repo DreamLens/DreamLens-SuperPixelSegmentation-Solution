@@ -51,4 +51,7 @@ distance between two pixels that the algorithm considers when building
 the forest. In principle, it can be infinity (so that a tree is
 returned), but in practice it is much faster to consider only
 relatively small distances (the maximum distance can be set to a small
-multi
+multiple of the kernel size).
+
+[1] A. Vedaldi and S. Soatto. &ldquo;Quick Shift and Kernel Methods
+for Mode
