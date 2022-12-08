@@ -58,4 +58,6 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
 
 @section quickshift-usage Usage
 
-- Create a new quick shift
+- Create a new quick shift object (::vl_quickshift_new). The object
+  can be reused for multiple images of the same size.
+- Confi
