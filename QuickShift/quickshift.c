@@ -60,4 +60,5 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
 
 - Create a new quick shift object (::vl_quickshift_new). The object
   can be reused for multiple images of the same size.
-- Confi
+- Configure quick shift by setting the kernel size
+  (::vl_quickshift_set_kernel_size) and the maximum gap
