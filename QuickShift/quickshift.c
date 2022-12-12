@@ -62,3 +62,5 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
   can be reused for multiple images of the same size.
 - Configure quick shift by setting the kernel size
   (::vl_quickshift_set_kernel_size) and the maximum gap
+  (::vl_quickshift_set_max_dist). The latter is in principle not
+  necessary, but useful to sp
