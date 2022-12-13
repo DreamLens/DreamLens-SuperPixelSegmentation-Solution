@@ -67,4 +67,7 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
 - Process an image (::vl_quickshift_process).
 - Retrieve the parents (::vl_quickshift_get_parents) and the distances
   (::vl_quickshift_get_dists). These can be used to segment
-  the image in superpixe
+  the image in superpixels.
+- Delete the quick shift object (::vl_quickshift_delete).
+
+@section quickshift-tech Technical detai
