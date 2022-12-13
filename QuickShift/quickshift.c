@@ -63,4 +63,6 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
 - Configure quick shift by setting the kernel size
   (::vl_quickshift_set_kernel_size) and the maximum gap
   (::vl_quickshift_set_max_dist). The latter is in principle not
-  necessary, but useful to sp
+  necessary, but useful to speedup processing.
+- Process an image (::vl_quickshift_process).
+- Retrieve the parents (::vl_quickshift_get_paren
