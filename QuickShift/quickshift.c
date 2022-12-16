@@ -75,4 +75,10 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
 For each pixel <em>(x,y)</em>, quick shift regards @f$ (x,y,I(x,y))
 @f$ as a sample from a <em>d + 2</em> dimensional vector space. It
 then calculates the Parzen density estimate (with a Gaussian kernel of
-standard dev
+standard deviation @f$ \sigma @f$)
+
+@f[
+E(x,y) = P(x,y,I(x,y)) = \sum_{x'y'} 
+\frac{1}{(2\pi\sigma)^{d+2}}
+\exp
+\lef
