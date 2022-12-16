@@ -70,4 +70,7 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
   the image in superpixels.
 - Delete the quick shift object (::vl_quickshift_delete).
 
-@section quickshift-tech Technical detai
+@section quickshift-tech Technical details
+
+For each pixel <em>(x,y)</em>, quick shift regards @f$ (x,y,I(x,y))
+@f$ as a sample from a <em>d + 2</em> dimens
