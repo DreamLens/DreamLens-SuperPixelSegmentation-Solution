@@ -73,4 +73,6 @@ for Mode Seeking&rdquo;, in <em>Proc. ECCV</em>, 2008.
 @section quickshift-tech Technical details
 
 For each pixel <em>(x,y)</em>, quick shift regards @f$ (x,y,I(x,y))
-@f$ as a sample from a <em>d + 2</em> dimens
+@f$ as a sample from a <em>d + 2</em> dimensional vector space. It
+then calculates the Parzen density estimate (with a Gaussian kernel of
+standard dev
