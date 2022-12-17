@@ -81,4 +81,12 @@ standard deviation @f$ \sigma @f$)
 E(x,y) = P(x,y,I(x,y)) = \sum_{x'y'} 
 \frac{1}{(2\pi\sigma)^{d+2}}
 \exp
-\lef
+\left(
+-\frac{1}{2\sigma^2} 
+\left[
+\begin{array}{c}
+x - x' \\
+y - y' \\
+I(x,y) - I(x',y') \\
+\end{array}
+\right] 
