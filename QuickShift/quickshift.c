@@ -94,4 +94,8 @@ I(x,y) - I(x',y') \\
 @f]
 
 Then quick shift construct a tree connecting each image pixel to its
-nearest neighbor which has g
+nearest neighbor which has greater density value. Formally, write @f$
+(x',y') >_P (x,y) @f$ if, and only if,
+
+@f[
+  P(x',y',I
