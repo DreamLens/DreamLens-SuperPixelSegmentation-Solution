@@ -90,3 +90,8 @@ y - y' \\
 I(x,y) - I(x',y') \\
 \end{array}
 \right] 
+\right)
+@f]
+
+Then quick shift construct a tree connecting each image pixel to its
+nearest neighbor which has g
