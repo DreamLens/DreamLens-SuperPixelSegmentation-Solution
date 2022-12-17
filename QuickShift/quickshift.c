@@ -98,4 +98,7 @@ nearest neighbor which has greater density value. Formally, write @f$
 (x',y') >_P (x,y) @f$ if, and only if,
 
 @f[
-  P(x',y',I
+  P(x',y',I(x',y')) > P(x,y,I(x,y))}.
+@f]
+
+Each pixel <em>(x, y)</em> is connected to the closest higher den
