@@ -105,4 +105,10 @@ Each pixel <em>(x, y)</em> is connected to the closest higher density
 pixel <em>parent(x, y)</em> that achieves the minimum distance in
 
 @f[
- \mathrm{dist}(x,y) =
+ \mathrm{dist}(x,y) = 
+ \mathrm{min}_{(x',y') > P(x,y)}
+\left(
+(x - x')^2 +
+(y - y')^2 +
+\| I(x,y) - I(x',y') \|_2^2 
+\right).
