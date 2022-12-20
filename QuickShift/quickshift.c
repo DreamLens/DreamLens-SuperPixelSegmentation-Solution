@@ -112,3 +112,14 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
 (y - y')^2 +
 \| I(x,y) - I(x',y') \|_2^2 
 \right).
+@f]
+
+    
+**/
+  
+#include "quickshift.h"
+#include "mathop.h"
+
+#include <string.h>
+#include <math.h>
+#include <std
