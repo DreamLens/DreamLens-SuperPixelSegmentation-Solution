@@ -122,4 +122,9 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
 
 #include <string.h>
 #include <math.h>
-#include <std
+#include <stdio.h>
+
+
+/** -----------------------------------------------------------------
+ ** @internal
+ ** @brief Computes t
