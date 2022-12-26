@@ -127,4 +127,7 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
 
 /** -----------------------------------------------------------------
  ** @internal
- ** @brief Computes t
+ ** @brief Computes the accumulated channel L2 distance between
+ **        i,j + the distance between i,j
+ **
+ ** @param I   
