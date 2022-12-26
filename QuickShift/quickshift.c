@@ -130,4 +130,6 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
  ** @brief Computes the accumulated channel L2 distance between
  **        i,j + the distance between i,j
  **
- ** @param I   
+ ** @param I    input image buffer
+ ** @param N1   size of the first dimension of the image
+ ** @param N2   size
