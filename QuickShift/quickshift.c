@@ -132,4 +132,6 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
  **
  ** @param I    input image buffer
  ** @param N1   size of the first dimension of the image
- ** @param N2   size
+ ** @param N2   size of the second dimension of the image
+ ** @param K    number of channels
+ ** @param i1   first dimension
