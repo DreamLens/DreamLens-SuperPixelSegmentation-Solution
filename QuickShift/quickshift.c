@@ -134,4 +134,6 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
  ** @param N1   size of the first dimension of the image
  ** @param N2   size of the second dimension of the image
  ** @param K    number of channels
- ** @param i1   first dimension
+ ** @param i1   first dimension index of the first pixel to compare
+ ** @param i2   second dimension of the first pixel
+ ** @param j1
