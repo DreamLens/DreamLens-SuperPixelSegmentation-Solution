@@ -136,4 +136,5 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
  ** @param K    number of channels
  ** @param i1   first dimension index of the first pixel to compare
  ** @param i2   second dimension of the first pixel
- ** @param j1
+ ** @param j1   index of the second pixel to compare
+ ** @param j2   second dimension of the second pi
