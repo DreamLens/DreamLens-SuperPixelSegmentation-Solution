@@ -140,4 +140,7 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
  ** @param j2   second dimension of the second pixel
  **
  ** Takes the L2 distance between the values in I at pixel i and j, 
- ** accumulating along K chann
+ ** accumulating along K channels and adding in the distance
+ ** between i,j in the image.
+ ** 
+ ** @return the distance as described abo
