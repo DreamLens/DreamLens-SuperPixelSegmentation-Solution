@@ -137,4 +137,7 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
  ** @param i1   first dimension index of the first pixel to compare
  ** @param i2   second dimension of the first pixel
  ** @param j1   index of the second pixel to compare
- ** @param j2   second dimension of the second pi
+ ** @param j2   second dimension of the second pixel
+ **
+ ** Takes the L2 distance between the values in I at pixel i and j, 
+ ** accumulating along K chann
