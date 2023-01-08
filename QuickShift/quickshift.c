@@ -143,4 +143,10 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
  ** accumulating along K channels and adding in the distance
  ** between i,j in the image.
  ** 
- ** @return the distance as described abo
+ ** @return the distance as described above
+ **/
+
+VL_INLINE
+vl_qs_type
+vl_quickshift_distance(vl_qs_type const * I, 
+         int N1, int N2, int
