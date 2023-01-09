@@ -158,4 +158,8 @@ vl_quickshift_distance(vl_qs_type const * I,
   int d2 = j2 - i2 ;
   int k ;
   dist += d1*d1 + d2*d2 ;
-  /* For k = 0...K-1, d+= L2 distance betwe
+  /* For k = 0...K-1, d+= L2 distance between I(i1,i2,k) and 
+   * I(j1,j2,k) */
+  for (k = 0 ; k < K ; ++k) {
+    vl_qs_type d = 
+      I [i1 + N1
