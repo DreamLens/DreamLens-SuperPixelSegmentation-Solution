@@ -149,4 +149,9 @@ pixel <em>parent(x, y)</em> that achieves the minimum distance in
 VL_INLINE
 vl_qs_type
 vl_quickshift_distance(vl_qs_type const * I, 
-         int N1, int N2, int
+         int N1, int N2, int K,
+         int i1, int i2,
+         int j1, int j2) 
+{
+  vl_qs_type dist = 0 ;
+  int d1 = j1 - i1 
