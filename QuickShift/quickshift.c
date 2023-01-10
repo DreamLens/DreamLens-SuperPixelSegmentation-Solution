@@ -162,4 +162,9 @@ vl_quickshift_distance(vl_qs_type const * I,
    * I(j1,j2,k) */
   for (k = 0 ; k < K ; ++k) {
     vl_qs_type d = 
-      I [i1 + N1
+      I [i1 + N1 * i2 + (N1*N2) * k] - 
+      I [j1 + N1 * j2 + (N1*N2) * k] ;
+    dist += d*d ;
+  }
+  return dist ;
+}
