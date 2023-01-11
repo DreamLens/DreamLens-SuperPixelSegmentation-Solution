@@ -168,3 +168,7 @@ vl_quickshift_distance(vl_qs_type const * I,
   }
   return dist ;
 }
+
+/** -----------------------------------------------------------------
+ ** @internal
+ ** @brief Computes
