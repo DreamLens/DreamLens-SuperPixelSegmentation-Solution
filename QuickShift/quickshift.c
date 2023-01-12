@@ -174,4 +174,6 @@ vl_quickshift_distance(vl_qs_type const * I,
  ** @brief Computes the accumulated channel inner product between i,j + the
  **        distance between i,j
  ** 
- ** @param 
+ ** @param I    input image buffer
+ ** @param N1   size of the first dimension of the image
+ ** @param N2   size of the second d
