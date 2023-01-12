@@ -171,4 +171,7 @@ vl_quickshift_distance(vl_qs_type const * I,
 
 /** -----------------------------------------------------------------
  ** @internal
- ** @brief Computes
+ ** @brief Computes the accumulated channel inner product between i,j + the
+ **        distance between i,j
+ ** 
+ ** @param 
