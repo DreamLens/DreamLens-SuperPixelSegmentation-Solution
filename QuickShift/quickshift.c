@@ -185,4 +185,6 @@ vl_quickshift_distance(vl_qs_type const * I,
  **
  ** Takes the channel-wise inner product between the values in I at
  ** pixel i and j, accumulating along K channels and adding in the
- ** inner pr
+ ** inner product between i,j in the image.
+ ** 
+ ** @return the inner product as described above
