@@ -183,4 +183,6 @@ vl_quickshift_distance(vl_qs_type const * I,
  ** @param j1   index of the second pixel to compare
  ** @param j2   second dimension of the second pixel
  **
- ** Takes the channel-wise inne
+ ** Takes the channel-wise inner product between the values in I at
+ ** pixel i and j, accumulating along K channels and adding in the
+ ** inner pr
