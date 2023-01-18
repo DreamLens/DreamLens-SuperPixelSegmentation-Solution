@@ -188,3 +188,9 @@ vl_quickshift_distance(vl_qs_type const * I,
  ** inner product between i,j in the image.
  ** 
  ** @return the inner product as described above
+ **/
+
+VL_INLINE
+vl_qs_type
+vl_quickshift_inner(vl_qs_type const * I, 
+      int N1, int N2, 
