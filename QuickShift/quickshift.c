@@ -203,4 +203,10 @@ vl_quickshift_inner(vl_qs_type const * I,
   for (k = 0 ; k < K ; ++k) {
     ker += 
       I [i1 + N1 * i2 + (N1*N2) * k] *
-      I
+      I [j1 + N1 * j2 + (N1*N2) * k] ;
+  }
+  return ker ;
+}
+
+/** -----------------------------------------------------------------
+ 
