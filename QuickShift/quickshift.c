@@ -213,4 +213,11 @@ vl_quickshift_inner(vl_qs_type const * I,
  ** @param image
  ** @param height
  ** @param width
- ** @param
+ ** @param channels
+ **
+ ** @return New quick shift object.
+ **/
+ 
+VL_EXPORT
+VlQS *
+vl_quickshift_new(vl_qs_type const * image, int height, int
