@@ -220,4 +220,9 @@ vl_quickshift_inner(vl_qs_type const * I,
  
 VL_EXPORT
 VlQS *
-vl_quickshift_new(vl_qs_type const * image, int height, int
+vl_quickshift_new(vl_qs_type const * image, int height, int width,
+                       int channels)
+{
+  VlQS * q = vl_malloc(sizeof(VlQS));
+
+  q->image    = (vl_qs_type 
