@@ -225,4 +225,10 @@ vl_quickshift_new(vl_qs_type const * image, int height, int width,
 {
   VlQS * q = vl_malloc(sizeof(VlQS));
 
-  q->image    = (vl_qs_type 
+  q->image    = (vl_qs_type *)image;
+  q->height   = height;
+  q->width    = width;
+  q->channels = channels;
+
+  q->medoid   = VL_FALSE;
+ 
