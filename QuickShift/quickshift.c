@@ -231,4 +231,7 @@ vl_quickshift_new(vl_qs_type const * image, int height, int width,
   q->channels = channels;
 
   q->medoid   = VL_FALSE;
- 
+  q->tau      = VL_MAX(height,width)/50;
+  q->sigma    = VL_MAX(2, q->tau/3);
+
+  q->d
