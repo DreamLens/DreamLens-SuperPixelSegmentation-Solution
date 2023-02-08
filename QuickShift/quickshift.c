@@ -234,4 +234,5 @@ vl_quickshift_new(vl_qs_type const * image, int height, int width,
   q->tau      = VL_MAX(height,width)/50;
   q->sigma    = VL_MAX(2, q->tau/3);
 
-  q->d
+  q->dists    = vl_calloc(height*width, sizeof(vl_qs_type));
+  q->parents  = vl_calloc(height*width
