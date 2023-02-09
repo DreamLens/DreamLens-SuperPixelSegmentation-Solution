@@ -241,4 +241,5 @@ vl_quickshift_new(vl_qs_type const * image, int height, int width,
   return q;
 }
 
-/** -----
+/** -----------------------------------------------------------------
+ ** @brief Create a quick shift objet
