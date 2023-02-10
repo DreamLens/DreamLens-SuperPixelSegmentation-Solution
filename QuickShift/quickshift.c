@@ -249,4 +249,7 @@ vl_quickshift_new(vl_qs_type const * image, int height, int width,
 VL_EXPORT
 void vl_quickshift_process(VlQS * q)
 {
-  vl_qs_type c
+  vl_qs_type const *I = q->image;
+  int        *parents = q->parents;
+  vl_qs_type *E = q->density;
+  vl_qs_type *dists = q->dis
