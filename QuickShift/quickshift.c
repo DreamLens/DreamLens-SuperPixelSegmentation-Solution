@@ -243,3 +243,10 @@ vl_quickshift_new(vl_qs_type const * image, int height, int width,
 
 /** -----------------------------------------------------------------
  ** @brief Create a quick shift objet
+ ** @param q quick shift object.
+ **/
+
+VL_EXPORT
+void vl_quickshift_process(VlQS * q)
+{
+  vl_qs_type c
