@@ -252,4 +252,7 @@ void vl_quickshift_process(VlQS * q)
   vl_qs_type const *I = q->image;
   int        *parents = q->parents;
   vl_qs_type *E = q->density;
-  vl_qs_type *dists = q->dis
+  vl_qs_type *dists = q->dists; 
+  vl_qs_type *M = 0, *n = 0 ;
+  vl_qs_type sigma = q->sigma ;
+  vl_qs_type tau = q->tau;
