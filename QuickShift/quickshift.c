@@ -256,3 +256,8 @@ void vl_quickshift_process(VlQS * q)
   vl_qs_type *M = 0, *n = 0 ;
   vl_qs_type sigma = q->sigma ;
   vl_qs_type tau = q->tau;
+  vl_qs_type tau2 = tau*tau;
+  
+  int K = q->channels, d;
+  int N1 = q->height, N2 = q->width;
+  int i1,i2, j1,j
