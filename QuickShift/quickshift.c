@@ -260,4 +260,8 @@ void vl_quickshift_process(VlQS * q)
   
   int K = q->channels, d;
   int N1 = q->height, N2 = q->width;
-  int i1,i2, j1,j
+  int i1,i2, j1,j2, R, tR;
+
+  d = 2 + K ; /* Total dimensions include spatial component (x,y) */
+
+  if (q->medoi
