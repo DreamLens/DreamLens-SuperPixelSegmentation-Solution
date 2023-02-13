@@ -264,4 +264,5 @@ void vl_quickshift_process(VlQS * q)
 
   d = 2 + K ; /* Total dimensions include spatial component (x,y) */
 
-  if (q->medoi
+  if (q->medoid) { /* n and M are only used in mediod shift */
+    M = (vl_qs_type *) vl_calloc(N1*N2*d, sizeof(vl
