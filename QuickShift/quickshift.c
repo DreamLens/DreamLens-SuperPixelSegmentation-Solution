@@ -265,4 +265,9 @@ void vl_quickshift_process(VlQS * q)
   d = 2 + K ; /* Total dimensions include spatial component (x,y) */
 
   if (q->medoid) { /* n and M are only used in mediod shift */
-    M = (vl_qs_type *) vl_calloc(N1*N2*d, sizeof(vl
+    M = (vl_qs_type *) vl_calloc(N1*N2*d, sizeof(vl_qs_type)) ;
+    n = (vl_qs_type *) vl_calloc(N1*N2,   sizeof(vl_qs_type)) ;
+  }
+
+  R = (int) ceil (3 * sigma) ;
+  
