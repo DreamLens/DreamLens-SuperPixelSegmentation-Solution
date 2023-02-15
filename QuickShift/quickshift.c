@@ -270,4 +270,7 @@ void vl_quickshift_process(VlQS * q)
   }
 
   R = (int) ceil (3 * sigma) ;
+  tR = (int) ceil (tau) ;
   
+  /* -----------------------------------------------------------------
+ 
