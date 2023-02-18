@@ -279,3 +279,7 @@ void vl_quickshift_process(VlQS * q)
   /* If we are doing medoid shift, initialize n to the inner product of the
    * image with itself
    */
+  if (n) { 
+    for (i2 = 0 ; i2 < N2 ; ++ i2) {
+      for (i1 = 0 ; i1 < N1 ; ++ i1) {        
+        n
