@@ -295,4 +295,7 @@ void vl_quickshift_process(VlQS * q)
   
   /* 
      D_ij = d(x_i,x_j)
-     E_ij = exp(- .5 * D
+     E_ij = exp(- .5 * D_ij / sigma^2) ;
+     F_ij = - E_ij             
+     E_i  = sum_j E_ij
+     M_di = sum_j X_j 
