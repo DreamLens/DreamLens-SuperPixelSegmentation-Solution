@@ -298,4 +298,7 @@ void vl_quickshift_process(VlQS * q)
      E_ij = exp(- .5 * D_ij / sigma^2) ;
      F_ij = - E_ij             
      E_i  = sum_j E_ij
-     M_di = sum_j X_j 
+     M_di = sum_j X_j F_ij
+
+     E is the parzen window estimate of the density
+     0 = dissimilar to everything, windowsize =
