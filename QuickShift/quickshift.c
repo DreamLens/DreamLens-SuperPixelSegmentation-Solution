@@ -301,4 +301,10 @@ void vl_quickshift_process(VlQS * q)
      M_di = sum_j X_j F_ij
 
      E is the parzen window estimate of the density
-     0 = dissimilar to everything, windowsize =
+     0 = dissimilar to everything, windowsize = identical
+  */
+  
+  for (i2 = 0 ; i2 < N2 ; ++ i2) {
+    for (i1 = 0 ; i1 < N1 ; ++ i1) {
+      
+ 
