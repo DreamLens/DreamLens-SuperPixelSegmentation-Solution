@@ -312,4 +312,6 @@ void vl_quickshift_process(VlQS * q)
       int j2min = VL_MAX(i2 - R, 0   ) ;
       int j2max = VL_MIN(i2 + R, N2-1) ;      
       
-      /* For each pixel in the window compute
+      /* For each pixel in the window compute the distance between it and the
+       * source pixel */
+      for (j2 = j2min ; j2 <= j2max ; +
