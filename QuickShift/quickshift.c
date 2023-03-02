@@ -314,4 +314,6 @@ void vl_quickshift_process(VlQS * q)
       
       /* For each pixel in the window compute the distance between it and the
        * source pixel */
-      for (j2 = j2min ; j2 <= j2max ; +
+      for (j2 = j2min ; j2 <= j2max ; ++ j2) {
+        for (j1 = j1min ; j1 <= j1max ; ++ j1) {
+          vl_qs_type Dij = vl_quickshift_distance(I,N1,N2,K, i1,i
