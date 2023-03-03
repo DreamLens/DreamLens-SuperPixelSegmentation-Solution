@@ -316,4 +316,6 @@ void vl_quickshift_process(VlQS * q)
        * source pixel */
       for (j2 = j2min ; j2 <= j2max ; ++ j2) {
         for (j1 = j1min ; j1 <= j1max ; ++ j1) {
-          vl_qs_type Dij = vl_quickshift_distance(I,N1,N2,K, i1,i
+          vl_qs_type Dij = vl_quickshift_distance(I,N1,N2,K, i1,i2, j1,j2) ;          
+          /* Make distance a similarity */ 
+          vl_qs_type Fij
