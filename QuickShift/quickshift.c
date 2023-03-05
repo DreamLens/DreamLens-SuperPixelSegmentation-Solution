@@ -323,4 +323,7 @@ void vl_quickshift_process(VlQS * q)
           /* E is E_i above */
           E [i1 + N1 * i2] -= Fij ;
           
-        
+          if (M) {
+            /* Accumulate votes for the median */
+            int k ;
+      
