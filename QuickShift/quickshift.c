@@ -326,4 +326,5 @@ void vl_quickshift_process(VlQS * q)
           if (M) {
             /* Accumulate votes for the median */
             int k ;
-      
+            M [i1 + N1*i2 + (N1*N2) * 0] += j1 * Fij ;
+            M [i1 + N1*i2 + (N1*N2) * 1] += j2 *
