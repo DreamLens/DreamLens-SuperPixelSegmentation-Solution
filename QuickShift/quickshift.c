@@ -330,4 +330,9 @@ void vl_quickshift_process(VlQS * q)
             M [i1 + N1*i2 + (N1*N2) * 1] += j2 * Fij ;
             for (k = 0 ; k < K ; ++k) {
               M [i1 + N1*i2 + (N1*N2) * (k+2)] += 
-           
+                I [j1 + N1*j2 + (N1*N2) * k] * Fij ;
+            }
+          } 
+          
+        } /* j1 */ 
+   
