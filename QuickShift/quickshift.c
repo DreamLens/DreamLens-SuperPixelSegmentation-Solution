@@ -352,4 +352,8 @@ void vl_quickshift_process(VlQS * q)
     */
     
     /* medoid shift */
-    for (i2 = 0 ; i2 < N2 ; ++i2)
+    for (i2 = 0 ; i2 < N2 ; ++i2) {
+      for (i1 = 0 ; i1 < N1 ; ++i1) {
+        
+        vl_qs_type sc_best = 0  ;
+        /*
