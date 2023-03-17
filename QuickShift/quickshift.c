@@ -347,4 +347,9 @@ void vl_quickshift_process(VlQS * q)
   if (q->medoid) {
     
     /* 
-       Qij = - nj
+       Qij = - nj Ei - 2 sum_k Gjk Mik
+       n is I.^2
+    */
+    
+    /* medoid shift */
+    for (i2 = 0 ; i2 < N2 ; ++i2)
