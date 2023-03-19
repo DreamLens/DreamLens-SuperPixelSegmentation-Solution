@@ -356,4 +356,6 @@ void vl_quickshift_process(VlQS * q)
       for (i1 = 0 ; i1 < N1 ; ++i1) {
         
         vl_qs_type sc_best = 0  ;
-        /*
+        /* j1/j2 best are the best indicies for each i */
+        vl_qs_type j1_best = i1 ;
+        vl_qs_type j2_
