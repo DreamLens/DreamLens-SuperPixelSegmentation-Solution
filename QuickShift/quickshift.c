@@ -358,4 +358,8 @@ void vl_quickshift_process(VlQS * q)
         vl_qs_type sc_best = 0  ;
         /* j1/j2 best are the best indicies for each i */
         vl_qs_type j1_best = i1 ;
-        vl_qs_type j2_
+        vl_qs_type j2_best = i2 ; 
+        
+        int j1min = VL_MAX(i1 - R, 0   ) ;
+        int j1max = VL_MIN(i1 + R, N1-1) ;
+        
