@@ -366,4 +366,7 @@ void vl_quickshift_process(VlQS * q)
         int j2max = VL_MIN(i2 + R, N2-1) ;      
         
         for (j2 = j2min ; j2 <= j2max ; ++ j2) {
-          for (j1 = j1min ; j1 <= j1max ; ++ j1) {   
+          for (j1 = j1min ; j1 <= j1max ; ++ j1) {            
+            
+            vl_qs_type Qij = - n [j1 + j2 * N1] * E [i1 + i2 * N1] ;
+ 
