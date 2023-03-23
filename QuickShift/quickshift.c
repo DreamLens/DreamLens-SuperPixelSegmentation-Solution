@@ -374,4 +374,6 @@ void vl_quickshift_process(VlQS * q)
             Qij -= 2 * j1 * M [i1 + i2 * N1 + (N1*N2) * 0] ;
             Qij -= 2 * j2 * M [i1 + i2 * N1 + (N1*N2) * 1] ;
             for (k = 0 ; k < K ; ++k) {
-          
+              Qij -= 2 * 
+                I [j1 + j2 * N1 + (N1*N2) * k] *
+                M [i1 + i2 * N1 + (N
