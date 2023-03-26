@@ -376,4 +376,8 @@ void vl_quickshift_process(VlQS * q)
             for (k = 0 ; k < K ; ++k) {
               Qij -= 2 * 
                 I [j1 + j2 * N1 + (N1*N2) * k] *
-                M [i1 + i2 * N1 + (N
+                M [i1 + i2 * N1 + (N1*N2) * (k + 2)] ;
+            }
+            
+            if (Qij > sc_best) {
+              sc
