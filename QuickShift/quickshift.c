@@ -380,4 +380,11 @@ void vl_quickshift_process(VlQS * q)
             }
             
             if (Qij > sc_best) {
-              sc
+              sc_best = Qij ;
+              j1_best = j1 ;
+              j2_best = j2 ;
+            }
+          }
+        }
+
+        /* pare
