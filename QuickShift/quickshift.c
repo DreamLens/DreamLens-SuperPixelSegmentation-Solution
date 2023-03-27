@@ -387,4 +387,5 @@ void vl_quickshift_process(VlQS * q)
           }
         }
 
-        /* pare
+        /* parents_i is the linear index of j which is the best pair 
+         * dists_i is the score of the best mat
