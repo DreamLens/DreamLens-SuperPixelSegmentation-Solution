@@ -391,4 +391,10 @@ void vl_quickshift_process(VlQS * q)
          * dists_i is the score of the best match
          */
         parents [i1 + N1 * i2] = j1_best + N1 * j2_best ;
-        dists[i1 + N1 * i2] = sc_best 
+        dists[i1 + N1 * i2] = sc_best ;
+      }
+    }  
+
+  } else {
+    
+    /* Quickshift assigns each i to the closest j which has a
