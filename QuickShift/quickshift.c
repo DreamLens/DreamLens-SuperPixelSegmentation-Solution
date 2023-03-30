@@ -399,4 +399,7 @@ void vl_quickshift_process(VlQS * q)
     
     /* Quickshift assigns each i to the closest j which has an increase in the
      * density (E). If there is no j s.t. Ej > Ei, then dists_i == inf (a root
-     * node in
+     * node in one of the trees of merges).
+     */
+    for (i2 = 0 ; i2 < N2 ; ++i2) {
+      for (i1 = 0 ; i1 < N1 
