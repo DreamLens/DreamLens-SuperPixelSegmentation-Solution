@@ -402,4 +402,7 @@ void vl_quickshift_process(VlQS * q)
      * node in one of the trees of merges).
      */
     for (i2 = 0 ; i2 < N2 ; ++i2) {
-      for (i1 = 0 ; i1 < N1 
+      for (i1 = 0 ; i1 < N1 ; ++i1) {
+        
+        vl_qs_type E0 = E [i1 + N1 * i2] ;
+        vl_qs_type d_best = VL_QS_INF ;
