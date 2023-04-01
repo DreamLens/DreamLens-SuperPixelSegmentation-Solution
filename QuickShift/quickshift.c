@@ -406,3 +406,7 @@ void vl_quickshift_process(VlQS * q)
         
         vl_qs_type E0 = E [i1 + N1 * i2] ;
         vl_qs_type d_best = VL_QS_INF ;
+        vl_qs_type j1_best = i1   ;
+        vl_qs_type j2_best = i2   ; 
+        
+        int j1min = VL_
