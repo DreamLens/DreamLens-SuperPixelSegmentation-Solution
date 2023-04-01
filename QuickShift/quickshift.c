@@ -409,4 +409,6 @@ void vl_quickshift_process(VlQS * q)
         vl_qs_type j1_best = i1   ;
         vl_qs_type j2_best = i2   ; 
         
-        int j1min = VL_
+        int j1min = VL_MAX(i1 - tR, 0   ) ;
+        int j1max = VL_MIN(i1 + tR, N1-1) ;
+        int j2min = VL_MAX(i2 - tR, 
