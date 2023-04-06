@@ -416,4 +416,6 @@ void vl_quickshift_process(VlQS * q)
         
         for (j2 = j2min ; j2 <= j2max ; ++ j2) {
           for (j1 = j1min ; j1 <= j1max ; ++ j1) {            
-            if (E [j1 + N1 * j2] > E0) 
+            if (E [j1 + N1 * j2] > E0) {
+              vl_qs_type Dij = vl_quickshift_distance(I,N1,N2,K, i1,i2, j1,j2) ;
+              if (Dij <= ta
