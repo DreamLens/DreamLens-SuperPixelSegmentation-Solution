@@ -421,4 +421,10 @@ void vl_quickshift_process(VlQS * q)
               if (Dij <= tau2 && Dij < d_best) {
                 d_best = Dij ;
                 j1_best = j1 ;
-                j2_best =
+                j2_best = j2 ;
+              }
+            }
+          }
+        }
+        
+        /* parents is the
