@@ -427,4 +427,6 @@ void vl_quickshift_process(VlQS * q)
           }
         }
         
-        /* parents is the
+        /* parents is the index of the best pair */
+        /* dists_i is the minimal distance, inf implies no Ej > Ei within
+         
