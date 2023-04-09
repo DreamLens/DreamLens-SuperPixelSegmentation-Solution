@@ -429,4 +429,6 @@ void vl_quickshift_process(VlQS * q)
         
         /* parents is the index of the best pair */
         /* dists_i is the minimal distance, inf implies no Ej > Ei within
-         
+         * distance tau from the point */
+        parents [i1 + N1 * i2] = j1_best + N1 * j2_best ;
+       
