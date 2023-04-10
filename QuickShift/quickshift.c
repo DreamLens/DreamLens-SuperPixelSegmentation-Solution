@@ -437,4 +437,8 @@ void vl_quickshift_process(VlQS * q)
   }
   
   if (M) vl_free(M) ;
-  if (n) vl_free
+  if (n) vl_free(n) ;
+}
+
+/** -----------------------------------------------------------------
+ ** @brief Delet
