@@ -441,4 +441,10 @@ void vl_quickshift_process(VlQS * q)
 }
 
 /** -----------------------------------------------------------------
- ** @brief Delet
+ ** @brief Delete quick shift object
+ ** @param q quick shift object.
+ **/
+
+void vl_quickshift_delete(VlQS * q)
+{
+ 
