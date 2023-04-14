@@ -454,4 +454,11 @@ void vl_quickshift_delete(VlQS * q)
     }
     if (q->dists)   
     {
-      
+      vl_free(q->dists);
+    }
+    if (q->density) 
+    {
+      vl_free(q->density);
+    }
+    
+    vl_free(
