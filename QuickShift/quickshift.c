@@ -447,4 +447,11 @@ void vl_quickshift_process(VlQS * q)
 
 void vl_quickshift_delete(VlQS * q)
 {
- 
+  if (q) {
+    if (q->parents) 
+    {
+      vl_free(q->parents);
+    }
+    if (q->dists)   
+    {
+      
