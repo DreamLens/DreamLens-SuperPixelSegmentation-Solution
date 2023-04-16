@@ -461,4 +461,6 @@ void vl_quickshift_delete(VlQS * q)
       vl_free(q->density);
     }
     
-    vl_free(
+    vl_free(q);
+  }
+}
