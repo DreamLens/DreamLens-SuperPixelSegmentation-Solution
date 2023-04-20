@@ -10,4 +10,9 @@ typedef itk::Image<unsigned int, 2> LabelImageType;
 template<typename TImage>
 static void CreateImage(TImage* image);
 
-template<typ
+template<typename TImage>
+static void WriteImage(TImage* image, const std::string& filename);
+
+int main()
+{
+  ImageType::Pointer image = ImageType::
