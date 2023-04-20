@@ -15,4 +15,7 @@ static void WriteImage(TImage* image, const std::string& filename);
 
 int main()
 {
-  ImageType::Pointer image = ImageType::
+  ImageType::Pointer image = ImageType::New();
+  CreateImage<ImageType>(image);
+
+  typedef itk::QuickShiftSegmentation<ImageType, LabelImageType> QuickShiftSegm
