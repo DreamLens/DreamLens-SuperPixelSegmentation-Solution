@@ -18,4 +18,7 @@ int main()
   ImageType::Pointer image = ImageType::New();
   CreateImage<ImageType>(image);
 
-  typedef itk::QuickShiftSegmentation<ImageType, LabelImageType> QuickShiftSegm
+  typedef itk::QuickShiftSegmentation<ImageType, LabelImageType> QuickShiftSegmentationType;
+  QuickShiftSegmentationType::Pointer quickShiftSegmentation = QuickShiftSegmentationType::New();
+
+  ret
