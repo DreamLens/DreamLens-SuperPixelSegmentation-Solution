@@ -21,4 +21,12 @@ int main()
   typedef itk::QuickShiftSegmentation<ImageType, LabelImageType> QuickShiftSegmentationType;
   QuickShiftSegmentationType::Pointer quickShiftSegmentation = QuickShiftSegmentationType::New();
 
-  ret
+  return 0;
+}
+
+
+template<typename TImage>
+void CreateImage(TImage* image)
+{
+  itk::Index<2> start;
+  sta
