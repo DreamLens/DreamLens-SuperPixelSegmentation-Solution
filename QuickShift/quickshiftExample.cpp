@@ -29,4 +29,9 @@ template<typename TImage>
 void CreateImage(TImage* image)
 {
   itk::Index<2> start;
-  sta
+  start.Fill(0);
+ 
+  itk::Size<2> size;
+  size.Fill(5);
+ 
+  itk::ImageRegion<2> region(start,siz
