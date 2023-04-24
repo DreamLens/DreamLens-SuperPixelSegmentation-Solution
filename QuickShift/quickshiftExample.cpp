@@ -34,4 +34,10 @@ void CreateImage(TImage* image)
   itk::Size<2> size;
   size.Fill(5);
  
-  itk::ImageRegion<2> region(start,siz
+  itk::ImageRegion<2> region(start,size);
+ 
+  image->SetRegions(region);
+  image->Allocate();
+ 
+  itk::ImageRegionIterator<TImage> imageIterator(image, region);
+ 
