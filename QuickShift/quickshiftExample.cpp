@@ -41,3 +41,8 @@ void CreateImage(TImage* image)
  
   itk::ImageRegionIterator<TImage> imageIterator(image, region);
  
+  while(!imageIterator.IsAtEnd())
+    {
+    if(imageIterator.GetIndex()[0] < size[0]/2)
+      {
+      ima
