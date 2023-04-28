@@ -45,4 +45,15 @@ void CreateImage(TImage* image)
     {
     if(imageIterator.GetIndex()[0] < size[0]/2)
       {
-      ima
+      imageIterator.Set(255);
+      }
+    else
+      {
+      imageIterator.Set(0);
+      }
+ 
+    ++imageIterator;
+    }
+}
+
+template<type
