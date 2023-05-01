@@ -59,4 +59,6 @@ void CreateImage(TImage* image)
 template<typename TImage>
 void WriteImage(TImage* image, const std::string& filename)
 {
-  typedef  itk::ImageFileWrit
+  typedef  itk::ImageFileWriter<TImage> WriterType;
+  typename WriterType::Pointer writer = WriterType::New();
+  writer->SetFileName(filen
