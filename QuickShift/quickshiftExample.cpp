@@ -56,4 +56,7 @@ void CreateImage(TImage* image)
     }
 }
 
-template<type
+template<typename TImage>
+void WriteImage(TImage* image, const std::string& filename)
+{
+  typedef  itk::ImageFileWrit
