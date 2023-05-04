@@ -48,3 +48,119 @@ int main()
         {
         unsigned int linearIndex = ComputeLinearIndex(y, x, width, height, channel);
         std::cout << "linearIndex: " << linearIndex << std::endl;
+        float noise = drand48()/10.0f;
+        if(x <= 1)
+          {
+          //image[linearIndex] = 255;
+          image[linearIndex] = 1.0 + noise;
+          image[linearIndex] *= ratio;
+          }
+        else
+          {
+          image[linearIndex] = 0 + noise;
+          }
+        }
+      }
+    }
+
+  // Create a new quick shift object
+  
+  VlQS* quickshift = vl_quickshift_new(image, height, width, channels);
+  
+  // Configure quick shift by setting the kernel size (vl_quickshift_set_kernel_size)
+  // and the maximum gap (vl_quickshift_set_max_dist).
+  // The latter is in principle not necessary, but useful to speedup processing.
+  vl_qs_type sigma = 5.0;
+  vl_quickshift_set_kernel_size(quickshift, sigma);
+  vl_qs_type max_dist = 10.0;
+  vl_quickshift_set_max_dist(quickshift, max_dist);
+
+  //Process an image
+  vl_quickshift_process(quickshift);
+  
+
+  //Retrieve the parents (These can be used to segment the image in superpixels.)
+  int* parents = vl_quickshift_get_parents(quickshift);
+  std::cout << "Parents:" << std::endl;
+  OutputArray<int>(parents, totalPixels);
+  
+  std::vector<int> parentsVector = GetVectorFromArray(parents, totalPixels);
+  
+  std::vector<int> labels = GetLabelsFromParents(parentsVector);
+  
+  std::cout << "Labels vector:" << std::endl;
+  OutputVector<int>(labels);
+  
+  std::vector<int> sequentialLabels = SequentialLabels(labels);
+  std::cout << "Sequential labels vector:" << std::endl;
+  OutputVector<int>(sequentialLabels);
+  std::cout << "Sequential labels matrix:" << std::endl;
+  OutputMatrix<int>(sequentialLabels, width, height);
+  
+  //Retrieve the distances (These can be used to segment the image in superpixels.)
+  vl_qs_type* distances = vl_quickshift_get_dists(quickshift);
+  // Pixels that are roots have distance=inf
+  std::cout << "Distances array:" << std::endl;
+  OutputArray<vl_qs_type>(distances, width*height);
+  
+  std::cout << "Distances matrix:" << std::endl;
+  OutputMatrix<vl_qs_type>(distances, width, height);
+  
+  // Delete the quick shift object
+  vl_quickshift_delete(quickshift);
+  
+  return 0;
+}
+
+template<typename T>
+void OutputArray(const T* array, const unsigned int length)
+{
+  for(unsigned int i = 0; i < length; ++i)
+    {
+    std::cout << array[i] << " ";
+    }
+  std::cout << std::endl;
+}
+
+template<typename T>
+void OutputVector(const std::vector<T>& v)
+{
+  for(unsigned int i = 0; i < v.size(); ++i)
+    {
+    std::cout << v[i] << " ";
+    }
+  std::cout << std::endl;
+}
+
+
+template<typename T>
+void OutputMatrix(const std::vector<T>& v, const unsigned int width, const unsigned int height, const unsigned int channels = 1)
+{
+  for(unsigned int channel = 0; channel < channels; ++channel)
+    {
+    for(unsigned int row = 0; row < height; ++row)
+      {
+      for(unsigned int col = 0; col < width; ++col)
+        {
+        //std::cout << "Row: " << row << " col: " << col << std::endl;
+        unsigned int linearIndex = ComputeLinearIndex(row, col, width, height, channel);
+        //std::cout << "linearIndex: " << linearIndex << " value: " << array[linearIndex] << std::endl;
+        std::cout << v[linearIndex] << " ";
+        }
+      std::cout << std::endl;
+      }
+    std::cout << std::endl << std::endl;
+    }
+}
+
+template<typename T>
+void OutputMatrix(const T* array, const unsigned int width, const unsigned int height, const unsigned int channels = 1)
+{
+  for(unsigned int channel = 0; channel < channels; ++channel)
+    {
+    for(unsigned int row = 0; row < height; ++row)
+      {
+      for(unsigned int col = 0; col < width; ++col)
+        {
+        //std::cout << "Row: " << row << " col: " << col << std::endl;
+        unsigned int linearIndex = ComputeLinearIndex(row, col, width, height, channel);
