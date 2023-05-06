@@ -251,3 +251,14 @@ std::vector<int> SequentialLabels(const std::vector<int>& v)
     {
     
     for(unsigned int i = 0; i < v.size(); ++i)
+      {
+      // We check the input image because if we change pixels in the output image and then search it later, we could accidentially write incorrect values.
+      if(v[i] == *it1)
+        {
+        sequentialLabels[i] = sequentialLabelId;
+        }
+      }
+    sequentialLabelId++;
+    }
+  return sequentialLabels;
+}
