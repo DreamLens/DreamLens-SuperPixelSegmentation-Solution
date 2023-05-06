@@ -164,3 +164,90 @@ void OutputMatrix(const T* array, const unsigned int width, const unsigned int h
         {
         //std::cout << "Row: " << row << " col: " << col << std::endl;
         unsigned int linearIndex = ComputeLinearIndex(row, col, width, height, channel);
+        //std::cout << "linearIndex: " << linearIndex << " value: " << array[linearIndex] << std::endl;
+        std::cout << array[linearIndex] << " ";
+        }
+      std::cout << std::endl;
+      }
+    std::cout << std::endl << std::endl;
+    }
+}
+
+unsigned int ComputeLinearIndex(const unsigned int row, const unsigned int col, const unsigned int width, const unsigned int height, const unsigned int channel)
+{
+  return channel*width*height + row + height * col;
+}
+
+template <typename T>
+std::vector<T> GetVectorFromArray(const T* array, const unsigned int size)
+{
+  std::vector<T> myVector(size);
+  for(unsigned int i = 0; i < size; ++i)
+    {
+    myVector[i] = array[i];
+    }
+  return myVector;
+}
+
+std::vector<int> GetLabelsFromParents(const std::vector<int>& parents)
+{
+  // The values of the 'parents' array indicate the linear index of the pixel that is the parent of each pixel.
+  // Compare to the LABELS output of [LABELS CLUSTERS] = VL_FLATMAP(MAP) in Matlab.
+
+  std::vector<int> labels(parents.size(), 0);
+
+  // Initialize by copying
+  for(unsigned int i = 0; i < parents.size(); ++i)
+    {
+    labels[i] = parents[i];
+    }
+  
+  std::vector<int> tempLabels(parents.size(), 0);
+  std::vector<int> oldLabels(parents.size(), 0);
+  
+  while(!VectorsIdential(oldLabels, labels))
+    {
+    oldLabels = labels;
+    for(unsigned int i = 0; i < parents.size(); ++i)
+      {
+      //std::cout << "Replacing " << labels[i] << " with " << labels[labels[i]] << std::endl;
+      tempLabels[i] = labels[labels[i]]; // Replace my label with my parents label.
+      }
+    labels = tempLabels;
+    }
+
+  return labels;
+}
+
+bool VectorsIdential(const std::vector<int>& v1, const std::vector<int>& v2)
+{
+  if(v1.size() != v2.size())
+    {
+    std::cerr << "Vectors must be the same size!" << std::endl;
+    exit(-1);
+    }
+  for(unsigned int i = 0; i < v1.size(); ++i)
+    {
+    if(v1[i] != v2[i])
+      {
+      return false;
+      }
+    }
+  return true;
+}
+
+std::vector<int> SequentialLabels(const std::vector<int>& v)
+{
+  std::vector<int> sequentialLabels(v.size());
+  std::set<int> uniqueLabels;
+  for(unsigned int i = 0; i < v.size(); ++i)
+    {
+    uniqueLabels.insert(v[i]);
+    }
+
+  // Set old values to new sequential labels
+  unsigned int sequentialLabelId = 0;
+  for(typename std::set<int>::iterator it1 = uniqueLabels.begin(); it1 != uniqueLabels.end(); it1++)
+    {
+    
+    for(unsigned int i = 0; i < v.size(); ++i)
