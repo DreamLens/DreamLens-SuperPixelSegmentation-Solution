@@ -87,3 +87,104 @@ LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
 NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
 SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+
+Any feedback is very welcome.
+http://www.math.sci.hiroshima-u.ac.jp/~m-mat/MT/emt.html
+email: m-mat @ math.sci.hiroshima-u.ac.jp (remove space)
+*/
+
+#include <stdio.h>
+#include <string.h>
+
+/* Period parameters */
+#define N 624
+#define M 397
+#define MATRIX_A 0x9908b0dfUL   /* constant vector a */
+#define UPPER_MASK 0x80000000UL /* most significant w-r bits */
+#define LOWER_MASK 0x7fffffffUL /* least significant r bits */
+
+/* initializes mt[N] with a seed */
+
+/** @brief Initialise random number generator
+ ** @param self number generator.
+ **/
+
+VL_EXPORT void
+vl_rand_init (VlRand * self)
+{
+  memset (self->mt, 0, sizeof(self->mt[0]) * N) ;
+  self->mti = N + 1 ;
+}
+
+/** @brief Seed the state of the random number generator
+ ** @param self random number generator.
+ ** @param s seed.
+ **/
+
+VL_EXPORT void
+vl_rand_seed (VlRand * self, vl_uint32 s)
+{
+#define mti self->mti
+#define mt self->mt
+  mt[0]= s & 0xffffffffUL;
+  for (mti=1; mti<N; mti++) {
+    mt[mti] =
+      (1812433253UL * (mt[mti-1] ^ (mt[mti-1] >> 30)) + mti);
+    /* See Knuth TAOCP Vol2. 3rd Ed. P.106 for multiplier. */
+    /* In the previous versions, MSBs of the seed affect   */
+    /* only MSBs of the array mt[].                        */
+    /* 2002/01/09 modified by Makoto Matsumoto             */
+    mt[mti] &= 0xffffffffUL;
+    /* for >32 bit machines */
+  }
+#undef mti
+#undef mt
+}
+
+/** @brief Seed the state of the random number generator by an array
+ ** @param self     random number generator.
+ ** @param key      array of numbers.
+ ** @param keySize  length of the array.
+ **/
+
+VL_EXPORT void
+vl_rand_seed_by_array (VlRand * self, vl_uint32 const key [], vl_size keySize)
+{
+#define mti self->mti
+#define mt self->mt
+  int i, j, k;
+  vl_rand_seed (self, 19650218UL);
+  i=1; j=0;
+  k = (N > keySize ? N : keySize);
+  for (; k; k--) {
+    mt[i] = (mt[i] ^ ((mt[i-1] ^ (mt[i-1] >> 30)) * 1664525UL))
+      + key[j] + j; /* non linear */
+    mt[i] &= 0xffffffffUL; /* for WORDSIZE > 32 machines */
+    i++; j++;
+    if (i>=N) { mt[0] = mt[N-1]; i=1; }
+    if (j>=(signed)keySize) j=0;
+  }
+  for (k=N-1; k; k--) {
+    mt[i] = (mt[i] ^ ((mt[i-1] ^ (mt[i-1] >> 30)) * 1566083941UL))
+      - i; /* non linear */
+    mt[i] &= 0xffffffffUL; /* for WORDSIZE > 32 machines */
+    i++;
+    if (i>=N) { mt[0] = mt[N-1]; i=1; }
+  }
+
+  mt[0] = 0x80000000UL; /* MSB is 1; assuring non-zero initial array */
+#undef mti
+#undef mt
+}
+
+/** @brief Generate a random UINT32
+ ** @param self random number generator.
+ ** @return a random number in [0, 0xffffffff].
+ **/
+
+VL_EXPORT vl_uint32
+vl_rand_uint32 (VlRand * self)
+{
+  unsigned long y;
+  static unsigned long mag01[2]={0x0UL, MATRIX_A};
+  /* mag01[x] = x * MATRIX_A  for x=0,1 */
