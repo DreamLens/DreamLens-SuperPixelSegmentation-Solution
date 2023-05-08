@@ -72,3 +72,88 @@ vl_rand_uindex (VlRand * self, vl_uindex range)
 
 /** @brief Generate a random UINT64
  ** @param self random number generator.
+ ** @return a random number in [0, 0xffffffffffffffff].
+ **/
+
+VL_INLINE vl_uint64
+vl_rand_uint64 (VlRand * self)
+{
+  vl_uint64 a = vl_rand_uint32 (self) ;
+  vl_uint64 b = vl_rand_uint32 (self) ;
+  return (a << 32) | b ;
+}
+
+/** @brief Generate a random INT63
+ ** @param self random number generator.
+ ** @return a random number in [0, 0x7fffffffffffffff].
+ **/
+
+VL_INLINE vl_int64
+vl_rand_int63 (VlRand * self)
+{
+  return (vl_int64)(vl_rand_uint64 (self) >> 1) ;
+}
+
+/** @brief Generate a random INT31
+ ** @param self random number generator.
+ ** @return a random number in [0, 0x7fffffff].
+ **/
+
+VL_INLINE vl_int32
+vl_rand_int31 (VlRand * self)
+{
+  return (vl_int32)(vl_rand_uint32 (self) >> 1) ;
+}
+
+/** @brief Generate a random number in [0,1]
+ ** @param self random number generator.
+ ** @return a random number.
+ **/
+
+VL_INLINE double
+vl_rand_real1 (VlRand * self)
+{
+  return vl_rand_uint32(self)*(1.0/4294967295.0);
+  /* divided by 2^32-1 */
+}
+
+/** @brief Generate a random number in [0,1)
+ ** @param self random number generator.
+ ** @return a random number.
+ **/
+
+VL_INLINE double
+vl_rand_real2 (VlRand * self)
+{
+  return vl_rand_uint32(self)*(1.0/4294967296.0);
+  /* divided by 2^32 */
+}
+
+/** @brief Generate a random number in (0,1)
+ ** @param self random number generator.
+ ** @return a random number.
+ **/
+
+VL_INLINE double
+vl_rand_real3 (VlRand * self)
+{
+  return (((double)vl_rand_uint32(self)) + 0.5)*(1.0/4294967296.0);
+  /* divided by 2^32 */
+}
+
+/** @brief Generate a random number in [0,1) with 53-bit resolution
+ ** @param self random number generator.
+ ** @return a random number.
+ **/
+
+VL_INLINE double
+vl_rand_res53 (VlRand * self)
+{
+  vl_uint32
+  a = vl_rand_uint32(self) >> 5,
+  b = vl_rand_uint32(self) >> 6 ;
+  return (a * 67108864.0 + b) * (1.0 / 9007199254740992.0) ;
+}
+
+/* VL_RANDOM_H */
+#endif
