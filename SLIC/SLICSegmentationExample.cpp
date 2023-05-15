@@ -10,4 +10,6 @@ typedef itk::Image<int, 2> LabelImageType;
 
 int main(int argc, char* argv[])
 {
-  typedef itk
+  typedef itk::ImageFileReader<ImageType> ReaderType;
+  ReaderType::Pointer reader = ReaderType::New();
+  reader->Se
