@@ -15,4 +15,5 @@ int main(int argc, char* argv[])
   reader->SetFileName(argv[1]);
   reader->Update();
   
-  typedef itk::SLICSegmentation<ImageType, LabelImageType> 
+  typedef itk::SLICSegmentation<ImageType, LabelImageType> SLICSegmentationType;
+  SLICSegmentationType::Pointer slicSegmentation = SLICSegmenta
