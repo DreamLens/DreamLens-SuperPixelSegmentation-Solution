@@ -16,4 +16,6 @@ int main(int argc, char* argv[])
   reader->Update();
   
   typedef itk::SLICSegmentation<ImageType, LabelImageType> SLICSegmentationType;
-  SLICSegmentationType::Pointer slicSegmentation = SLICSegmenta
+  SLICSegmentationType::Pointer slicSegmentation = SLICSegmentationType::New();
+  slicSegmentation->SetNumberOfSuperPixels(200);
+  slicSegmentation->Se
