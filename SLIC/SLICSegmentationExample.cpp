@@ -12,4 +12,7 @@ int main(int argc, char* argv[])
 {
   typedef itk::ImageFileReader<ImageType> ReaderType;
   ReaderType::Pointer reader = ReaderType::New();
-  reader->Se
+  reader->SetFileName(argv[1]);
+  reader->Update();
+  
+  typedef itk::SLICSegmentation<ImageType, LabelImageType> 
