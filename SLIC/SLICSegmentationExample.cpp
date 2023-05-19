@@ -22,3 +22,6 @@ int main(int argc, char* argv[])
   slicSegmentation->SetInput(reader->GetOutput());
   slicSegmentation->Update();
   
+  typedef itk::ImageFileWriter<LabelImageType> WriterType;
+  WriterType::Pointer writer = WriterType::New();
+  writ
