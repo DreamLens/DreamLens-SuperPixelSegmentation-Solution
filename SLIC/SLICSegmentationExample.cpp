@@ -18,4 +18,7 @@ int main(int argc, char* argv[])
   typedef itk::SLICSegmentation<ImageType, LabelImageType> SLICSegmentationType;
   SLICSegmentationType::Pointer slicSegmentation = SLICSegmentationType::New();
   slicSegmentation->SetNumberOfSuperPixels(200);
-  slicSegmentation->Se
+  slicSegmentation->SetSpatialDistanceWeight(5.0);
+  slicSegmentation->SetInput(reader->GetOutput());
+  slicSegmentation->Update();
+  
