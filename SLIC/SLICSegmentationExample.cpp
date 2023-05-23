@@ -27,3 +27,6 @@ int main(int argc, char* argv[])
   writer->SetFileName(argv[2]);
   writer->SetInput(slicSegmentation->GetOutput());
   writer->Update();
+
+  return EXIT_SUCCESS;
+}
