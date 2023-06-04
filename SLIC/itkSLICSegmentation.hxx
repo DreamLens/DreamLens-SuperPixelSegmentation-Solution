@@ -113,3 +113,83 @@ void SLICSegmentation< TInputImage, TOutputLabelImage>
   
   itk::ImageRegionIterator<TOutputLabelImage> labelIterator(outputLabelImage, outputLabelImage->GetLargestPossibleRegion());
  
+  unsigned int labelId = 0;
+  while(!labelIterator.IsAtEnd())
+    {
+    labelIterator.Set(this->Labels[labelId]);
+ 
+    ++labelIterator;
+    labelId++;
+    }
+
+  Helpers::RelabelSequential<TOutputLabelImage>(outputLabelImage, outputLabelImage); // This is the 0th output port of the filter
+  
+  Helpers::WriteImage<TOutputLabelImage>(outputLabelImage, "SLIC_LabelImage.mha");
+  
+  typename TInputImage::PixelType contourColor;
+  contourColor.SetSize(3);
+  contourColor[0] = 255;
+  contourColor[1] = 255;
+  contourColor[2] = 0;
+  
+  DrawContoursAroundSegments(contourColor);
+  
+  Helpers::ColorLabelsByAverageColor<TInputImage, TOutputLabelImage>(input, this->GetLabelImage(), this->GetColoredImage());
+  Helpers::WriteImage<TInputImage>(this->GetColoredImage(), "SLIC_ColoredImage.mha");
+}
+
+template< typename TInputImage, typename TOutputLabelImage>
+void SLICSegmentation< TInputImage, TOutputLabelImage>
+::DrawContoursAroundSegments(const typename TInputImage::PixelType color)
+{
+  TInputImage* input = const_cast<TInputImage*>(this->GetInput());
+  Helpers::DeepCopy<TInputImage>(input, this->GetContourImage());
+  
+  const int dx8[8] = {-1, -1,  0,  1, 1, 1, 0, -1};
+  const int dy8[8] = { 0, -1, -1, -1, 0, 1, 1,  1};
+
+  unsigned int width = this->GetContourImage()->GetLargestPossibleRegion().GetSize()[0];
+  unsigned int height = this->GetContourImage()->GetLargestPossibleRegion().GetSize()[1];
+  unsigned int sz = width*height;
+
+  std::vector<bool> istaken(sz, false);
+
+  int mainindex(0);
+  for( int j = 0; j < height; j++ )
+  {
+    for( int k = 0; k < width; k++ )
+    {
+      int np(0);
+      for( int i = 0; i < 8; i++ )
+      {
+        int x = k + dx8[i];
+        int y = j + dy8[i];
+
+        if( (x >= 0 && x < width) && (y >= 0 && y < height) )
+        {
+          int index = y*width + x;
+
+          if( false == istaken[index] )//comment this to obtain internal contours
+          {
+            if( this->Labels[mainindex] != this->Labels[index] ) np++;
+          }
+        }
+      }
+      if( np > 1 )//change to 2 or 3 for thinner lines
+      {
+        itk::Index<2> itkIndex;
+        itkIndex[0] = k;
+        itkIndex[1] = j;
+
+        this->GetContourImage()->SetPixel(itkIndex, color);
+        istaken[mainindex] = true;
+      }
+      mainindex++;
+    }
+  }
+}
+
+
+}// end namespace
+
+#endif
