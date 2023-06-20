@@ -7,4 +7,8 @@
 int main(int argc, char* argv[])
 {
   vtkSmartPointer<vtkJPEGReader> reader = 
-      vtkSmartPointer<
+      vtkSmartPointer<vtkJPEGReader>::New();
+  reader->SetFileName(argv[1]);
+  reader->Update();
+  
+  vtkSmartPointer<vtkSuperPixelSe
