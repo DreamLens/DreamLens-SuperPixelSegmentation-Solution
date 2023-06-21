@@ -11,4 +11,7 @@ int main(int argc, char* argv[])
   reader->SetFileName(argv[1]);
   reader->Update();
   
-  vtkSmartPointer<vtkSuperPixelSe
+  vtkSmartPointer<vtkSuperPixelSegmentation> superPixelSegmentation = 
+      vtkSmartPointer<vtkSuperPixelSegmentation>::New();
+
+  superPixelSegment
