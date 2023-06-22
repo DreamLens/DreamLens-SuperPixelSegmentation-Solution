@@ -14,4 +14,6 @@ int main(int argc, char* argv[])
   vtkSmartPointer<vtkSuperPixelSegmentation> superPixelSegmentation = 
       vtkSmartPointer<vtkSuperPixelSegmentation>::New();
 
-  superPixelSegment
+  superPixelSegmentation->SetSigma(.5);
+  superPixelSegmentation->SetK(500);
+  superPixelSegmentation->SetMi
