@@ -16,4 +16,7 @@ int main(int argc, char* argv[])
 
   superPixelSegmentation->SetSigma(.5);
   superPixelSegmentation->SetK(500);
-  superPixelSegmentation->SetMi
+  superPixelSegmentation->SetMinSize(50);
+    
+  superPixelSegmentation->SetInputConnection(reader->GetOutputPort());
+  superPixelSegmentati
