@@ -19,4 +19,7 @@ int main(int argc, char* argv[])
   superPixelSegmentation->SetMinSize(50);
     
   superPixelSegmentation->SetInputConnection(reader->GetOutputPort());
-  superPixelSegmentati
+  superPixelSegmentation->Update();
+  
+  vtkSmartPointer<vtkJPEGWriter> writer = 
+      vtkSmartPointer<vtkJP
