@@ -22,4 +22,6 @@ int main(int argc, char* argv[])
   superPixelSegmentation->Update();
   
   vtkSmartPointer<vtkJPEGWriter> writer = 
-      vtkSmartPointer<vtkJP
+      vtkSmartPointer<vtkJPEGWriter>::New();
+  writer->SetFileName(argv[2]);
+  writer->SetInputConnection(superPixelSegmenta
